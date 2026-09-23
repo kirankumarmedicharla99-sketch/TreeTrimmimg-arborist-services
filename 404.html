@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Specimen Not Found • ARVORA Arborist Atelier</title>
+  <meta name="description"
+    content="The requested botanical monograph or estate service page could not be found. Explore ARVORA's master arboricultural services and research compendium." />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script src="theme-sync.js"></script>
+
+  <link rel="stylesheet" href="index.css" />
+  <style>
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      overflow-x: hidden;
+    }
+
+.ambient-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-1 {
+      width: 500px;
+      height: 500px;
+      top: -100px;
+      left: 20%;
+      background: radial-gradient(circle, rgba(18, 59, 42, 0.45) 0%, transparent 70%);
+    }
+
+    .glow-2 {
+      width: 450px;
+      height: 450px;
+      bottom: -100px;
+      right: 15%;
+      background: radial-gradient(circle, rgba(229, 195, 136, 0.12) 0%, transparent 70%);
+    }
+
+.standalone-nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    .standalone-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      pointer-events: auto;
+      transition: opacity var(--transition-fast);
+    }
+
+    .standalone-brand:hover {
+      opacity: 0.85;
+    }
+
+    .standalone-brand .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--accent-gold, #E5C388);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 14px rgba(229, 195, 136, 0.35);
+    }
+
+    [data-theme="light"] .standalone-brand .brand-name {
+      color: #A6731B;
+      text-shadow: 0 1px 2px rgba(166, 115, 27, 0.15);
+    }
+
+    .standalone-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      pointer-events: auto;
+    }
+
+.error-hero-section {
+      position: relative;
+      flex: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    .error-hero-content {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+.error-code-wrap {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto 1.5rem;
+      user-select: none;
+    }
+
+    .error-code-badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: clamp(7rem, 18vw, 12rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #FFF8EA 45%, var(--accent-gold) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float404 3.6s ease-in-out infinite;
+      will-change: transform;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
+    }
+
+.error-code-shadow {
+      width: 140px;
+      height: 14px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%);
+      border-radius: 50%;
+      margin-top: 0.4rem;
+      animation: shadowBreathe 3.6s ease-in-out infinite;
+    }
+
+    @keyframes float404 {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-22px);
+      }
+    }
+
+    @keyframes shadowBreathe {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.65;
+      }
+      50% {
+        transform: scale(0.62);
+        opacity: 0.2;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .error-code-badge,
+      .error-code-shadow {
+        animation: none;
+      }
+    }
+
+.error-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.18;
+      margin: 0 auto 1.15rem;
+      letter-spacing: -0.025em;
+      max-width: 650px;
+    }
+
+.error-desc {
+      font-family: var(--font-primary);
+      font-size: clamp(1.02rem, 1.35vw, 1.16rem);
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+
+.error-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.15rem;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .error-actions .btn {
+      min-width: 165px;
+      padding: 0.85rem 1.85rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      text-align: center;
+      justify-content: center;
+    }
+
+    .error-actions .btn-outline {
+      background: transparent;
+      color: var(--pure-white, #FFFFFF);
+      border: 1.5px solid rgba(245, 241, 231, 0.35);
+      box-shadow: none;
+    }
+
+    .error-actions .btn-outline:hover {
+      background: rgba(245, 241, 231, 0.1);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+[data-theme="light"] .glow-1 {
+      background: radial-gradient(circle, rgba(18, 59, 42, 0.12) 0%, transparent 70%);
+    }
+
+    [data-theme="light"] .glow-2 {
+      background: radial-gradient(circle, rgba(49, 83, 59, 0.08) 0%, transparent 70%);
+    }
+
+    [data-theme="light"] .error-code-badge {
+      background: linear-gradient(135deg, var(--forest-green, #123B2A) 0%, #1E5C42 45%, var(--forest-green, #123B2A) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 14px 24px rgba(18, 59, 42, 0.16));
+    }
+
+    [data-theme="light"] .error-code-shadow {
+      background: radial-gradient(ellipse at center, rgba(18, 59, 42, 0.22) 0%, transparent 70%);
+    }
+
+    [data-theme="light"] .error-title {
+      color: #111E16;
+    }
+
+    [data-theme="light"] .error-desc {
+      color: #314C3B;
+    }
+
+    [data-theme="light"] .error-actions .btn-primary {
+      background-color: #123B2A !important;
+      color: #FFFFFF !important;
+      border-color: #123B2A !important;
+      box-shadow: 0 4px 14px rgba(18, 59, 42, 0.2) !important;
+    }
+
+    [data-theme="light"] .error-actions .btn-primary:hover {
+      background-color: #1E5C42 !important;
+      border-color: #1E5C42 !important;
+      box-shadow: 0 8px 22px rgba(18, 59, 42, 0.3) !important;
+    }
+
+    [data-theme="light"] .error-actions .btn-outline {
+      background: transparent !important;
+      color: #123B2A !important;
+      border: 1.5px solid rgba(18, 59, 42, 0.35) !important;
+    }
+
+    [data-theme="light"] .error-actions .btn-outline:hover {
+      background: rgba(18, 59, 42, 0.08) !important;
+      border-color: #123B2A !important;
+      color: #123B2A !important;
+    }
+
+    @media (max-width: 600px) {
+      .standalone-nav-bar {
+        padding: 1rem;
+      }
+
+      .error-code-badge {
+        font-size: clamp(5.5rem, 22vw, 8rem);
+      }
+
+      .error-title {
+        font-size: clamp(1.5rem, 6vw, 1.9rem);
+      }
+
+      .error-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .error-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+  <nav class="standalone-nav-bar" aria-label="Page controls">
+    <a href="index.html" class="brand-logo standalone-brand" aria-label="ARVORA Home">
+      <span class="logo-mark">
+        <img src="assets/logo.png" alt="ARVORA Logo" class="brand-img" width="46" height="46" />
+      </span>
+      <span class="brand-text-wrap">
+        <span class="brand-name">ARVORA</span>
+        <span class="brand-sub">ARBORIST SERVICES</span>
+      </span>
+    </a>
+
+    <div class="standalone-controls">
+      <button class="ctrl-btn rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle Right to Left direction"
+        title="Toggle RTL layout">
+        <span class="rtl-label" id="rtlBtnText">RTL</span>
+      </button>
+
+      <button class="ctrl-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme"
+        title="Toggle theme">
+        <span class="theme-icon moon-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+        <span class="theme-icon sun-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="mainContent">
+    <section class="error-hero-section">
+      <div class="error-hero-content">
+        <div class="error-code-wrap">
+          <div class="error-code-badge" aria-label="404">404</div>
+          <div class="error-code-shadow" aria-hidden="true"></div>
+        </div>
+
+        <h1 class="error-title">
+          Specimen Not Found in the <span class="title-accent">Living Canopy</span>.
+        </h1>
+
+        <p class="error-desc">
+          The page you are looking for has decomposed back into the earth or been pruned from our living archives. Let our certified arborists guide you back to charted ground.
+        </p>
+
+        <div class="error-actions">
+          <a href="index.html" class="btn btn-primary btn-lg" id="errorHomeBtn">
+            <span>Back to Website</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="service.html" class="btn btn-outline btn-lg" id="errorServicesBtn">
+            <span>Our Services</span>
+          </a>
+          <a href="contact.html" class="btn btn-outline btn-lg" id="errorContactBtn">
+            <span>Contact Support</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

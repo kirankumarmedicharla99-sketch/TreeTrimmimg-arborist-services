@@ -1,0 +1,1868 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Estate Dashboard — ARVORA Arborist Services</title>
+  <meta name="description"
+    content="ARVORA Client Portal — Request tree assessments, track scheduled pruning and removal jobs, view arborist health reports, inspect before-and-after photos, and manage estate invoices." />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script src="theme-sync.js"></script>
+
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+
+<body class="dashboard-body">
+
+  <div class="mobile-nav-bar" id="mobileNavBar">
+    <button class="hamburger-btn" id="sidebarToggleBtn" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a href="index.html" class="mobile-brand" aria-label="ARVORA Home">
+      <img src="assets/logo.png" alt="ARVORA" class="mobile-logo-img" width="34" height="34" />
+      <div class="mobile-brand-wrap">
+        <span class="mobile-brand-name">ARVORA</span>
+        <span class="mobile-brand-sub">ARBORIST SERVICES</span>
+      </div>
+    </a>
+    <div class="mobile-quick-actions">
+      <button class="theme-toggle-btn icon-circle-btn" id="mobileThemeBtn" aria-label="Toggle theme">
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <aside class="dashboard-sidebar" id="dashboardSidebar">
+    <div class="sidebar-brand-wrap">
+      <a href="index.html" class="sidebar-brand-logo" aria-label="ARVORA Home">
+        <div class="brand-logo-mark">
+          <img src="assets/logo.png" alt="ARVORA Logo" class="brand-img" width="40" height="40" />
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-main-text">ARVORA</span>
+          <span class="brand-sub-text">ARBORIST SERVICES</span>
+        </div>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Dashboard Primary Navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#overview" class="nav-link active" data-tab="overview">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </span>
+            <span class="nav-text">Overview</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#assessments" class="nav-link" data-tab="assessments">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <path d="m9 16 2 2 4-4"></path>
+              </svg>
+            </span>
+            <span class="nav-text">Assessments</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#scheduled-jobs" class="nav-link" data-tab="scheduled-jobs">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </span>
+            <span class="nav-text">Scheduled Jobs</span>
+            <span class="nav-badge count-badge-teal">02</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#health-reports" class="nav-link" data-tab="health-reports">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </span>
+            <span class="nav-text">Health Reports</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#before-after" class="nav-link" data-tab="before-after">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                <circle cx="9" cy="9" r="2"></circle>
+                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+              </svg>
+            </span>
+            <span class="nav-text">Before & After</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#invoices" class="nav-link" data-tab="invoices">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                <line x1="2" x2="22" y1="10" y2="10"></line>
+              </svg>
+            </span>
+            <span class="nav-text">Invoices & Billing</span>
+            <span class="nav-badge count-badge-amber">01</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#messages" class="nav-link" data-tab="messages">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </span>
+            <span class="nav-text">Messages</span>
+            <span class="nav-badge count-badge-muted">2</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#notifications" class="nav-link" data-tab="notifications">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+              </svg>
+            </span>
+            <span class="nav-text">Notifications</span>
+            <span class="nav-badge count-badge-gold">3</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#profile" class="nav-link" data-tab="profile">
+            <span class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <span class="nav-text">Estate Profile</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="index.html" class="back-to-site-link" id="backToSiteBtn">
+        <span class="back-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </span>
+        <span class="back-text">Back to Site</span>
+      </a>
+    </div>
+  </aside>
+
+  <main class="dashboard-main" id="dashboardMain">
+
+    <header class="dashboard-topbar">
+      <div class="topbar-welcome">
+        <span class="welcome-label">Welcome back,</span>
+        <strong class="welcome-name" id="userDisplayName">kiran</strong>
+      </div>
+
+      <div class="topbar-controls">
+        <button class="topbar-btn rtl-toggle-btn" id="rtlToggleBtn" aria-label="Switch text direction">
+          <span class="rtl-label" id="rtlBtnText">RTL</span>
+        </button>
+
+        <button class="topbar-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle light or dark theme"
+          title="Toggle theme">
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <div class="notifications-dropdown-wrap">
+          <button class="topbar-btn notification-bell-btn" id="notificationBtn" aria-label="View notifications"
+            aria-expanded="false">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="bell-badge-pulse" id="bellBadge">3</span>
+          </button>
+
+          <div class="notifications-popover" id="notificationsPopover">
+            <div class="popover-header">
+              <h4 class="popover-title">Estate Notifications</h4>
+              <button class="popover-clear-btn" id="clearNotificationsBtn">Mark all read</button>
+            </div>
+            <ul class="popover-list">
+              <li class="popover-item unread">
+                <div class="item-icon-dot bg-gold"></div>
+                <div class="item-content">
+                  <strong class="item-title">Canopy Sculpting In Progress</strong>
+                  <p class="item-desc">Marcus Vance completed branch reduction on Heritage Oak #4.</p>
+                  <span class="item-time">24m ago</span>
+                </div>
+              </li>
+              <li class="popover-item unread">
+                <div class="item-icon-dot bg-teal"></div>
+                <div class="item-content">
+                  <strong class="item-title">Arborist Health Report Ready</strong>
+                  <p class="item-desc">Ultrasonic tomography report for North Maple is available.</p>
+                  <span class="item-time">2 hours ago</span>
+                </div>
+              </li>
+              <li class="popover-item">
+                <div class="item-icon-dot bg-muted"></div>
+                <div class="item-content">
+                  <strong class="item-title">New Invoice #INV-2026-104</strong>
+                  <p class="item-desc">Spring preservation program invoice generated ($1,650).</p>
+                  <span class="item-time">1 day ago</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="profile-dropdown-wrap">
+          <button class="profile-pill-btn" id="profilePillBtn" aria-label="Open profile menu" aria-expanded="false">
+            <div class="profile-avatar-circle">
+              <span class="avatar-initials">KI</span>
+            </div>
+            <span class="profile-name">kiran</span>
+            <span class="profile-chevron">⌵</span>
+          </button>
+
+          <div class="profile-dropdown-menu" id="profileDropdownMenu">
+            <div class="dropdown-user-header">
+              <div class="user-avatar-lg">KI</div>
+              <div class="user-info-text">
+                <strong class="user-full-name">kiran</strong>
+                <span class="user-role">Estate Patron • Highland Manor</span>
+              </div>
+            </div>
+            <hr class="dropdown-divider" />
+            <ul class="dropdown-links">
+              <li>
+                <a href="#profile" class="dropdown-link" data-tab="profile">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  Estate Profile & Trees
+                </a>
+              </li>
+              <li>
+                <a href="#invoices" class="dropdown-link" data-tab="invoices">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                    <line x1="2" x2="22" y1="10" y2="10"></line>
+                  </svg>
+                  Billing & Payment Methods
+                </a>
+              </li>
+              <li>
+                <a href="login.html" class="dropdown-link text-danger" id="dropdownSignOutBtn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                  Sign Out
+                </a>
+              </li>
+              <li>
+                <a href="index.html" class="dropdown-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 8 8 12 12 16"></polyline>
+                    <line x1="16" y1="12" x2="8" y2="12"></line>
+                  </svg>
+                  Exit to Website
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="dashboard-section active" id="overviewSection" data-section-name="overview">
+
+      <div class="overview-headline-row">
+        <div class="headline-text-wrap">
+          <h1 class="dashboard-page-title">
+            Atelier Patron <span class="accent-title-gold">Overview</span>
+          </h1>
+          <p class="dashboard-page-subtitle">
+            Welcome back, kiran! Here is your bespoke tree commissions summary, scheduled arborist visits, and active
+            canopy health.
+          </p>
+        </div>
+
+        <div class="headline-action-wrap">
+          <button class="btn btn-gold-action open-assessment-modal" id="topBookAssessmentBtn">
+            <span class="action-btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </span>
+            <span>Request Tree Assessment</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="kpi-cards-grid">
+
+        <div class="kpi-stat-card">
+          <div class="kpi-card-icon-box icon-emerald">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22v-9"></path>
+              <path d="M17 12a5 5 0 0 0-10 0"></path>
+              <path d="M12 13a3 3 0 0 0 3-3c0-1.5-1-2.5-3-3s-3 1.5-3 3a3 3 0 0 0 3 3z"></path>
+            </svg>
+          </div>
+          <div class="kpi-card-content">
+            <span class="kpi-label">Active Commissions</span>
+            <div class="kpi-number-wrap">
+              <span class="kpi-value">02</span>
+              <span class="kpi-unit">Jobs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-stat-card">
+          <div class="kpi-card-icon-box icon-teal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div class="kpi-card-content">
+            <span class="kpi-label">Next Arborist Visit</span>
+            <div class="kpi-number-wrap">
+              <span class="kpi-value text-compact">Mar 28</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-stat-card">
+          <div class="kpi-card-icon-box icon-gold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <div class="kpi-card-content">
+            <span class="kpi-label">Canopy Health Score</span>
+            <div class="kpi-number-wrap">
+              <span class="kpi-value">94%</span>
+              <span class="kpi-unit text-gold">Optimal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-stat-card">
+          <div class="kpi-card-icon-box icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"></circle>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+            </svg>
+          </div>
+          <div class="kpi-card-content">
+            <span class="kpi-label">Atelier Care Tier</span>
+            <div class="kpi-number-wrap">
+              <span class="kpi-value">4,250</span>
+              <span class="kpi-unit font-gold">Gold</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="active-progress-card">
+        <div class="progress-card-top">
+          <div class="progress-status-pill">
+            <span class="pulse-dot"></span>
+            <span class="pill-text">IN CRAFTSMANSHIP • HERITAGE CARE</span>
+          </div>
+          <div class="progress-meta-date">
+            <span class="date-label">Est. Completion:</span>
+            <strong class="date-value">April 12, 2026</strong>
+          </div>
+        </div>
+
+        <div class="progress-card-title-row">
+          <h3 class="progress-project-title">
+            Bespoke Heritage White Oak Crown Sculpting <span class="project-tag-id">#ARV-2026-091</span>
+          </h3>
+        </div>
+
+        <div class="stepper-stages-grid">
+
+          <div class="step-card completed">
+            <div class="step-icon-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="step-details">
+              <strong class="step-name">1. Arborist Inspection</strong>
+              <span class="step-status-sub">Completed Mar 10</span>
+            </div>
+          </div>
+
+          <div class="step-card completed">
+            <div class="step-icon-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="step-details">
+              <strong class="step-name">2. Tomography Scan</strong>
+              <span class="step-status-sub">Completed Mar 18</span>
+            </div>
+          </div>
+
+          <div class="step-card active">
+            <div class="step-icon-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <div class="step-details">
+              <strong class="step-name">3. Precision Sculpting</strong>
+              <span class="step-status-sub text-gold">In Progress (72%)</span>
+            </div>
+          </div>
+
+          <div class="step-card pending">
+            <div class="step-icon-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="step-details">
+              <strong class="step-name">4. Final Health Cert</strong>
+              <span class="step-status-sub">Scheduled Apr 12</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="progress-bar-wrapper">
+          <div class="progress-track">
+            <div class="progress-fill-bar" style="width: 72%;"></div>
+          </div>
+          <div class="progress-label-row">
+            <span class="progress-note">Arborist in charge: <strong>Marcus Vance, Master Arborist</strong></span>
+            <span class="progress-percent-badge">72% Completed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-charts-grid">
+
+        <div class="chart-card line-chart-card">
+          <div class="chart-header">
+            <div class="chart-title-wrap">
+              <h3 class="chart-title">Canopy Health & Vigor Trend</h3>
+              <p class="chart-desc">6-month comparative biometric analysis (Nov 2025 – Apr 2026)</p>
+            </div>
+            <div class="chart-legend">
+              <span class="legend-indicator dot-gold"></span>
+              <span class="legend-text">Foliage Density Index</span>
+              <span class="legend-indicator dot-emerald"></span>
+              <span class="legend-text">Root Moisture Index</span>
+            </div>
+          </div>
+
+          <div class="svg-chart-container" id="lineChartContainer">
+            <svg class="responsive-svg-chart" viewBox="0 0 600 240" preserveAspectRatio="none" id="vigorLineChart">
+              <defs>
+                <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#E5C388" stop-opacity="0.35" />
+                  <stop offset="100%" stop-color="#E5C388" stop-opacity="0.0" />
+                </linearGradient>
+                <linearGradient id="emeraldGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#5CB82B" stop-opacity="0.25" />
+                  <stop offset="100%" stop-color="#5CB82B" stop-opacity="0.0" />
+                </linearGradient>
+              </defs>
+
+              <line x1="40" y1="40" x2="580" y2="40" stroke="var(--chart-grid)" stroke-dasharray="4 4" />
+              <line x1="40" y1="90" x2="580" y2="90" stroke="var(--chart-grid)" stroke-dasharray="4 4" />
+              <line x1="40" y1="140" x2="580" y2="140" stroke="var(--chart-grid)" stroke-dasharray="4 4" />
+              <line x1="40" y1="190" x2="580" y2="190" stroke="var(--chart-grid)" />
+
+              <text x="30" y="45" class="chart-axis-label" text-anchor="end">100%</text>
+              <text x="30" y="95" class="chart-axis-label" text-anchor="end">80%</text>
+              <text x="30" y="145" class="chart-axis-label" text-anchor="end">60%</text>
+              <text x="30" y="195" class="chart-axis-label" text-anchor="end">40%</text>
+
+              <path d="M 60 150 Q 150 130, 240 100 T 420 60 T 560 45 L 560 190 L 60 190 Z" fill="url(#goldGradient)" />
+              <path d="M 60 150 Q 150 130, 240 100 T 420 60 T 560 45" fill="none" stroke="#E5C388" stroke-width="3.5"
+                stroke-linecap="round" />
+
+              <path d="M 60 170 Q 150 155, 240 135 T 420 105 T 560 80 L 560 190 L 60 190 Z"
+                fill="url(#emeraldGradient)" />
+              <path d="M 60 170 Q 150 155, 240 135 T 420 105 T 560 80" fill="none" stroke="#5CB82B" stroke-width="2.5"
+                stroke-linecap="round" />
+
+              <circle cx="60" cy="150" r="5" class="chart-dot" data-val="Nov: 64%" />
+              <circle cx="160" cy="125" r="5" class="chart-dot" data-val="Dec: 74%" />
+              <circle cx="260" cy="98" r="5" class="chart-dot" data-val="Jan: 82%" />
+              <circle cx="360" cy="75" r="5" class="chart-dot" data-val="Feb: 88%" />
+              <circle cx="460" cy="58" r="5" class="chart-dot" data-val="Mar: 93%" />
+              <circle cx="560" cy="45" r="6" class="chart-dot pulse" data-val="Apr: 96% (Optimal)" />
+
+              <text x="60" y="215" class="chart-axis-label" text-anchor="middle">Nov</text>
+              <text x="160" y="215" class="chart-axis-label" text-anchor="middle">Dec</text>
+              <text x="260" y="215" class="chart-axis-label" text-anchor="middle">Jan</text>
+              <text x="360" y="215" class="chart-axis-label" text-anchor="middle">Feb</text>
+              <text x="460" y="215" class="chart-axis-label" text-anchor="middle">Mar</text>
+              <text x="560" y="215" class="chart-axis-label font-bold" text-anchor="middle">Apr 2026</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="chart-card donut-chart-card">
+          <div class="chart-header">
+            <div class="chart-title-wrap">
+              <h3 class="chart-title">Estate Tree Inventory</h3>
+              <p class="chart-desc">Species distribution across 18 estate acres</p>
+            </div>
+          </div>
+
+          <div class="donut-chart-flex">
+            <div class="donut-visual-wrap">
+              <svg class="donut-svg" viewBox="0 0 160 160">
+                <circle cx="80" cy="80" r="60" class="donut-bg-ring" />
+
+                <circle cx="80" cy="80" r="60" class="donut-segment seg-oak" stroke-dasharray="169.6 377"
+                  stroke-dashoffset="0" />
+                <circle cx="80" cy="80" r="60" class="donut-segment seg-maple" stroke-dasharray="94.25 377"
+                  stroke-dashoffset="-169.6" />
+                <circle cx="80" cy="80" r="60" class="donut-segment seg-cherry" stroke-dasharray="67.86 377"
+                  stroke-dashoffset="-263.85" />
+                <circle cx="80" cy="80" r="60" class="donut-segment seg-conifer" stroke-dasharray="45.24 377"
+                  stroke-dashoffset="-331.71" />
+              </svg>
+              <div class="donut-center-label">
+                <strong class="center-number">42</strong>
+                <span class="center-sub">Specimens</span>
+              </div>
+            </div>
+
+            <div class="donut-legend-list">
+              <div class="legend-row">
+                <span class="legend-swatch bg-emerald-dark"></span>
+                <span class="legend-name">Heritage White Oak</span>
+                <strong class="legend-val">45% (19)</strong>
+              </div>
+              <div class="legend-row">
+                <span class="legend-swatch bg-gold"></span>
+                <span class="legend-name">Sugar & Red Maples</span>
+                <strong class="legend-val">25% (11)</strong>
+              </div>
+              <div class="legend-row">
+                <span class="legend-swatch bg-teal"></span>
+                <span class="legend-name">Japanese Cherries</span>
+                <strong class="legend-val">18% (7)</strong>
+              </div>
+              <div class="legend-row">
+                <span class="legend-swatch bg-sage"></span>
+                <span class="legend-name">Specimen Conifers</span>
+                <strong class="legend-val">12% (5)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card bar-chart-card">
+          <div class="chart-header">
+            <div class="chart-title-wrap">
+              <h3 class="chart-title">Quarterly Care Hours Invested</h3>
+              <p class="chart-desc">Hours by service discipline across Q1 2026</p>
+            </div>
+            <span class="badge-pill-soft">Total: 96 Hrs</span>
+          </div>
+
+          <div class="bar-chart-bars-wrap">
+            <div class="bar-column">
+              <div class="bar-fill-track">
+                <div class="bar-fill-item bg-emerald" style="height: 85%;" data-tooltip="Crown Trimming: 38 Hrs">
+                  <span class="bar-top-value">38h</span>
+                </div>
+              </div>
+              <span class="bar-label">Trimming</span>
+            </div>
+
+            <div class="bar-column">
+              <div class="bar-fill-track">
+                <div class="bar-fill-item bg-amber" style="height: 48%;" data-tooltip="Sectional Removal: 18 Hrs">
+                  <span class="bar-top-value">18h</span>
+                </div>
+              </div>
+              <span class="bar-label">Removal</span>
+            </div>
+
+            <div class="bar-column">
+              <div class="bar-fill-track">
+                <div class="bar-fill-item bg-teal" style="height: 38%;" data-tooltip="Tomography & Scans: 14 Hrs">
+                  <span class="bar-top-value">14h</span>
+                </div>
+              </div>
+              <span class="bar-label">Diagnostic</span>
+            </div>
+
+            <div class="bar-column">
+              <div class="bar-fill-track">
+                <div class="bar-fill-item bg-gold" style="height: 58%;" data-tooltip="Root Health & Feeding: 20 Hrs">
+                  <span class="bar-top-value">20h</span>
+                </div>
+              </div>
+              <span class="bar-label">Root Care</span>
+            </div>
+
+            <div class="bar-column">
+              <div class="bar-fill-track">
+                <div class="bar-fill-item bg-sage" style="height: 22%;" data-tooltip="Cabling & Bracing: 6 Hrs">
+                  <span class="bar-top-value">6h</span>
+                </div>
+              </div>
+              <span class="bar-label">Bracing</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dashboard-table-card">
+        <div class="table-card-header">
+          <div class="table-title-group">
+            <h3 class="table-card-title">Recent Tree Commissions & Scheduled Visits</h3>
+            <p class="table-card-subtitle">Live tracking of ongoing pruning, removals, and arborist health checks</p>
+          </div>
+          <button class="btn btn-outline-sm open-assessment-modal">
+            + Schedule New Visit
+          </button>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Job Reference</th>
+                <th>Specimen & Location</th>
+                <th>Service Discipline</th>
+                <th>Lead Arborist</th>
+                <th>Scheduled Date</th>
+                <th>Status</th>
+                <th class="text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong class="text-gold">#ARV-2026-091</strong></td>
+                <td>
+                  <div class="table-specimen-cell">
+                    <span class="specimen-avatar">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22v-7"></path>
+                        <path d="M7 15l5-5 5 5"></path>
+                        <path d="M8 11l4-4 4 4"></path>
+                        <path d="M9 7l3-3 3 3"></path>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong class="specimen-name">Heritage White Oak</strong>
+                      <span class="specimen-sub">North Courtyard #04</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Canopy Sculpting & Deadwooding</td>
+                <td>Marcus Vance, Master Arborist</td>
+                <td>Apr 12, 2026</td>
+                <td><span class="status-badge status-in-progress">In Progress (72%)</span></td>
+                <td class="text-right">
+                  <button class="btn-table-action view-job-detail-btn" data-job="91">View Details</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong class="text-gold">#ARV-2026-088</strong></td>
+                <td>
+                  <div class="table-specimen-cell">
+                    <span class="specimen-avatar">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22v-6"></path>
+                        <path
+                          d="M12 16a5 5 0 0 0 5-5c0-1.7-.8-3.2-2-4.1A6 6 0 0 0 6.5 9c-.3.7-.5 1.5-.5 2.3a5 5 0 0 0 6 4.7z">
+                        </path>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong class="specimen-name">Decaying Norway Maple</strong>
+                      <span class="specimen-sub">West Driveway Fence</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Hazardous Sectional Removal</td>
+                <td>David Cole, Crane Specialist</td>
+                <td>Apr 18, 2026</td>
+                <td><span class="status-badge status-scheduled">Scheduled</span></td>
+                <td class="text-right">
+                  <button class="btn-table-action view-job-detail-btn" data-job="88">View Details</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong class="text-gold">#ARV-2026-082</strong></td>
+                <td>
+                  <div class="table-specimen-cell">
+                    <span class="specimen-avatar">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                          d="M12 16.5A4.5 4.5 0 0 0 7.5 12 4.5 4.5 0 0 0 12 7.5a4.5 4.5 0 0 0 4.5 4.5 4.5 4.5 0 0 0-4.5 4.5">
+                        </path>
+                        <path d="M12 7.5V3"></path>
+                        <path d="M7.5 12H3"></path>
+                        <path d="M16.5 12H21"></path>
+                        <path d="M12 16.5V21"></path>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong class="specimen-name">Japanese Weeping Cherry</strong>
+                      <span class="specimen-sub">East Formal Gardens</span>
+                    </div>
+                  </div>
+                </td>
+                <td>Architectural Crown Thinning</td>
+                <td>Kaelen Reed, Preservationist</td>
+                <td>Mar 14, 2026</td>
+                <td><span class="status-badge status-completed">Completed</span></td>
+                <td class="text-right">
+                  <button class="btn-table-action view-job-detail-btn" data-job="82">View Report</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="dashboard-section" id="assessmentsSection" data-section-name="assessments">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Tree Assessment <span class="accent-title-gold">Requests</span></h2>
+          <p class="section-sub">Request ISA-certified arborist property consultations and canopy risk diagnostics.</p>
+        </div>
+        <button class="btn btn-gold-action open-assessment-modal">
+          + Book On-Site Assessment
+        </button>
+      </div>
+
+      <div class="form-action-card">
+        <h3 class="form-card-title">Quick Assessment Request</h3>
+        <p class="form-card-desc">Submit your tree concern directly to our senior arborist dispatch desk.</p>
+
+        <form id="quickAssessmentForm" class="quick-form-grid">
+          <div class="form-group">
+            <label for="treeSelectInput" class="form-label">Specimen / Location</label>
+            <select id="treeSelectInput" class="form-control" required>
+              <option value="Heritage White Oak - North Lawn">Heritage White Oak — North Courtyard #04</option>
+              <option value="Decaying Norway Maple - Driveway">Norway Maple — West Driveway Gate</option>
+              <option value="Centennial Sugar Maple - South Garden">Centennial Sugar Maple — South Garden</option>
+              <option value="Japanese Cherry - East Terrace">Japanese Cherry — East Terrace</option>
+              <option value="Entire Estate Canopy Audit">Full Property Canopy Audit (All Trees)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceTypeInput" class="form-label">Care Discipline</label>
+            <select id="serviceTypeInput" class="form-control" required>
+              <option value="Canopy Health Diagnostic & Tomography">Canopy Health Diagnostic & Tomography</option>
+              <option value="Precision Crown Trimming & Pruning">Precision Crown Trimming & Pruning</option>
+              <option value="Hazardous / Leaning Tree Removal">Hazardous / Leaning Tree Removal</option>
+              <option value="Root Collar & Deep Soil Aeration">Root Collar & Deep Soil Aeration</option>
+              <option value="Post-Storm Damage Emergency Assessment">Post-Storm Emergency Risk Audit</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="preferredDateInput" class="form-label">Preferred Date</label>
+            <input type="date" id="preferredDateInput" class="form-control" value="2026-04-15" required />
+          </div>
+
+          <div class="form-group">
+            <label for="priorityInput" class="form-label">Priority Level</label>
+            <select id="priorityInput" class="form-control">
+              <option value="Standard Care (Within 5 Business Days)">Standard Care (Within 5 Days)</option>
+              <option value="High Priority (Within 48 Hours)">High Priority (Within 48 Hours)</option>
+              <option value="Urgent Hazard (Same-Day Response)">Urgent Hazard (Same-Day Response)</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="notesInput" class="form-label">Observations & Special Notes</label>
+            <textarea id="notesInput" rows="3" class="form-control"
+              placeholder="Describe symptoms, sagging limbs, proximity to structures, or desired aesthetic outcome..."></textarea>
+          </div>
+
+          <div class="form-actions-full">
+            <button type="submit" class="btn btn-primary btn-lg" id="submitAssessmentBtn">
+              <span>Submit Assessment Request</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="dashboard-table-card mt-4">
+        <h3 class="table-card-title">Assessment Request History</h3>
+        <div class="table-responsive-wrapper">
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Request ID</th>
+                <th>Specimen</th>
+                <th>Service</th>
+                <th>Submitted</th>
+                <th>Priority</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="assessmentHistoryBody">
+              <tr>
+                <td><strong>#REQ-9921</strong></td>
+                <td>Heritage White Oak</td>
+                <td>Canopy Health & Tomography</td>
+                <td>Mar 24, 2026</td>
+                <td><span class="badge-priority-high">High Priority</span></td>
+                <td><span class="status-badge status-scheduled">Confirmed for Mar 28</span></td>
+              </tr>
+              <tr>
+                <td><strong>#REQ-9854</strong></td>
+                <td>Norway Maple</td>
+                <td>Hazardous Tree Removal</td>
+                <td>Mar 15, 2026</td>
+                <td><span class="badge-priority-standard">Standard</span></td>
+                <td><span class="status-badge status-in-progress">In Review</span></td>
+              </tr>
+              <tr>
+                <td><strong>#REQ-9710</strong></td>
+                <td>Japanese Weeping Cherry</td>
+                <td>Structural Crown Thinning</td>
+                <td>Mar 01, 2026</td>
+                <td><span class="badge-priority-standard">Standard</span></td>
+                <td><span class="status-badge status-completed">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="scheduledJobsSection" data-section-name="scheduled-jobs">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Scheduled <span class="accent-title-gold">Tree Care Jobs</span></h2>
+          <p class="section-sub">Real-time status tracking for active canopy trimming, structural pruning, and crane
+            removals.</p>
+        </div>
+        <div class="filter-pills-row">
+          <button class="filter-pill active" data-filter="all">All Jobs (3)</button>
+          <button class="filter-pill" data-filter="trimming">Trimming (1)</button>
+          <button class="filter-pill" data-filter="removal">Removal (1)</button>
+          <button class="filter-pill" data-filter="completed">Completed (1)</button>
+        </div>
+      </div>
+
+      <div class="jobs-cards-grid">
+        <div class="job-detail-card" data-category="trimming">
+          <div class="job-card-header">
+            <div class="job-badge-tag tag-trimming">Crown Sculpting</div>
+            <span class="job-id-text">#ARV-2026-091</span>
+          </div>
+          <h3 class="job-title">Heritage White Oak Canopy Sculpting</h3>
+          <p class="job-location"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" style="vertical-align: -1px; margin-right: 4px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>North Courtyard • Mature Heritage Specimen #04</p>
+
+          <div class="job-meta-grid">
+            <div>
+              <span class="meta-label">Lead Arborist</span>
+              <strong class="meta-val">Marcus Vance (ISA Master)</strong>
+            </div>
+            <div>
+              <span class="meta-label">Target Completion</span>
+              <strong class="meta-val">April 12, 2026</strong>
+            </div>
+            <div>
+              <span class="meta-label">Equipment Deployed</span>
+              <strong class="meta-val">Zero-Impact Electric Lifts</strong>
+            </div>
+            <div>
+              <span class="meta-label">Job Progress</span>
+              <strong class="meta-val text-gold">72% Completed</strong>
+            </div>
+          </div>
+
+          <div class="job-progress-line">
+            <div class="line-fill" style="width: 72%;"></div>
+          </div>
+
+          <div class="job-card-actions">
+            <button class="btn btn-outline-sm view-job-detail-btn" data-job="91">Inspect Work Log</button>
+            <button class="btn btn-secondary-sm contact-arborist-btn">Message Arborist</button>
+          </div>
+        </div>
+
+        <div class="job-detail-card" data-category="removal">
+          <div class="job-card-header">
+            <div class="job-badge-tag tag-removal">Crane Extraction</div>
+            <span class="job-id-text">#ARV-2026-088</span>
+          </div>
+          <h3 class="job-title">Hazardous Leaning Norway Maple Sectional Removal</h3>
+          <p class="job-location"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" style="vertical-align: -1px; margin-right: 4px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>West Driveway • Overhanging Utility Lines & Fence</p>
+
+          <div class="job-meta-grid">
+            <div>
+              <span class="meta-label">Lead Arborist</span>
+              <strong class="meta-val">David Cole (Rigging Specialist)</strong>
+            </div>
+            <div>
+              <span class="meta-label">Target Date</span>
+              <strong class="meta-val">April 18, 2026</strong>
+            </div>
+            <div>
+              <span class="meta-label">Equipment Deployed</span>
+              <strong class="meta-val">75-Ton All-Terrain Crane</strong>
+            </div>
+            <div>
+              <span class="meta-label">Safety Clearance</span>
+              <strong class="meta-val text-teal">Permits Approved</strong>
+            </div>
+          </div>
+
+          <div class="job-progress-line">
+            <div class="line-fill" style="width: 25%;"></div>
+          </div>
+
+          <div class="job-card-actions">
+            <button class="btn btn-outline-sm view-job-detail-btn" data-job="88">Inspect Rigging Plan</button>
+            <button class="btn btn-secondary-sm contact-arborist-btn">Message Arborist</button>
+          </div>
+        </div>
+
+        <div class="job-detail-card" data-category="completed">
+          <div class="job-card-header">
+            <div class="job-badge-tag tag-completed">Pruning Finished</div>
+            <span class="job-id-text">#ARV-2026-082</span>
+          </div>
+          <h3 class="job-title">Japanese Weeping Cherry Structural Aeration</h3>
+          <p class="job-location"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" style="vertical-align: -1px; margin-right: 4px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>East Formal Gardens • Specimen Tree #09</p>
+
+          <div class="job-meta-grid">
+            <div>
+              <span class="meta-label">Lead Arborist</span>
+              <strong class="meta-val">Kaelen Reed (Specimen Arborist)</strong>
+            </div>
+            <div>
+              <span class="meta-label">Completed On</span>
+              <strong class="meta-val">March 14, 2026</strong>
+            </div>
+            <div>
+              <span class="meta-label">Post-Care Inspection</span>
+              <strong class="meta-val text-emerald">Passed • 100% Sound</strong>
+            </div>
+            <div>
+              <span class="meta-label">Warranty Status</span>
+              <strong class="meta-val text-gold">1-Year Care Guarantee</strong>
+            </div>
+          </div>
+
+          <div class="job-progress-line">
+            <div class="line-fill bg-completed" style="width: 100%;"></div>
+          </div>
+
+          <div class="job-card-actions">
+            <button class="btn btn-outline-sm view-job-detail-btn" data-job="82">Download Certificate</button>
+            <button class="btn btn-secondary-sm" onclick="switchDashboardTab('before-after')">View Photos</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="healthReportsSection" data-section-name="health-reports">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Arborist <span class="accent-title-gold">Health Reports</span></h2>
+          <p class="section-sub">Comprehensive ultrasonic acoustic tomography, root vitality diagnostics, and safety
+            audits.</p>
+        </div>
+      </div>
+
+      <div class="reports-grid">
+        <div class="report-card">
+          <div class="report-badge-score">
+            <span class="score-num">94</span>
+            <span class="score-label">/100 Vigor</span>
+          </div>
+          <span class="report-date">March 2026</span>
+          <h3 class="report-title">Ultrasonic Acoustic Tomography Scan</h3>
+          <p class="report-tree-name">Heritage White Oak #04 — North Lawn</p>
+          <p class="report-snippet">
+            Sound wave tomography confirms zero internal decay in primary trunk junctions. Trunk wall integrity at 94.2%
+            optimal load-bearing strength. Recommended light weight-reduction pruning.
+          </p>
+          <div class="report-tags">
+            <span class="report-tag">Sound Shell 94%</span>
+            <span class="report-tag">Risk: Low</span>
+            <span class="report-tag">Valid to 2027</span>
+          </div>
+          <div class="report-footer-actions">
+            <button class="btn btn-primary-sm download-report-btn" data-report="Tomography_Oak04">Download PDF
+              Report</button>
+            <button class="btn btn-outline-sm view-tomography-btn">Inspect 2D Slice</button>
+          </div>
+        </div>
+
+        <div class="report-card">
+          <div class="report-badge-score score-amber">
+            <span class="score-num">88</span>
+            <span class="score-label">/100 Vigor</span>
+          </div>
+          <span class="report-date">February 2026</span>
+          <h3 class="report-title">Root Collar Excavation & Soil Health Report</h3>
+          <p class="report-tree-name">Centennial Sugar Maple #09 — South Terrace</p>
+          <p class="report-snippet">
+            Pneumatic air-knife excavation revealed one minor girdling root. Successfully resected without feeder-root
+            trauma. Applied organic mycorrhizal inoculation and aerated rhizosphere.
+          </p>
+          <div class="report-tags">
+            <span class="report-tag">Rhizosphere Aerated</span>
+            <span class="report-tag">Nutrition: Optimal</span>
+          </div>
+          <div class="report-footer-actions">
+            <button class="btn btn-primary-sm download-report-btn" data-report="Root_Maple09">Download PDF
+              Report</button>
+            <button class="btn btn-outline-sm view-tomography-btn">View Lab Bio-Data</button>
+          </div>
+        </div>
+
+        <div class="report-card">
+          <div class="report-badge-score score-emerald">
+            <span class="score-num">96</span>
+            <span class="score-label">/100 Vigor</span>
+          </div>
+          <span class="report-date">January 2026</span>
+          <h3 class="report-title">Dynamic Canopy Cabling & Tension Audit</h3>
+          <p class="report-tree-name">European Copper Beech #12 — West Drive</p>
+          <p class="report-snippet">
+            Tension inspection of synthetic Cobra dynamic cabling system. Shock-absorbing dampeners intact with zero
+            fraying. Wind-gust load distribution operating within ideal safety tolerances.
+          </p>
+          <div class="report-tags">
+            <span class="report-tag">Cables: 100% Intact</span>
+            <span class="report-tag">Wind Load: Passed</span>
+          </div>
+          <div class="report-footer-actions">
+            <button class="btn btn-primary-sm download-report-btn" data-report="Cabling_Beech12">Download PDF
+              Report</button>
+            <button class="btn btn-outline-sm view-tomography-btn">Inspect Rigging</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="beforeAfterSection" data-section-name="before-after">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Before & After <span class="accent-title-gold">Transformation Vault</span></h2>
+          <p class="section-sub">Documented photographic record of your estate trees before and after ARVORA arborist
+            craftsmanship.</p>
+        </div>
+        <div class="gallery-category-pills">
+          <button class="cat-pill active" data-gallery-cat="all">All Vault Photos</button>
+          <button class="cat-pill" data-gallery-cat="trimming">Crown Trimming</button>
+          <button class="cat-pill" data-gallery-cat="removal">Hazard Removal</button>
+          <button class="cat-pill" data-gallery-cat="pruning">Canopy Pruning</button>
+        </div>
+      </div>
+
+      <div class="gallery-cards-grid">
+        <div class="gallery-item-card" data-gallery-type="trimming">
+          <div class="gallery-split-preview">
+            <div class="split-col">
+              <img src="assets/trimming_before.jpg" alt="Overgrown canopy before trimming" class="gallery-img" />
+              <span class="split-badge badge-before">BEFORE CARE</span>
+            </div>
+            <div class="split-col">
+              <img src="assets/trimming_after.jpg" alt="Sculpted canopy after trimming" class="gallery-img" />
+              <span class="split-badge badge-after">AFTER CARE</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <h4 class="gallery-title">Estate White Oak Crown Elevation & Roof Clearance</h4>
+            <p class="gallery-date">Completed March 2026 • Lead Arborist: Marcus Vance</p>
+            <p class="gallery-desc">Removed heavy sagging lateral branches over the stone patio and residence roofline,
+              opening up 40% more natural sunlight.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item-card" data-gallery-type="removal">
+          <div class="gallery-split-preview">
+            <div class="split-col">
+              <img src="assets/removal_before.jpg" alt="Hazardous decayed tree before removal" class="gallery-img" />
+              <span class="split-badge badge-before">BEFORE CARE</span>
+            </div>
+            <div class="split-col">
+              <img src="assets/removal_after.jpg" alt="Restored lawn after tree removal" class="gallery-img" />
+              <span class="split-badge badge-after">AFTER CARE</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <h4 class="gallery-title">Deadwood Crane Extraction & Lawn Restoration</h4>
+            <p class="gallery-date">Completed February 2026 • Lead Arborist: David Cole</p>
+            <p class="gallery-desc">Safely removed a 60ft storm-split hazard leaning dangerously over the residential
+              walkway with zero lawn impact.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item-card" data-gallery-type="pruning">
+          <div class="gallery-split-preview">
+            <div class="split-col">
+              <img src="assets/pruning_before.jpg" alt="Tangled branches before structural pruning"
+                class="gallery-img" />
+              <span class="split-badge badge-before">BEFORE CARE</span>
+            </div>
+            <div class="split-col">
+              <img src="assets/pruning_after.jpg" alt="Balanced specimen tree after pruning" class="gallery-img" />
+              <span class="split-badge badge-after">AFTER CARE</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <h4 class="gallery-title">Ornamental Specimen Thinning & Sunlight Aeration</h4>
+            <p class="gallery-date">Completed January 2026 • Lead Arborist: Kaelen Reed</p>
+            <p class="gallery-desc">Museum-grade architectural branch thinning, reducing wind friction by 35% and
+              illuminating the interior sculptural trunk structure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="invoicesSection" data-section-name="invoices">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Estate Invoices & <span class="accent-title-gold">Billing</span></h2>
+          <p class="section-sub">Review transparent commission billing, download official receipts, and settle pending
+            visits.</p>
+        </div>
+      </div>
+
+      <div class="billing-summary-grid">
+        <div class="billing-kpi-card">
+          <span class="billing-kpi-label">Total Commissions (2026)</span>
+          <strong class="billing-kpi-val">$14,250.00</strong>
+          <span class="billing-kpi-sub">3 Estate Interventions</span>
+        </div>
+        <div class="billing-kpi-card">
+          <span class="billing-kpi-label">Paid to Date</span>
+          <strong class="billing-kpi-val text-emerald">$12,600.00</strong>
+          <span class="billing-kpi-sub">All receipts settled</span>
+        </div>
+        <div class="billing-kpi-card highlight-card">
+          <span class="billing-kpi-label">Pending Invoices</span>
+          <strong class="billing-kpi-val text-gold" id="pendingAmount">$1,650.00</strong>
+          <span class="billing-kpi-sub">Due in 14 days</span>
+        </div>
+      </div>
+
+      <div class="dashboard-table-card mt-4">
+        <div class="table-card-header">
+          <h3 class="table-card-title">Billing History & Statements</h3>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>Invoice No.</th>
+                <th>Issue Date</th>
+                <th>Service Discipline</th>
+                <th>Due Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th class="text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="invoiceRow104">
+                <td><strong class="text-gold">#INV-2026-104</strong></td>
+                <td>Mar 20, 2026</td>
+                <td>Spring Crown Sculpting & Tomography Assessment</td>
+                <td>Apr 05, 2026</td>
+                <td><strong>$1,650.00</strong></td>
+                <td><span class="status-badge status-scheduled" id="invoiceStatus104">Pending</span></td>
+                <td class="text-right">
+                  <button class="btn btn-gold-sm pay-invoice-btn" id="payInvoiceBtn104" data-invoice="INV-2026-104"
+                    data-amount="1,650.00">Pay Now</button>
+                  <button class="btn-table-action download-inv-btn" data-inv="104">PDF</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong class="text-gold">#INV-2026-092</strong></td>
+                <td>Feb 15, 2026</td>
+                <td>Root Collar Excavation & Mycorrhizal Treatment</td>
+                <td>Mar 01, 2026</td>
+                <td><strong>$2,800.00</strong></td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+                <td class="text-right">
+                  <button class="btn-table-action download-inv-btn" data-inv="092">Receipt PDF</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><strong class="text-gold">#INV-2026-078</strong></td>
+                <td>Jan 10, 2026</td>
+                <td>Emergency Winter Storm Branch Stabilization & Cabling</td>
+                <td>Jan 24, 2026</td>
+                <td><strong>$9,800.00</strong></td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+                <td class="text-right">
+                  <button class="btn-table-action download-inv-btn" data-inv="078">Receipt PDF</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="messagesSection" data-section-name="messages">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Arborist Direct <span class="accent-title-gold">Messages</span></h2>
+          <p class="section-sub">Direct real-time concierge communication with your estate's lead arborist and field
+            technicians.</p>
+        </div>
+        <div class="chat-status-indicator">
+          <span class="pulse-dot"></span>
+          <span class="status-live-text">Field Crew Online</span>
+        </div>
+      </div>
+
+      <div class="chat-layout-grid">
+        <div class="conversations-sidebar">
+          <div class="conversations-header">
+            <div class="chat-search-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" class="chat-search-input" id="chatSearchInput" placeholder="Search conversations..." />
+            </div>
+            <div class="chat-filter-pills">
+              <button class="chat-pill active" data-chat-filter="all">All (4)</button>
+              <button class="chat-pill" data-chat-filter="arborists">Arborists (3)</button>
+              <button class="chat-pill" data-chat-filter="concierge">Concierge (1)</button>
+            </div>
+          </div>
+
+          <div class="conversations-list" id="conversationsList">
+            <div class="conv-item active" data-contact="marcus" data-role="arborists">
+              <div class="conv-avatar-wrap">
+                <img src="assets/team_marcus.jpg" alt="Marcus Vance" class="conv-avatar-img" />
+                <span class="online-indicator"></span>
+              </div>
+              <div class="conv-info">
+                <div class="conv-top-row">
+                  <strong class="conv-name">Marcus Vance</strong>
+                  <span class="conv-time">14m</span>
+                </div>
+                <span class="conv-role-title">Lead Master Arborist</span>
+                <p class="conv-preview-text">The crown elevation on White Oak #4 is looking spectacular...</p>
+              </div>
+              <span class="conv-unread-dot"></span>
+            </div>
+
+            <div class="conv-item" data-contact="elena" data-role="concierge">
+              <div class="conv-avatar-wrap">
+                <img src="assets/client_elena.jpg" alt="Elena Rostova" class="conv-avatar-img" />
+                <span class="online-indicator"></span>
+              </div>
+              <div class="conv-info">
+                <div class="conv-top-row">
+                  <strong class="conv-name">Elena Rostova</strong>
+                  <span class="conv-time">2h</span>
+                </div>
+                <span class="conv-role-title">Private Concierge Director</span>
+                <p class="conv-preview-text">Your seasonal tree health warranty renewal certificate is ready.</p>
+              </div>
+              <span class="conv-unread-dot"></span>
+            </div>
+
+            <div class="conv-item" data-contact="david" data-role="arborists">
+              <div class="conv-avatar-wrap">
+                <img src="assets/team_david.jpg" alt="David Cole" class="conv-avatar-img" />
+              </div>
+              <div class="conv-info">
+                <div class="conv-top-row">
+                  <strong class="conv-name">David Cole</strong>
+                  <span class="conv-time">Yesterday</span>
+                </div>
+                <span class="conv-role-title">Rigging & Crane Specialist</span>
+                <p class="conv-preview-text">Site permits for the April 18 extraction have been approved.</p>
+              </div>
+            </div>
+
+            <div class="conv-item" data-contact="kaelen" data-role="arborists">
+              <div class="conv-avatar-wrap">
+                <img src="assets/team_kaelen.jpg" alt="Kaelen Reed" class="conv-avatar-img" />
+              </div>
+              <div class="conv-info">
+                <div class="conv-top-row">
+                  <strong class="conv-name">Kaelen Reed</strong>
+                  <span class="conv-time">Mar 14</span>
+                </div>
+                <span class="conv-role-title">Specimen Preservationist</span>
+                <p class="conv-preview-text">Post-pruning aeration report for the Japanese Maple has been logged.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-active-panel">
+          <div class="chat-header-bar">
+            <div class="chat-active-contact">
+              <div class="active-contact-avatar">
+                <img src="assets/team_marcus.jpg" alt="Marcus Vance" id="activeChatAvatar" />
+                <span class="online-indicator"></span>
+              </div>
+              <div>
+                <h4 class="active-contact-name" id="activeChatName">Marcus Vance, Master Arborist</h4>
+                <span class="active-contact-status" id="activeChatStatus">Active on Property — North Courtyard Specimen
+                  #04</span>
+              </div>
+            </div>
+            <div class="chat-header-actions">
+              <button class="btn btn-outline-sm" id="callConciergeBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                Radio Call
+              </button>
+              <button class="btn btn-secondary-sm" onclick="switchDashboardTab('scheduled-jobs')">
+                View Job #091
+              </button>
+            </div>
+          </div>
+
+          <div class="chat-messages-container" id="chatMessagesContainer">
+            <div class="chat-date-divider">
+              <span>Wednesday, March 18, 2026</span>
+            </div>
+
+            <div class="message-row received">
+              <img src="assets/team_marcus.jpg" alt="Marcus" class="message-avatar" />
+              <div class="message-bubble-wrap">
+                <span class="message-sender-meta">Marcus Vance • 9:15 AM</span>
+                <div class="message-bubble">
+                  Good morning Yash! Our crew has safely set up the zero-impact electric lifts on the North Courtyard
+                  lawn. We have laid ground protection mats over the cobblestone pavers to prevent tire impressions.
+                </div>
+              </div>
+            </div>
+
+            <div class="message-row sent">
+              <div class="message-bubble-wrap">
+                <span class="message-sender-meta">You (Yash) • 9:42 AM</span>
+                <div class="message-bubble">
+                  Thank you Marcus! Please ensure the lower east-facing branch over the breakfast patio is preserved as
+                  much as possible for afternoon shade.
+                </div>
+              </div>
+            </div>
+
+            <div class="message-row received">
+              <img src="assets/team_marcus.jpg" alt="Marcus" class="message-avatar" />
+              <div class="message-bubble-wrap">
+                <span class="message-sender-meta">Marcus Vance • 1:30 PM</span>
+                <div class="message-bubble">
+                  Understood! We inspected that lateral limb with our acoustic tomography sensor — the core wood density
+                  is 100% solid. We are performing architectural crown thinning around it so you get dappled morning
+                  sunlight while retaining generous afternoon shade.
+                  <div class="message-attachment-card">
+                    <img src="assets/trimming_after.jpg" alt="Canopy sculpture plan" class="attachment-preview-img" />
+                    <div class="attachment-caption">
+                      <strong>Proposed Canopy Sculpture Angle</strong>
+                      <span>North Courtyard Heritage Oak #04</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="message-row received">
+              <img src="assets/team_marcus.jpg" alt="Marcus" class="message-avatar" />
+              <div class="message-bubble-wrap">
+                <span class="message-sender-meta">Marcus Vance • 2:05 PM</span>
+                <div class="message-bubble">
+                  The crown elevation on White Oak #4 is looking spectacular. We preserved the low swooping
+                  architectural branch as requested. You're welcome to inspect the canopy whenever convenient!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="chat-input-bar" id="chatSendForm">
+            <button type="button" class="chat-attach-btn" id="chatAttachBtn" title="Attach photo or site telemetry">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48">
+                </path>
+              </svg>
+            </button>
+            <input type="text" class="chat-input-field" id="chatInputText"
+              placeholder="Type a message to Lead Arborist Marcus Vance..." required autocomplete="off" />
+            <button type="submit" class="btn btn-gold-sm chat-submit-btn" id="chatSendBtn">
+              <span>Send</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="notificationsSection" data-section-name="notifications">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Estate <span class="accent-title-gold">Notifications & Alerts</span></h2>
+          <p class="section-sub">Real-time biometric canopy alarms, arborist field status dispatches, and billing
+            notices.</p>
+        </div>
+        <div class="notif-page-actions">
+          <button class="btn btn-outline-sm" id="markAllReadPageBtn">Mark All Read</button>
+          <button class="btn btn-secondary-sm" id="clearNonCriticalBtn">Clear Non-Critical</button>
+        </div>
+      </div>
+
+      <div class="notif-stats-trio">
+        <div class="notif-stat-card">
+          <div class="notif-stat-icon-box bg-gold-subtle">
+            <span class="stat-glyph">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </span>
+          </div>
+          <div>
+            <span class="notif-stat-label">Unread Alerts</span>
+            <strong class="notif-stat-value text-gold" id="unreadNotifCount">03</strong>
+          </div>
+        </div>
+
+        <div class="notif-stat-card">
+          <div class="notif-stat-icon-box bg-emerald-subtle">
+            <span class="stat-glyph">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </span>
+          </div>
+          <div>
+            <span class="notif-stat-label">Arborists on Property</span>
+            <strong class="notif-stat-value text-emerald">02 Active</strong>
+          </div>
+        </div>
+
+        <div class="notif-stat-card">
+          <div class="notif-stat-icon-box bg-teal-subtle">
+            <span class="stat-glyph">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </span>
+          </div>
+          <div>
+            <span class="notif-stat-label">Canopy Tension Telemetry</span>
+            <strong class="notif-stat-value text-teal">100% Secure</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-pills-row mb-3">
+        <button class="filter-pill active" data-notif-filter="all">All Alerts (6)</button>
+        <button class="filter-pill" data-notif-filter="unread">Unread Only (3)</button>
+        <button class="filter-pill" data-notif-filter="dispatch">Field Dispatches (2)</button>
+        <button class="filter-pill" data-notif-filter="diagnostic">Diagnostics & Sensors (2)</button>
+        <button class="filter-pill" data-notif-filter="billing">Billing Notices (1)</button>
+      </div>
+
+      <div class="notifications-feed-list" id="notificationsFeedList">
+
+        <div class="notif-feed-card unread" data-category="dispatch">
+          <div class="notif-card-badge-row">
+            <span class="feed-tag tag-dispatch">CANOPY SCULPTING • FIELD DISPATCH</span>
+            <span class="feed-time">24 minutes ago</span>
+          </div>
+          <h3 class="feed-title">Crown Thinning 70% Milestone Achieved — Heritage Oak #04</h3>
+          <p class="feed-desc">
+            Senior arborist Marcus Vance successfully completed structural weight-reduction thinning on the primary
+            northeast canopy. Heavy deadwood over the residence roofline has been completely extracted with zero
+            property impact.
+          </p>
+          <div class="feed-meta-row">
+            <span class="feed-author">North Courtyard • Assigned: Marcus Vance (ISA Master)</span>
+            <div class="feed-card-actions">
+              <button class="btn btn-outline-sm" onclick="switchDashboardTab('scheduled-jobs')">Track Job
+                Progress</button>
+              <button class="btn btn-secondary-sm" onclick="switchDashboardTab('before-after')">View Photos</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="notif-feed-card unread" data-category="diagnostic">
+          <div class="notif-card-badge-row">
+            <span class="feed-tag tag-diagnostic">TOMOGRAPHY DIAGNOSTIC • LAB REPORT</span>
+            <span class="feed-time">2 hours ago</span>
+          </div>
+          <h3 class="feed-title">Ultrasonic Acoustic Tomography Diagnostic Ready — North Maple</h3>
+          <p class="feed-desc">
+            Non-invasive multi-sensor sound wave scan complete. Primary trunk junction exhibits 94.2% solid wood density
+            with negligible fungal decay risk. Full 2D radial tomography diagram is available for inspection.
+          </p>
+          <div class="feed-meta-row">
+            <span class="feed-author">Acoustic Scan Unit • Specimen: Norway Maple #08</span>
+            <div class="feed-card-actions">
+              <button class="btn btn-primary-sm download-report-btn" data-report="Tomography_Maple08">Download
+                PDF</button>
+              <button class="btn btn-outline-sm" onclick="switchDashboardTab('health-reports')">View
+                Diagnostics</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="notif-feed-card unread" data-category="billing">
+          <div class="notif-card-badge-row">
+            <span class="feed-tag tag-billing">ESTATE BILLING • INVOICE</span>
+            <span class="feed-time">Yesterday at 4:30 PM</span>
+          </div>
+          <h3 class="feed-title">New Electronic Invoice Generated — #INV-2026-104 ($1,650.00)</h3>
+          <p class="feed-desc">
+            Statement issued for Spring Precision Canopy Sculpting and Diagnostic Tomography Assessment on Highland
+            Manor grounds. Due date: April 05, 2026.
+          </p>
+          <div class="feed-meta-row">
+            <span class="feed-author">ARVORA Atelier Accounts • Highland Manor Program</span>
+            <div class="feed-card-actions">
+              <button class="btn btn-gold-sm" onclick="switchDashboardTab('invoices')">Settle Invoice Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="notif-feed-card" data-category="diagnostic">
+          <div class="notif-card-badge-row">
+            <span class="feed-tag tag-weather">WEATHER ADVISORY • SENSOR TELEMETRY</span>
+            <span class="feed-time">March 16, 2026</span>
+          </div>
+          <h3 class="feed-title">High Wind Advisory (48 MPH Sustained Gusts Recorded)</h3>
+          <p class="feed-desc">
+            Property meteorological sensors detected gale gusts across the Highland Crest ridge. Dynamic synthetic
+            cabling on Copper Beech #12 absorbed peak sway with 100% tension compliance.
+          </p>
+          <div class="feed-meta-row">
+            <span class="feed-author">Ridge Sensor Station #02 • Status: Normal Operating Range</span>
+          </div>
+        </div>
+
+        <div class="notif-feed-card" data-category="dispatch">
+          <div class="notif-card-badge-row">
+            <span class="feed-tag tag-dispatch">DISPATCH SCHEDULED</span>
+            <span class="feed-time">March 14, 2026</span>
+          </div>
+          <h3 class="feed-title">Site Inspection Confirmed for Crane Extraction</h3>
+          <p class="feed-desc">
+            Senior rigging specialist David Cole confirmed site arrival for March 28, 2026 at 10:00 AM for West Driveway
+            Maple removal rigging plan.
+          </p>
+          <div class="feed-meta-row">
+            <span class="feed-author">Concierge Scheduling Desk</span>
+          </div>
+        </div>
+
+        <div class="notif-feed-card" data-category="diagnostic">
+          <div class="notif-card-badge-row">
+            <span class="feed-tag tag-maintenance">SOIL NUTRITION COMPLETED</span>
+            <span class="feed-time">March 10, 2026</span>
+          </div>
+          <h3 class="feed-title">Deep-Rhizosphere Soil Inoculation Completed</h3>
+          <p class="feed-desc">
+            180 pneumatic injection points of organic mycorrhizal fertilizer applied around the South Garden heritage
+            specimen root systems.
+          </p>
+          <div class="feed-meta-row">
+            <span class="feed-author">Soil Health Unit</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="profileSection" data-section-name="profile">
+      <div class="section-title-bar">
+        <div>
+          <h2 class="section-heading">Estate Client <span class="accent-title-gold">Profile</span></h2>
+          <p class="section-sub">Manage your property details, designated contact information, and arborist access
+            preferences.</p>
+        </div>
+      </div>
+
+      <div class="profile-settings-card">
+        <div class="profile-card-header">
+          <div class="avatar-large-circle">YA</div>
+          <div>
+            <h3 class="profile-header-name">Yash</h3>
+            <p class="profile-header-sub">Highland Manor Estate • 18 Acres • Registered Client since 2023</p>
+          </div>
+        </div>
+
+        <form id="profileUpdateForm" class="profile-form-grid">
+          <div class="form-group">
+            <label class="form-label">Full Client Name</label>
+            <input type="text" class="form-control" value="Yash" id="profileNameInput" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Primary Email Address</label>
+            <input type="email" class="form-control" value="yash.estate@highlandmanor.com" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Estate Contact Number</label>
+            <input type="tel" class="form-control" value="+1 (555) 382-9041" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Property Address</label>
+            <input type="text" class="form-control" value="742 Highland Crest Blvd, Stone Ridge Estate" />
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Gate Access & Crew Entry Instructions</label>
+            <textarea rows="2"
+              class="form-control">Gate code #8824. Heavy crane equipment should enter via North service driveway to preserve Belgian cobblestone pavers.</textarea>
+          </div>
+
+          <div class="form-actions-full">
+            <button type="submit" class="btn btn-primary" id="saveProfileBtn">Save Profile Updates</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="dashboard-modal-backdrop" id="assessmentModal" aria-hidden="true">
+    <div class="dashboard-modal-box" role="dialog" aria-labelledby="modalAssessmentTitle">
+      <button class="modal-close-btn" id="closeAssessmentModalBtn" aria-label="Close modal">✕</button>
+
+      <div class="modal-header">
+        <span class="modal-tag">ARVORA ESTATE DISPATCH</span>
+        <h3 class="modal-title" id="modalAssessmentTitle">Request Tree Assessment Visit</h3>
+        <p class="modal-subtitle">Schedule an ISA-certified arborist for an on-site property evaluation.</p>
+      </div>
+
+      <form id="modalAssessmentForm" class="modal-form">
+        <div class="form-group">
+          <label class="form-label">Select Estate Specimen</label>
+          <select class="form-control" required id="modalTreeSelect">
+            <option value="Heritage White Oak #04">Heritage White Oak — North Courtyard #04</option>
+            <option value="Decaying Norway Maple - Driveway">Norway Maple — West Driveway Gate</option>
+            <option value="Sugar Maple - South Garden">Centennial Sugar Maple — South Garden</option>
+            <option value="Japanese Cherry - East Terrace">Japanese Weeping Cherry — East Terrace</option>
+            <option value="All Estate Trees">Full 18-Acre Canopy Risk Diagnostic</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Service Focus</label>
+          <select class="form-control" required id="modalServiceFocus">
+            <option value="Canopy Health & Ultrasonic Tomography">Canopy Health & Ultrasonic Tomography</option>
+            <option value="Structural Trimming & Deadwood Removal">Structural Trimming & Deadwood Removal</option>
+            <option value="Hazardous Tree Risk Evaluation">Hazardous Tree Risk Evaluation</option>
+            <option value="Soil Decompaction & Deep Feeding">Soil Decompaction & Deep Feeding</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Preferred Date</label>
+          <input type="date" class="form-control" value="2026-04-16" required id="modalDateInput" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Special Access or Hazard Details</label>
+          <textarea class="form-control" rows="3"
+            placeholder="Please describe any deadwood, signs of fungal growth, leaning angle, or utility line proximity..."></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelAssessmentModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="confirmAssessmentBtn">
+            <span>Confirm Visit Request</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="dashboard-modal-backdrop" id="payInvoiceModal" aria-hidden="true">
+    <div class="dashboard-modal-box" role="dialog" aria-labelledby="modalPayTitle">
+      <button class="modal-close-btn" id="closePayModalBtn" aria-label="Close modal">✕</button>
+
+      <div class="modal-header">
+        <span class="modal-tag">SECURE ATELIER CHECKOUT</span>
+        <h3 class="modal-title" id="modalPayTitle">Settle Invoice <span id="modalInvId">#INV-2026-104</span></h3>
+        <p class="modal-subtitle">Direct estate account debit or card payment for completed tree care services.</p>
+      </div>
+
+      <div class="pay-amount-box">
+        <span class="pay-label">Total Balance Due</span>
+        <strong class="pay-value" id="modalInvAmount">$1,650.00</strong>
+      </div>
+
+      <form id="payInvoiceForm" class="modal-form">
+        <div class="payment-method-selector">
+          <label class="method-card active">
+            <input type="radio" name="payMethod" value="card" checked />
+            <span class="method-name">Credit Card (•••• 4921)</span>
+          </label>
+          <label class="method-card">
+            <input type="radio" name="payMethod" value="ach" />
+            <span class="method-name">Estate ACH Wire (•••• 8012)</span>
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelPayModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-gold-action" id="confirmPayBtn">
+            <span>Authorize Payment ($1,650.00)</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="dashboard-toast" id="dashboardToast" role="alert" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMessage">Action completed successfully.</span>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+
+</html>

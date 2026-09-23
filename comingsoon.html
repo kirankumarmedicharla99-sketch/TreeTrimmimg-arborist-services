@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under Construction — Something Great Is Growing Here • ARVORA</title>
+  <meta name="description"
+    content="We're building something amazing at ARVORA. Be the first to know when we launch our next-generation arboricultural services." />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script src="theme-sync.js"></script>
+
+  <link rel="stylesheet" href="index.css" />
+
+  <style>
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    body {
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: var(--font-primary, 'Manrope', sans-serif);
+      color: var(--text-primary);
+      position: relative;
+      background-color: #F8FAF8;
+      background-image:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.82) 40%, rgba(255, 255, 255, 0.35) 75%, rgba(255, 255, 255, 0.1) 100%),
+        url('assets/coming_soon_bg.jpg');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      overflow: hidden;
+      transition: background-color var(--transition-normal, 0.3s ease);
+    }
+
+body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 10% 20%, rgba(18, 59, 42, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+.cs-header {
+      position: relative;
+      z-index: 20;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(0.75rem, 1.8vh, 1.25rem) 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .cs-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      transition: transform var(--transition-fast, 0.2s ease), opacity var(--transition-fast, 0.2s ease);
+    }
+
+    .cs-brand:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .cs-brand .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+    }
+
+    .cs-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cs-brand-name {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      color: #A6731B;
+      text-shadow: 0 1px 2px rgba(166, 115, 27, 0.15);
+    }
+
+    .cs-brand-tagline {
+      font-family: var(--font-primary, 'Manrope', sans-serif);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #000000;
+      margin-top: 2px;
+      transition: color 0.3s ease;
+    }
+
+    .cs-header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .cs-slogan {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #385E49;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      user-select: none;
+    }
+
+    .cs-slogan .slogan-dot {
+      color: #C0892B;
+      font-size: 0.9rem;
+    }
+
+    .cs-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .cs-ctrl-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #123B2A;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(18, 59, 42, 0.15);
+      border-radius: 9999px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all var(--transition-fast, 0.2s ease);
+    }
+
+    .cs-ctrl-btn:hover {
+      background: #FFFFFF;
+      border-color: #123B2A;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(18, 59, 42, 0.12);
+    }
+
+    .cs-ctrl-btn .theme-icon {
+      display: none;
+      line-height: 0;
+    }
+
+    [data-theme="light"] .cs-ctrl-btn .moon-icon {
+      display: inline-block;
+    }
+
+    [data-theme="dark"] .cs-ctrl-btn .sun-icon {
+      display: inline-block;
+    }
+
+.cs-main {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: clamp(0.25rem, 1vh, 0.75rem) 1.5rem clamp(0.5rem, 1.5vh, 1rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+.cs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #F4EFE6;
+      border: 1px solid rgba(192, 137, 43, 0.3);
+      padding: 0.32rem 1.05rem;
+      border-radius: 9999px;
+      font-size: clamp(0.76rem, 0.9vw, 0.84rem);
+      font-weight: 600;
+      color: #123B2A;
+      margin-bottom: clamp(0.35rem, 0.9vh, 0.65rem);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      transition: transform var(--transition-fast, 0.2s ease);
+      flex-shrink: 0;
+    }
+
+    .cs-badge:hover {
+      transform: translateY(-1px);
+    }
+
+    .cs-badge-icon {
+      color: #1E6646;
+      display: flex;
+      align-items: center;
+    }
+
+.cs-title {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: clamp(1.85rem, 3.2vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #123B2A;
+      margin: 0 0 clamp(0.25rem, 0.7vh, 0.55rem);
+      letter-spacing: -0.025em;
+      flex-shrink: 0;
+    }
+
+    .cs-title .highlight-gold {
+      color: #C0892B;
+    }
+
+.cs-subtitle {
+      font-size: clamp(0.85rem, 1.05vw, 1.05rem);
+      font-weight: 400;
+      color: #2F4D3C;
+      max-width: 520px;
+      line-height: 1.5;
+      margin: 0 0 clamp(0.55rem, 1.3vh, 1.15rem);
+      flex-shrink: 0;
+    }
+
+.cs-countdown-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.6rem, 1.2vw, 1.15rem);
+      margin-bottom: clamp(0.55rem, 1.3vh, 1.15rem);
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .cs-timer-card {
+      width: clamp(72px, 5.8vw, 92px);
+      height: clamp(72px, 8vh, 90px);
+      background: #FFFFFF;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(18, 59, 42, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(18, 59, 42, 0.08);
+      position: relative;
+      transition: transform var(--transition-fast, 0.2s ease), box-shadow var(--transition-fast, 0.2s ease);
+    }
+
+    .cs-timer-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(18, 59, 42, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
+      border-color: rgba(18, 59, 42, 0.18);
+    }
+
+    .cs-timer-num {
+      font-family: var(--font-heading, 'Poppins', sans-serif);
+      font-size: clamp(1.55rem, 1.9vw, 2.05rem);
+      font-weight: 800;
+      color: #123B2A;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .cs-timer-label {
+      font-family: var(--font-primary, 'Manrope', sans-serif);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #587967;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .cs-timer-dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #C0892B;
+    }
+
+.cs-notify-wrap {
+      width: 100%;
+      max-width: 510px;
+      margin: 0 auto clamp(0.5rem, 1.1vh, 0.95rem);
+      flex-shrink: 0;
+    }
+
+    .cs-notify-form {
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      border-radius: 9999px;
+      padding: 0.3rem 0.3rem 0.3rem 1.15rem;
+      box-shadow: 0 8px 24px rgba(18, 59, 42, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(18, 59, 42, 0.12);
+      transition: all var(--transition-fast, 0.2s ease);
+    }
+
+    .cs-notify-form:focus-within {
+      border-color: #123B2A;
+      box-shadow: 0 10px 30px rgba(18, 59, 42, 0.14), 0 0 0 3px rgba(18, 59, 42, 0.1);
+    }
+
+    .cs-input-group {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      gap: 0.65rem;
+    }
+
+    .cs-input-icon {
+      color: #557965;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .cs-email-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: #123B2A;
+      width: 100%;
+      padding: 0.45rem 0;
+    }
+
+    .cs-email-input::placeholder {
+      color: #6C8B7A;
+    }
+
+    .cs-notify-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #123B2A;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      padding: clamp(0.6rem, 1vh, 0.72rem) clamp(1.1rem, 1.4vw, 1.45rem);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--transition-fast, 0.2s ease);
+      box-shadow: 0 4px 12px rgba(18, 59, 42, 0.25);
+    }
+
+    .cs-notify-btn:hover {
+      background: #19523B;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(18, 59, 42, 0.35);
+    }
+
+    .cs-notify-btn:active {
+      transform: translateY(0);
+    }
+
+    .cs-notify-feedback {
+      display: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #123B2A;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+.cs-back-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto clamp(0.5rem, 1.1vh, 0.95rem);
+      flex-shrink: 0;
+    }
+
+    .cs-back-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(18, 59, 42, 0.18);
+    }
+
+    .cs-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #2F4D3C;
+      text-decoration: none;
+      transition: color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
+    }
+
+    .cs-back-link:hover {
+      color: #123B2A;
+      transform: translateX(-3px);
+    }
+
+.cs-features-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1rem, 2.2vw, 2.2rem);
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .cs-feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.35rem;
+    }
+
+    .cs-feature-icon {
+      color: #1E6646;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition-fast, 0.2s ease);
+    }
+
+    .cs-feature-item:hover .cs-feature-icon {
+      transform: scale(1.1);
+    }
+
+    .cs-feature-title {
+      font-size: clamp(0.75rem, 0.9vw, 0.82rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: #123B2A;
+      letter-spacing: 0.01em;
+      white-space: pre-line;
+    }
+
+    .cs-feature-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(18, 59, 42, 0.18);
+    }
+
+[data-theme="dark"] body {
+      background-color: #081B13;
+      background-image:
+        radial-gradient(ellipse at 50% 50%, rgba(8, 27, 19, 0.94) 0%, rgba(8, 27, 19, 0.85) 45%, rgba(8, 27, 19, 0.5) 80%, rgba(8, 27, 19, 0.25) 100%),
+        url('assets/coming_soon_bg.jpg');
+      color: #F5F1E7;
+    }
+
+    [data-theme="dark"] .cs-brand-name {
+      color: var(--accent-gold, #E5C388);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 14px rgba(229, 195, 136, 0.35);
+    }
+
+    [data-theme="dark"] .cs-brand-tagline {
+      color: #FFFFFF !important;
+    }
+
+    [data-theme="light"] .cs-brand-tagline {
+      color: #000000 !important;
+    }
+
+    [data-theme="dark"] .cs-slogan {
+      color: #CAD8CE;
+    }
+
+    [data-theme="dark"] .cs-ctrl-btn {
+      background: rgba(18, 59, 42, 0.6);
+      color: #F5F1E7;
+      border-color: rgba(229, 195, 136, 0.25);
+    }
+
+    [data-theme="dark"] .cs-ctrl-btn:hover {
+      background: rgba(18, 59, 42, 0.9);
+      border-color: #C0892B;
+      color: #C0892B;
+    }
+
+    [data-theme="dark"] .cs-badge {
+      background: rgba(18, 59, 42, 0.7);
+      border-color: rgba(229, 195, 136, 0.3);
+      color: #F5F1E7;
+    }
+
+    [data-theme="dark"] .cs-badge-icon {
+      color: #C0892B;
+    }
+
+    [data-theme="dark"] .cs-title {
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .cs-subtitle {
+      color: #CAD8CE;
+    }
+
+    [data-theme="dark"] .cs-timer-card {
+      background: rgba(14, 45, 32, 0.85);
+      border-color: rgba(229, 195, 136, 0.25);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="dark"] .cs-timer-num {
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .cs-timer-label {
+      color: #C0892B;
+    }
+
+    [data-theme="dark"] .cs-notify-form {
+      background: rgba(14, 45, 32, 0.9);
+      border-color: rgba(229, 195, 136, 0.25);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="dark"] .cs-email-input {
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .cs-email-input::placeholder {
+      color: #92B09F;
+    }
+
+    [data-theme="dark"] .cs-notify-btn {
+      background: #C0892B;
+      color: #0A1C14;
+      box-shadow: 0 4px 14px rgba(192, 137, 43, 0.35);
+    }
+
+    [data-theme="dark"] .cs-notify-btn:hover {
+      background: #D9A03C;
+      box-shadow: 0 6px 20px rgba(192, 137, 43, 0.5);
+    }
+
+    [data-theme="dark"] .cs-notify-feedback {
+      color: #C0892B;
+    }
+
+    [data-theme="dark"] .cs-back-line {
+      background: rgba(229, 195, 136, 0.2);
+    }
+
+    [data-theme="dark"] .cs-back-link {
+      color: #CAD8CE;
+    }
+
+    [data-theme="dark"] .cs-back-link:hover {
+      color: #C0892B;
+    }
+
+    [data-theme="dark"] .cs-feature-icon {
+      color: #C0892B;
+    }
+
+    [data-theme="dark"] .cs-feature-title {
+      color: #F5F1E7;
+    }
+
+    [data-theme="dark"] .cs-feature-divider {
+      background: rgba(229, 195, 136, 0.2);
+    }
+
+    @media (max-width: 768px), (max-height: 600px) {
+      html, body {
+        height: auto;
+        min-height: 100%;
+        overflow-y: auto;
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+
+      .cs-header {
+        padding: 1rem 1.25rem;
+      }
+
+      .cs-slogan {
+        display: none;
+      }
+
+      .cs-main {
+        padding: 1rem 1rem 2.5rem;
+      }
+
+      .cs-countdown-grid {
+        gap: 0.75rem;
+      }
+
+      .cs-timer-card {
+        width: 76px;
+        height: 82px;
+        border-radius: 16px;
+      }
+
+      .cs-timer-num {
+        font-size: 1.7rem;
+      }
+
+      .cs-timer-label {
+        font-size: 0.62rem;
+      }
+
+      .cs-notify-form {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+      }
+
+      .cs-input-group {
+        width: 100%;
+      }
+
+      .cs-notify-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1.25rem;
+      }
+
+      .cs-features-row {
+        gap: 1.25rem;
+      }
+
+      .cs-feature-divider {
+        display: none;
+      }
+
+      .cs-feature-item {
+        width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cs-main {
+        padding: 1rem 0.75rem 2.5rem;
+      }
+
+      .cs-countdown-grid {
+        gap: 0.45rem;
+      }
+
+      .cs-timer-card {
+        width: 64px;
+        height: 72px;
+        border-radius: 12px;
+      }
+
+      .cs-timer-num {
+        font-size: 1.45rem;
+      }
+
+      .cs-timer-label {
+        font-size: 0.58rem;
+      }
+
+      .cs-feature-item {
+        width: 100%;
+      }
+    }
+
+[dir="rtl"] .cs-back-link:hover {
+      transform: translateX(3px);
+    }
+
+    [dir="rtl"] .cs-back-link .back-arrow {
+      transform: scaleX(-1);
+      display: inline-block;
+    }
+
+    [dir="rtl"] .cs-notify-btn .btn-arrow {
+      transform: scaleX(-1);
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="cs-header" role="banner">
+    <a href="index.html" class="cs-brand" aria-label="ARVORA Home">
+      <img src="assets/logo.png" alt="ARVORA Logo" class="brand-logo-img" width="44" height="44" />
+      <div class="cs-brand-text">
+        <span class="cs-brand-name">ARVORA</span>
+        <span class="cs-brand-tagline">ARBORIST SERVICES</span>
+      </div>
+    </a>
+
+    <div class="cs-header-right">
+      <div class="cs-slogan" aria-hidden="true">
+        <span>Quality Trees</span>
+        <span class="slogan-dot">•</span>
+        <span>Safer Spaces</span>
+        <span class="slogan-dot">•</span>
+        <span>Greener Tomorrow</span>
+      </div>
+
+      <div class="cs-controls">
+        <button class="cs-ctrl-btn rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle Right to Left direction"
+          title="Toggle RTL layout">
+          <span class="rtl-label" id="rtlBtnText">RTL</span>
+        </button>
+
+        <button class="cs-ctrl-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme"
+          title="Toggle theme">
+          <span class="theme-icon moon-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-icon sun-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="cs-main" id="mainContent">
+    <div class="cs-badge" role="status">
+      <span class="cs-badge-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+        </svg>
+      </span>
+      <span>Under Construction</span>
+    </div>
+
+    <h1 class="cs-title">
+      Something Great<br />
+      Is <span class="highlight-gold">Growing Here</span>
+    </h1>
+
+    <p class="cs-subtitle">
+      We're building something amazing. Be the first to know when we launch.
+    </p>
+
+    <div class="cs-countdown-grid" aria-label="Countdown until launch">
+      <div class="cs-timer-card">
+        <span class="cs-timer-num" id="daysVal">29</span>
+        <span class="cs-timer-label">DAYS</span>
+      </div>
+
+      <div class="cs-timer-card">
+        <span class="cs-timer-num" id="hoursVal">23</span>
+        <span class="cs-timer-label">HOURS</span>
+      </div>
+
+      <div class="cs-timer-card">
+        <span class="cs-timer-num" id="minsVal">18</span>
+        <span class="cs-timer-label">
+          MINS <span class="cs-timer-dot" aria-hidden="true"></span>
+        </span>
+      </div>
+
+      <div class="cs-timer-card">
+        <span class="cs-timer-num" id="secsVal">09</span>
+        <span class="cs-timer-label">SECS</span>
+      </div>
+    </div>
+
+    <div class="cs-notify-wrap">
+      <form class="cs-notify-form" id="csNotifyForm" onsubmit="handleNotifySubmit(event)">
+        <div class="cs-input-group">
+          <span class="cs-input-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </span>
+          <input type="email" class="cs-email-input" id="csEmailInput"
+            placeholder="Enter your email to get notified" required aria-label="Enter your email to get notified" />
+        </div>
+        <button type="submit" class="cs-notify-btn" id="csNotifyBtn">
+          <span>Notify Me</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+      <div class="cs-notify-feedback" id="csNotifyFeedback" role="alert">
+        Thank you! You'll be the first to know when we take root.
+      </div>
+    </div>
+
+    <div class="cs-back-wrap">
+      <span class="cs-back-line" aria-hidden="true"></span>
+      <a href="index.html" class="cs-back-link">
+        <span class="back-arrow" aria-hidden="true">←</span>
+        <span>Back to Home</span>
+      </a>
+      <span class="cs-back-line" aria-hidden="true"></span>
+    </div>
+
+    <div class="cs-features-row" aria-label="Brand pillars">
+      <div class="cs-feature-item">
+        <div class="cs-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          </svg>
+        </div>
+        <div class="cs-feature-title">Expert<br />Arborists</div>
+      </div>
+
+      <div class="cs-feature-divider" aria-hidden="true"></div>
+
+      <div class="cs-feature-item">
+        <div class="cs-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </div>
+        <div class="cs-feature-title">Safe &<br />Professional</div>
+      </div>
+
+      <div class="cs-feature-divider" aria-hidden="true"></div>
+
+      <div class="cs-feature-item">
+        <div class="cs-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19v3"></path>
+            <path d="M12 19a7 7 0 0 1-7-7c0-2.5 1.5-4.5 3-5.5a5.5 5.5 0 0 1 8 0c1.5 1 3 3 3 5.5a7 7 0 0 1-7 7Z"></path>
+          </svg>
+        </div>
+        <div class="cs-feature-title">Healthy<br />Trees</div>
+      </div>
+
+      <div class="cs-feature-divider" aria-hidden="true"></div>
+
+      <div class="cs-feature-item">
+        <div class="cs-feature-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20h10"></path>
+            <path d="M10 20c5.5-2.5.8-6.4 3-10"></path>
+            <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4.1 5.5.8z"></path>
+            <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"></path>
+          </svg>
+        </div>
+        <div class="cs-feature-title">Greener<br />Communities</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+
+      var storageKey = 'arvora_launch_target';
+      var targetTime;
+      try {
+        var stored = localStorage.getItem(storageKey);
+        if (stored && !isNaN(parseInt(stored, 10)) && parseInt(stored, 10) > Date.now()) {
+          targetTime = parseInt(stored, 10);
+        } else {
+
+          var msToAdd = (29 * 86400 + 23 * 3600 + 18 * 60 + 9) * 1000;
+          targetTime = Date.now() + msToAdd;
+          localStorage.setItem(storageKey, targetTime.toString());
+        }
+      } catch (e) {
+        targetTime = Date.now() + ((29 * 86400 + 23 * 3600 + 18 * 60 + 9) * 1000);
+      }
+
+      var daysEl = document.getElementById('daysVal');
+      var hoursEl = document.getElementById('hoursVal');
+      var minsEl = document.getElementById('minsVal');
+      var secsEl = document.getElementById('secsVal');
+
+      function padZero(num) {
+        return num < 10 ? '0' + num : '' + num;
+      }
+
+      function updateCountdown() {
+        var now = Date.now();
+        var diff = targetTime - now;
+
+        if (diff <= 0) {
+          if (daysEl) daysEl.textContent = '00';
+          if (hoursEl) hoursEl.textContent = '00';
+          if (minsEl) minsEl.textContent = '00';
+          if (secsEl) secsEl.textContent = '00';
+          return;
+        }
+
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (daysEl) daysEl.textContent = padZero(days);
+        if (hoursEl) hoursEl.textContent = padZero(hours);
+        if (minsEl) minsEl.textContent = padZero(mins);
+        if (secsEl) secsEl.textContent = padZero(secs);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+
+function handleNotifySubmit(e) {
+      e.preventDefault();
+      var input = document.getElementById('csEmailInput');
+      var feedback = document.getElementById('csNotifyFeedback');
+      var btn = document.getElementById('csNotifyBtn');
+
+      if (!input || !input.value) return;
+
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      btn.innerHTML = 'Subscribing...';
+
+      setTimeout(function () {
+        input.value = '';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.innerHTML = '<span>Notify Me</span> <span class="btn-arrow">→</span>';
+        if (feedback) {
+          feedback.style.display = 'block';
+          setTimeout(function () {
+            feedback.style.display = 'none';
+          }, 5000);
+        }
+      }, 600);
+    }
+  </script>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

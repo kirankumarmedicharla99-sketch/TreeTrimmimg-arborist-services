@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing & Commission Tiers — ARVORA Master Arborist Care</title>
+  <meta name="description"
+    content="Transparent tier pricing for estate specimen tree trimming, hazardous crane removal, scientific health diagnostics, and seasonal custodianship. Zero hidden fees." />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script src="theme-sync.js"></script>
+
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="pricing.css" />
+</head>
+
+<body>
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+  <header class="atelier-header" id="mainHeader">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" id="headerBrandLogo" aria-label="ARVORA Home">
+        <span class="logo-mark">
+          <img src="assets/logo.png" alt="ARVORA Logo" class="brand-img" width="46" height="46" />
+        </span>
+        <span class="brand-text-wrap">
+          <span class="brand-name">ARVORA</span>
+          <span class="brand-sub">ARBORIST SERVICES</span>
+        </span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li class="nav-item has-dropdown">
+            <a href="index.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
+              <span>Home</span>
+              <svg class="dropdown-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="index.html" class="dropdown-link">
+                  <span class="dropdown-dot"></span>
+                  <div class="dropdown-info">
+                    <span class="dropdown-title">Home 1</span>
+                    <span class="dropdown-desc">Atelier & Field Services</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="home2.html" class="dropdown-link">
+                  <span class="dropdown-dot"></span>
+                  <div class="dropdown-info">
+                    <span class="dropdown-title">Home 2 <span class="dropdown-badge">New</span></span>
+                    <span class="dropdown-desc">Curated Vault & Editorial</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="service.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link active">Pricing</a></li>
+          <li class="nav-item"><a href="journal.html" class="nav-link">Journals</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"
+              id="navDashboardLink">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="ctrl-btn rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle Right to Left direction"
+          title="Toggle RTL layout">
+          <span class="rtl-label" id="rtlBtnText">RTL</span>
+        </button>
+
+        <button class="ctrl-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme"
+          title="Toggle theme">
+          <span class="theme-icon moon-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-icon sun-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+        </button>
+
+        <a href="login.html" class="btn btn-login-pill" id="headerLoginBtn" aria-label="Account Login">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" class="login-user-icon">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Login</span>
+        </a>
+
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-content">
+      <div class="drawer-top">
+        <div class="brand-logo">
+          <span class="logo-mark small">
+            <img src="assets/logo.png" alt="ARVORA Logo" class="brand-img" width="36" height="36" />
+          </span>
+          <span class="brand-text-wrap">
+            <span class="brand-name">ARVORA</span>
+            <span class="brand-sub">ARBORIST SERVICES</span>
+          </span>
+        </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+      </div>
+
+      <div class="drawer-controls-row">
+        <button class="ctrl-btn rtl-toggle-btn drawer-ctrl-btn" id="drawerRtlBtn">
+          <span>Direction: <strong id="drawerRtlText">LTR (Click for RTL)</strong></span>
+        </button>
+        <button class="ctrl-btn theme-toggle-btn drawer-ctrl-btn" id="drawerThemeBtn">
+          <span>Theme: <strong>Toggle Mode</strong></span>
+        </button>
+      </div>
+
+      <div class="drawer-home-switcher">
+        <span class="drawer-switcher-label">Explore Pages:</span>
+        <div class="drawer-switcher-btns">
+          <a href="index.html" class="drawer-switch-pill">Home 1</a>
+          <a href="home2.html" class="drawer-switch-pill">Home 2</a>
+          <a href="about.html" class="drawer-switch-pill">About Us</a>
+          <a href="service.html" class="drawer-switch-pill">Services</a>
+          <a href="pricing.html" class="drawer-switch-pill active">Pricing</a>
+        </div>
+      </div>
+
+      <ul class="drawer-nav-list">
+        <li><a href="index.html" class="drawer-link">Home 1 (Atelier)</a></li>
+        <li><a href="home2.html" class="drawer-link">Home 2 (Editorial)</a></li>
+        <li><a href="about.html" class="drawer-link">About ARVORA</a></li>
+        <li><a href="service.html" class="drawer-link">All 6 Services</a></li>
+        <li><a href="pricing.html" class="drawer-link active">Pricing Packages</a></li>
+        <li><a href="#benefits" class="drawer-link">Included Benefits</a></li>
+        <li><a href="#faqs" class="drawer-link">Pricing FAQs</a></li>
+        <li><a href="#cta" class="drawer-link">Commission Assessment</a></li>
+      </ul>
+
+      <div class="drawer-bottom">
+        <button class="btn btn-primary btn-block open-quote-modal" id="drawerQuoteBtn">
+          <span>Book Assessment</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <section class="pricing-hero-section" id="hero">
+      <div class="pricing-hero-bg" aria-hidden="true"></div>
+      <div class="pricing-hero-overlay" aria-hidden="true"></div>
+
+      <div class="container pricing-hero-container">
+        <div class="pricing-hero-grid">
+
+          <div class="pricing-hero-content">
+            <div class="badge-pill">
+              <span class="badge-dot"></span>
+              <span class="badge-text">TRANSPARENT ESTATE VALUATION • FIXED QUOTES</span>
+            </div>
+
+            <h1 class="pricing-hero-title">
+              Predictable, Scientific Pricing for Irreplaceable Estate Canopies.
+            </h1>
+
+            <p class="pricing-hero-tagline">
+              Transparent tier investments tailored for single specimen centerpieces, comprehensive family estates, and sprawling historic arboretums. No hidden fees, line-item clarity, and zero ground-impact guarantee.
+            </p>
+
+            <div class="billing-switcher-container" role="radiogroup" aria-label="Pricing frequency selection">
+              <button class="billing-toggle-btn active" id="btnPerVisit" role="radio" aria-checked="true">
+                <span>Per-Visit Commission</span>
+              </button>
+              <button class="billing-toggle-btn" id="btnAnnual" role="radio" aria-checked="false">
+                <span>Annual Custodianship</span>
+                <span class="save-badge">Save 15%</span>
+              </button>
+            </div>
+
+            <div class="pricing-trust-strip">
+              <div class="pricing-trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>ISA Board-Certified Oversight</span>
+              </div>
+              <div class="pricing-trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>$5,000,000 Specific Liability Bond</span>
+              </div>
+              <div class="pricing-trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Complimentary Initial Triage</span>
+              </div>
+              <div class="pricing-trust-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>100% Turf Protection Guarantee</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-hero-visual">
+            <div class="pricing-visual-canvas">
+              <img src="assets/project_historic_estate.jpg" alt="ISA Certified Arborists performing precision estate canopy sculpting on historic manor grounds" class="pricing-hero-img" />
+              <div class="pricing-img-gradient"></div>
+
+              <div class="pricing-floating-badge">
+                <span class="badge-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                </span>
+                <div>
+                  <strong>ARVORA Provenance Guarantee</strong>
+                  <span>Every cut backed by ISA dendrology standards and full turf protection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-cards-section" id="packages">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill">
+            <span class="badge-dot"></span>
+            <span class="badge-text">COMMISSION TIERS • CLEAR VALUATIONS</span>
+          </div>
+          <h2 class="section-title">Tailored Estate Care Packages</h2>
+          <p class="section-subtitle">
+            Structured investments tailored for private courtyards, heritage family grounds, and sprawling botanical estates.
+          </p>
+        </div>
+
+        <div class="pricing-cards-grid">
+
+          <article class="pricing-card">
+            <div class="pricing-card-header">
+              <h3 class="pricing-tier-name">Essential Care</h3>
+              <p class="pricing-tier-tagline">
+                Surgical care for single specimen centerpieces &amp; courtyards.
+              </p>
+
+              <div class="pricing-price-wrap">
+                <span class="price-currency">$</span>
+                <span class="price-val" data-tier-idx="0">450</span>
+                <span class="price-period">per visit</span>
+              </div>
+
+              <div class="pricing-turnaround-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>3–5 Hours • 1 Specimen</span>
+              </div>
+            </div>
+
+            <ul class="pricing-inclusions-list">
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>ISA Certified Visual Tree Assessment (VTA)</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Selective crown thinning &amp; deadwood pruning</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Debris chipping &amp; 100% turf rake cleanup</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Post-care digital health summary report</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-outline pricing-card-btn pricing-commission-btn" data-tier="Essential Specimen Care">
+              <span>Choose Essential</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </article>
+
+          <article class="pricing-card featured">
+            <span class="pricing-card-badge">MOST POPULAR CHOICE</span>
+
+            <div class="pricing-card-header">
+              <h3 class="pricing-tier-name">Estate Masterwork</h3>
+              <p class="pricing-tier-tagline">
+                Aesthetic sculpting, structural balance &amp; roof clearance.
+              </p>
+
+              <div class="pricing-price-wrap">
+                <span class="price-currency">$</span>
+                <span class="price-val" data-tier-idx="1">1,250</span>
+                <span class="price-period">per visit</span>
+              </div>
+
+              <div class="pricing-turnaround-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>1–2 Days • 3 to 8 Mature Trees</span>
+              </div>
+            </div>
+
+            <ul class="pricing-inclusions-list">
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Drone canopy mapping &amp; sightline tuning</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Precision canopy trimming up to 60 ft</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Acoustic sonic decay scan on trunk unions</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Targeted cambium nutrition &amp; 1-Yr Guarantee</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-primary pricing-card-btn pricing-commission-btn" data-tier="Estate Masterwork Program">
+              <span>Choose Masterwork</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-card-header">
+              <h3 class="pricing-tier-name">Sanctuary Reserve</h3>
+              <p class="pricing-tier-tagline">
+                Master stewardship for historic groves &amp; ancient monuments.
+              </p>
+
+              <div class="pricing-price-wrap">
+                <span class="price-currency">$</span>
+                <span class="price-val" data-tier-idx="2">2,850</span>
+                <span class="price-period">per visit</span>
+              </div>
+
+              <div class="pricing-turnaround-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>3–5 Days • Unlimited Scope</span>
+              </div>
+            </div>
+
+            <ul class="pricing-inclusions-list">
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Crane &amp; spider lift aerial deployment</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>3D acoustic tomography &amp; root radar</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Dynamic synthetic cabling &amp; limb bracing</span>
+              </li>
+              <li class="pricing-inclusion-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>24/7 Priority Emergency Storm Concierge</span>
+              </li>
+            </ul>
+
+            <button class="btn btn-outline pricing-card-btn pricing-commission-btn" data-tier="Centennial Sanctuary Reserve">
+              <span>Choose Sanctuary</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-benefits-section" id="benefits">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill">
+            <span class="badge-dot"></span>
+            <span class="badge-text">UNIVERSAL ASSURANCES</span>
+          </div>
+          <h2 class="section-title">Included Across Every Commission Tier</h2>
+          <p class="section-subtitle">
+            Regardless of package scale, every client receives our uncompromising standards of biological care and property protection.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon-bubble" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Zero-Impact Turf Armor</h3>
+            <p class="benefit-desc">
+              We lay interlocking composite track mats from entry gates to work zones, dispersing multi-ton machine loads and ensuring zero tire ruts on fine lawns.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon-bubble" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <path d="m9 15 2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="benefit-title">$5,000,000 Liability Bond</h3>
+            <p class="benefit-desc">
+              Every operation carries five million dollars in comprehensive arboricultural liability coverage, fully protecting historic homes, pools, and glass solariums.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon-bubble" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+            </div>
+            <h3 class="benefit-title">100% ISA Certified Team</h3>
+            <p class="benefit-desc">
+              We never deploy uncertified day laborers or untrained contractors. Every cut is calculated and made by trained tree surgeons and certified dendrologists.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon-bubble" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Fixed Line-Item Pricing</h3>
+            <p class="benefit-desc">
+              Our written proposals represent total fixed fees. No post-work dump charges, equipment rental surcharges, or unexpected travel fees. Guaranteed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-faqs-section" id="faqs">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill">
+            <span class="badge-dot"></span>
+            <span class="badge-text">TRANSPARENT FINANCIAL SCOPE • FAQS</span>
+          </div>
+          <h2 class="section-title">Frequently Asked Pricing Questions</h2>
+          <p class="section-subtitle">
+            Clear, upfront guidance on consultations, permit filings, emergency fees, and annual stewardship arrangements.
+          </p>
+        </div>
+
+        <div class="pricing-faqs-container">
+
+          <div class="pricing-faq-card active">
+            <button class="pricing-faq-trigger" aria-expanded="true">
+              <span>Are on-site consultations and initial estimates complimentary?</span>
+              <span class="pricing-faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="pricing-faq-body">
+              <p class="pricing-faq-answer">
+                Yes. For residential estates and heritage landscapes, we conduct a complimentary initial visual assessment. A certified arborist inspects canopy mass, signs of wood decay, and vehicle access constraints, followed by a transparent, written fixed-price proposal within 24 hours.
+              </p>
+            </div>
+          </div>
+
+          <div class="pricing-faq-card">
+            <button class="pricing-faq-trigger" aria-expanded="false">
+              <span>How do you calculate the exact price for complex tree removal?</span>
+              <span class="pricing-faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="pricing-faq-body">
+              <p class="pricing-faq-answer">
+                Removal costs depend strictly on physical factors: overall tree height, trunk diameter, proximity to homes and powerlines, crane rigging requirements, and structural wood soundness. Our estimates are strictly itemized so you see exact allocations for crane setup, climbers, chipping, and stump remediation.
+              </p>
+            </div>
+          </div>
+
+          <div class="pricing-faq-card">
+            <button class="pricing-faq-trigger" aria-expanded="false">
+              <span>Do package prices include municipal tree removal permits?</span>
+              <span class="pricing-faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="pricing-faq-body">
+              <p class="pricing-faq-answer">
+                Our team handles all municipal filing, arborist diagnostic affidavits, and heritage tree compliance documentation. Any city permit application fee is passed directly at municipal cost with zero administrative markups.
+              </p>
+            </div>
+          </div>
+
+          <div class="pricing-faq-card">
+            <button class="pricing-faq-trigger" aria-expanded="false">
+              <span>What is the advantage of the Annual Custodianship program?</span>
+              <span class="pricing-faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="pricing-faq-body">
+              <p class="pricing-faq-answer">
+                Annual Custodianship delivers ongoing biological stewardship across the seasons: quarterly crown assessments, scheduled pre-storm weight thinning, deep root mycorrhizal inoculations, priority 24/7 emergency dispatch, and a 15% overall savings compared to piecemeal visits.
+              </p>
+            </div>
+          </div>
+
+          <div class="pricing-faq-card">
+            <button class="pricing-faq-trigger" aria-expanded="false">
+              <span>What insurance safeguards are active while your crew is on site?</span>
+              <span class="pricing-faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="pricing-faq-body">
+              <p class="pricing-faq-answer">
+                ARVORA maintains $5,000,000 in comprehensive specific arborist liability insurance along with full statutory workers' compensation for all personnel. Certificates naming your estate or trust as an additional insured are provided prior to equipment arrival.
+              </p>
+            </div>
+          </div>
+
+          <div class="pricing-faq-card">
+            <button class="pricing-faq-trigger" aria-expanded="false">
+              <span>Are there additional charges for debris hauling or wood retention?</span>
+              <span class="pricing-faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="pricing-faq-body">
+              <p class="pricing-faq-answer">
+                All package tiers include 100% complete debris removal, chipping, and lawn blow-down. If you wish to retain hardwood timber for estate firewood or have organic wood chips topdressed across garden beds, our crew will split and stack the material at no extra charge.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-cta-section" id="cta">
+      <div class="container">
+        <div class="pricing-cta-banner">
+          <div class="pricing-cta-glow" aria-hidden="true"></div>
+
+          <div class="pricing-cta-content">
+            <div class="badge-pill">
+              <span class="badge-dot"></span>
+              <span class="badge-text">PRIORITY ARBORIST ADVISORY</span>
+            </div>
+
+            <h2 class="pricing-cta-headline">
+              Ready for an Honest, Scientific Evaluation of Your Trees?
+            </h2>
+
+            <p class="pricing-cta-desc">
+              Connect directly with our master consulting desk. We conduct comprehensive on-site drone evaluations and deliver transparent, fixed-price proposals within 24 hours.
+            </p>
+
+            <div class="pricing-trust-badges-row">
+              <div class="pricing-trust-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>ISA Certified Master Arborist Oversight</span>
+              </div>
+              <div class="pricing-trust-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Zero-Impact Ground Armor Guarantee</span>
+              </div>
+              <div class="pricing-trust-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>$5,000,000 Specific Liability Bond</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-action-box">
+            <h3>Direct Arborist Concierge</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
+              Connect with our master consulting desk for priority estate scheduling:
+            </p>
+            <a href="tel:+919849024000" class="pricing-direct-phone" id="pricingPhoneLink">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>+91 98490 24000</span>
+            </a>
+            <button class="btn btn-primary btn-block btn-lg open-quote-modal" id="pricingHeroCommissionBtn" data-tier="Comprehensive Estate Assessment">
+              <span>Book Complimentary Assessment</span>
+              <span class="btn-arrow">→</span>
+            </button>
+            <span class="pricing-concierge-note">Complimentary initial evaluation for residential estates and heritage landscapes.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="atelier-footer">
+      <div class="container footer-main-content">
+        <div class="atelier-footer-grid">
+
+          <div class="footer-col brand-col">
+            <a href="index.html" class="brand-logo footer-brand-logo" aria-label="ARVORA Home">
+              <span class="logo-mark">
+                <img src="assets/logo.png" alt="ARVORA Logo" class="brand-img" width="46" height="46" />
+              </span>
+              <span class="brand-text-wrap">
+                <span class="brand-name font-light">ARVORA</span>
+                <span class="brand-sub font-sage">ARBORIST SERVICES</span>
+              </span>
+            </a>
+
+            <p class="brand-bio-text">
+              ARVORA creates sustainable estate ecosystems through scientific tree preservation, artistic canopy
+              trimming, and zero-impact hazardous removal across residential and commercial landscapes.
+            </p>
+
+            <div class="social-links-row">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="circle-social-btn"
+                aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="circle-social-btn"
+                aria-label="Pinterest">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="4" x2="12" y2="20"></line>
+                  <path d="M18 10a6 6 0 1 1-12 0c0 3 2 5.5 5 5.5"></path>
+                </svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="circle-social-btn"
+                aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="circle-social-btn"
+                aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                  </path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="col-title">QUICK LINKS</h4>
+            <ul class="col-links-list">
+              <li><a href="index.html">Home 1 (Atelier)</a></li>
+              <li><a href="home2.html">Home 2 (Editorial)</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="service.html">Services</a></li>
+              <li><a href="about.html#timeline">Timeline</a></li>
+              <li><a href="index.html#projects">Projects</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="col-title">SERVICES</h4>
+            <ul class="col-links-list">
+              <li><a href="service detail.html?service=trimming">Tree Trimming</a></li>
+              <li><a href="service detail.html?service=removal">Tree Removal</a></li>
+              <li><a href="service detail.html?service=pruning">Tree Pruning</a></li>
+              <li><a href="service detail.html?service=stump">Stump Grinding</a></li>
+              <li><a href="service detail.html?service=emergency">Emergency Care</a></li>
+              <li><a href="service detail.html?service=health">Health Diagnostics</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="col-title">ADDITIONAL INFO</h4>
+            <ul class="col-links-list">
+              <li><a href="pricing.html">Pricing Plans</a></li>
+              <li><a href="404.html">404 Page</a></li>
+              <li><a href="comingsoon.html">Coming Soon</a></li>
+              <li><a href="service.html#faqs">Safety & Insurance</a></li>
+              <li><a href="journal.html">Treecare Guide</a></li>
+              <li><a href="contact.html#contactAddresses">Service Areas</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col contact-col">
+            <h4 class="col-title">CONTACT</h4>
+            <ul class="contact-items-list">
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </span>
+                <div class="contact-text">
+                  <span class="contact-label">STUDIO & NURSERY</span>
+                  <span class="contact-val">Green Ridge Estate, Sector 42, Jubilee Hills</span>
+                </div>
+              </li>
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                </span>
+                <div class="contact-text">
+                  <span class="contact-label">DIRECT CONCIERGE</span>
+                  <a href="mailto:hello@arvora.com" class="contact-val hover-link">hello@arvora.com</a>
+                </div>
+              </li>
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </span>
+                <div class="contact-text">
+                  <span class="contact-label">CONSULTATION HOURS</span>
+                  <span class="contact-val">Mon – Sat: 8:00 AM – 6:30 PM</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="atelier-footer-bottom">
+          <div class="bottom-copy">
+            © 2026 ARVORA Tree & Arborist Services. All Rights Reserved.
+          </div>
+          <div class="bottom-links">
+            <a href="index.html#privacy">Privacy Policy</a>
+            <a href="index.html#terms">Terms of Commission</a>
+            <a href="index.html#guarantee">Provenance Guarantee</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="modal-overlay" id="quoteModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+
+      <div class="modal-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span class="badge-text">ESTIMATE & CONSULTATION</span>
+        </div>
+        <h3 class="modal-title" id="modalTitle">Request Your Free Assessment</h3>
+        <p class="modal-desc">
+          Tell us about your trees and property. An ARVORA certified arborist will provide a complimentary evaluation.
+        </p>
+      </div>
+
+      <form class="quote-form" id="quoteForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="userName">Full Name *</label>
+            <input type="text" id="userName" name="name" required placeholder="e.g. Robert Vance" />
+          </div>
+          <div class="form-group">
+            <label for="userPhone">Phone Number *</label>
+            <input type="tel" id="userPhone" name="phone" required placeholder="+91 98490 24000" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="userEmail">Email Address *</label>
+            <input type="email" id="userEmail" name="email" required placeholder="name@domain.com" />
+          </div>
+          <div class="form-group">
+            <label for="serviceSelect">Service Required</label>
+            <select id="serviceSelect" name="service">
+              <option value="Essential Specimen Care">Essential Specimen Care Tier</option>
+              <option value="Estate Masterwork Program" selected>Estate Masterwork Tier (Recommended)</option>
+              <option value="Centennial Sanctuary Reserve">Centennial Sanctuary Reserve Tier</option>
+              <option value="Annual Custodianship">Annual Custodianship Program</option>
+              <option value="Tree Trimming">Canopy Trimming & Pruning</option>
+              <option value="Hazardous Removal">Crane Hazardous Removal</option>
+              <option value="Health Diagnostics">Acoustic Sonic Diagnostics</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userNotes">Property Details & Specimen Notes</label>
+          <textarea id="userNotes" name="notes" rows="3"
+            placeholder="Tell us about the trees (species, height, gate access, or safety concerns)..."></textarea>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitQuoteBtn">
+            <span>Submit Assessment Request</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+        <p class="form-privacy-note">
+          Your personal details are treated with utmost privacy. We never share estate contact data.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay login-modal-overlay" id="loginModal" aria-hidden="true" role="dialog"
+    aria-labelledby="loginModalTitle">
+    <div class="modal-card login-modal-card">
+      <button class="modal-close-btn" id="loginModalCloseBtn" aria-label="Close dialog">&times;</button>
+
+      <div class="modal-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span class="badge-text">CLIENT & ARBORIST PORTAL</span>
+        </div>
+        <h3 class="modal-title" id="loginModalTitle">Welcome to ARVORA Portal</h3>
+        <p class="modal-desc">Access your estate canopy diagnostic records, work orders, and digital specimen passports.</p>
+      </div>
+
+      <div class="portal-role-toggle" role="tablist">
+        <button class="role-btn active" id="roleClientBtn" role="tab" aria-selected="true">
+          <span>Estate Client</span>
+        </button>
+        <button class="role-btn" id="roleArboristBtn" role="tab" aria-selected="false">
+          <span>ISA Arborist</span>
+        </button>
+      </div>
+
+      <form class="login-form" id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Account Email *</label>
+          <input type="email" id="loginEmail" required placeholder="client@estate.com" />
+        </div>
+
+        <div class="form-group">
+          <div class="label-with-link">
+            <label for="loginPassword">Password *</label>
+            <a href="javascript:void(0)" class="forgot-link" id="forgotPasswordLink">Forgot?</a>
+          </div>
+          <input type="password" id="loginPassword" required placeholder="••••••••" />
+        </div>
+
+        <div class="login-actions">
+          <label class="remember-wrap">
+            <input type="checkbox" id="rememberMe" />
+            <span>Keep me authenticated</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitLoginBtn">
+          <span>Authenticate & Access</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+  <script src="pricing.js"></script>
+</body>
+
+</html>

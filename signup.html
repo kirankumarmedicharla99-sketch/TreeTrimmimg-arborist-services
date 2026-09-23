@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Estate Account — ARVORA Arborist Services</title>
+  <meta name="description"
+    content="Register your estate property with ARVORA to receive master arborist canopy evaluations, acoustic tomography diagnostics, and dedicated tree care." />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script src="theme-sync.js"></script>
+
+  <link rel="stylesheet" href="signup.css" />
+</head>
+
+<body class="auth-body">
+
+  <div class="auth-wrapper">
+
+    <div class="auth-visual-pane">
+      <div class="visual-bg-overlay"></div>
+      <img src="assets/about_hero_estate.jpg" alt="Historic Estate Trees" class="visual-bg-img" />
+
+      <div class="visual-top-brand">
+        <a href="index.html" class="visual-brand-link" aria-label="ARVORA Home">
+          <img src="assets/logo.png" alt="ARVORA Logo" class="visual-brand-logo" width="44" height="44" />
+          <span class="visual-brand-text">
+            <span class="visual-brand-name">ARVORA</span>
+            <span class="visual-brand-sub">ARBORIST SERVICES</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="visual-center-content">
+        <div class="visual-badge">
+          <span class="badge-dot"></span>
+          <span>PRIVATE ARBORIST COMMISSIONS</span>
+        </div>
+        <h1 class="visual-heading">Preserving Heritage Trees<br /><span class="text-gold">for Generations.</span></h1>
+        <p class="visual-description">
+          Commission master arborists dedicated to the longevity, safety, and sculptural balance of your estate’s specimen trees. Register your property today.
+        </p>
+
+        <div class="visual-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon">✓</span>
+            <span>Comprehensive 18-Acre Canopy Health Audit</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">✓</span>
+            <span>Priority Emergency Storm Dispatch (24/7)</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">✓</span>
+            <span>1-Year Structural Care & Vitality Warranty</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual-bottom-trust">
+        <div class="trust-stars">★★★★★</div>
+        <span class="trust-text">Accredited by the International Society of Arboriculture (ISA)</span>
+      </div>
+    </div>
+
+    <div class="auth-form-pane">
+      <div class="auth-card">
+
+        <div class="card-top-controls">
+          <a href="index.html" class="back-home-link" title="Return to website">
+            <span class="back-arrow">←</span>
+            <span>Back to Site</span>
+          </a>
+
+          <div class="controls-group">
+            <button class="auth-ctrl-btn rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle RTL layout" title="Switch layout direction">
+              <span class="rtl-label" id="rtlBtnText">RTL</span>
+            </button>
+
+            <button class="auth-ctrl-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme mode" title="Toggle dark/light theme">
+              <svg class="theme-icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <svg class="theme-icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-header-wrap">
+          <div class="mobile-logo-icon">
+            <img src="assets/logo.png" alt="ARVORA Logo" width="34" height="34" />
+          </div>
+          <h2 class="auth-card-title">Create <span class="text-gold">Account</span></h2>
+          <p class="auth-card-subtitle">Register your estate for tailored arborist care & live job tracking.</p>
+        </div>
+
+        <form class="auth-form" id="signupForm">
+
+          <div class="form-group">
+            <label for="signupName" class="form-label">Full Name</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <input type="text" id="signupName" class="form-input" placeholder="Yash" required autocomplete="name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signupEmail" class="form-label">Estate Email Address</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <input type="email" id="signupEmail" class="form-input" placeholder="client@highlandmanor.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="signupPassword" class="form-label">Create Password</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </span>
+              <input type="password" id="signupPassword" class="form-input" placeholder="At least 8 characters" required autocomplete="new-password" />
+              <button type="button" class="password-toggle-btn" id="passwordToggleBtn" aria-label="Toggle password visibility">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+
+            <div class="password-meter-wrap" id="passwordMeterWrap">
+              <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
+              <span class="meter-text" id="meterText">Security strength</span>
+            </div>
+          </div>
+
+          <div class="form-options-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="termsAgreement" required checked />
+              <span class="custom-checkbox"></span>
+              <span class="checkbox-text">I accept the <a href="javascript:void(0)" class="terms-link">Terms of Care</a> and <a href="javascript:void(0)" class="terms-link">Privacy Policy</a></span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-auth-submit" id="submitSignupBtn">
+            <span>Create Estate Account</span>
+            <span class="submit-arrow">→</span>
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span class="divider-text">or register with</span>
+        </div>
+
+        <div class="social-login-grid">
+          <button type="button" class="btn-social-auth" id="googleSignupBtn" title="Register with Google">
+            <svg class="social-icon" width="18" height="18" viewBox="0 0 24 24">
+              <path fill="#4285F4"
+                d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" />
+              <path fill="#34A853"
+                d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.25 21.36 7.33 24 12 24z" />
+              <path fill="#FBBC05"
+                d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.02 0 12s.45 3.82 1.25 5.42l4.03-3.15z" />
+              <path fill="#EA4335"
+                d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+            </svg>
+            <span class="social-label">Google</span>
+          </button>
+
+          <button type="button" class="btn-social-auth" id="appleSignupBtn" title="Register with Apple">
+            <svg class="social-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.88c.67-.82 1.13-1.96 1-3.1-.98.04-2.16.65-2.84 1.45-.6.7-1.13 1.83-.99 2.94 1.09.09 2.16-.47 2.83-1.29z" />
+            </svg>
+            <span class="social-label">Apple</span>
+          </button>
+        </div>
+
+        <div class="card-footer-wrap">
+          <span class="footer-note">Already registered?</span>
+          <a href="login.html" class="footer-action-link" id="goToLoginLink">Login</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="auth-toast" id="authToast" role="alert" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="authToastMessage">Account created successfully.</span>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+
+</html>
