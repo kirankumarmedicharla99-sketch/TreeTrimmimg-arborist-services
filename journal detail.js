@@ -1,4 +1,4 @@
-﻿const LUCIDE_ICONS = {
+const LUCIDE_ICONS = {
   scale: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>`,
   sun: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
   shieldCheck: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>`,
@@ -805,9 +805,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileDrawer();
   initDetailFaqAccordion();
   initDetailCommissionButtons();
+  initStickySidebar();
 
-const initialKey = getJournalFromUrl();
+  const initialKey = getJournalFromUrl();
   renderJournalDetail(initialKey);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const scrollPos = urlParams.get('scroll');
+  if (scrollPos) {
+    window.scrollTo({ top: parseInt(scrollPos, 10), behavior: 'instant' });
+  }
 });
 
 function getJournalFromUrl() {
@@ -858,6 +865,17 @@ const heroBadge = document.getElementById('heroBadgeText');
   }
   if (floatingTitle) floatingTitle.textContent = data.floatingBadgeTitle;
   if (floatingSub) floatingSub.textContent = data.floatingBadgeSub;
+  const stickyBadge = document.getElementById('stickyBadge');
+  const stickyTitle = document.getElementById('stickyTitle');
+  const stickyAuthor = document.getElementById('stickyAuthor');
+  const stickyReadTime = document.getElementById('stickyReadTime');
+  const stickyCommissionBtn = document.getElementById('stickyCommissionBtn');
+
+  if (stickyBadge) stickyBadge.textContent = `${data.volume} • MONOGRAPH`;
+  if (stickyTitle) stickyTitle.textContent = data.title;
+  if (stickyAuthor) stickyAuthor.textContent = data.author ? data.author.split('(')[0].trim() : 'Master Arborist';
+  if (stickyReadTime) stickyReadTime.textContent = data.readTime;
+  if (stickyCommissionBtn) stickyCommissionBtn.setAttribute('data-service', `Field Study - ${data.title}`);
 
 const abstractText = document.getElementById('abstractText');
   if (abstractText) abstractText.textContent = data.abstract;
@@ -1159,3 +1177,98 @@ function initMobileDrawer() {
     }
   });
 }
+
+function initStickySidebar() {
+  const progressBar = document.getElementById('stickyProgressBar');
+  const progressVal = document.getElementById('stickyProgressVal');
+  const article = document.getElementById('article');
+  const tocLinks = document.querySelectorAll('.sticky-toc-link');
+  const shareBtn = document.getElementById('stickyShareBtn');
+  const shareText = document.getElementById('stickyShareText');
+
+  if (shareBtn) {
+    shareBtn.addEventListener('click', async () => {
+      try {
+        if (navigator.clipboard) {
+          await navigator.clipboard.writeText(window.location.href);
+          if (shareText) {
+            const orig = shareText.textContent;
+            shareText.textContent = 'Copied!';
+            setTimeout(() => { shareText.textContent = orig; }, 2000);
+          }
+        }
+      } catch (err) {
+        console.error('Clipboard error:', err);
+      }
+    });
+  }
+
+  // Smooth scroll with offset for sticky header
+  tocLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('data-target') || link.getAttribute('href')?.replace('#', '');
+      const targetElem = document.getElementById(targetId);
+      if (targetElem) {
+        e.preventDefault();
+        const headerOffset = 90;
+        const elemPos = targetElem.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: elemPos - headerOffset,
+          behavior: 'smooth'
+        });
+        tocLinks.forEach((l) => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  });
+
+  const updateProgress = () => {
+    if (!article) return;
+    const rect = article.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const totalHeight = article.offsetHeight - windowHeight;
+    const scrolled = Math.max(0, -rect.top);
+
+    if (totalHeight > 0) {
+      const pct = Math.min(100, Math.max(0, Math.round((scrolled / totalHeight) * 100)));
+      if (progressBar) progressBar.style.width = `${pct}%`;
+      if (progressVal) progressVal.textContent = `${pct}%`;
+    }
+
+    const sections = [
+      document.getElementById('abstract'),
+      document.getElementById('articleBodyContainer'),
+      document.getElementById('metrics'),
+      document.getElementById('methodology'),
+      document.getElementById('casestudy'),
+      document.getElementById('why-choose'),
+      document.getElementById('faqs')
+    ].filter(Boolean);
+
+    let currentActive = null;
+    for (let i = 0; i < sections.length; i++) {
+      const sRect = sections[i].getBoundingClientRect();
+      if (sRect.top <= 260) {
+        currentActive = sections[i].id;
+      }
+    }
+    if (!currentActive && sections.length > 0) {
+      currentActive = sections[0].id;
+    }
+
+    if (currentActive) {
+      tocLinks.forEach((link) => {
+        const tId = link.getAttribute('data-target') || link.getAttribute('href')?.replace('#', '');
+        if (tId === currentActive) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  };
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+}
+
