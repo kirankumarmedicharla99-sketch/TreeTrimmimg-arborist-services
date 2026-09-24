@@ -178,23 +178,37 @@ button {
   color: #E5C388;
 }
 
+/* Light-mode brand-main-text: sidebar is still dark, so gold is fine */
+[data-theme="light"] .brand-main-text {
+  color: #E5C388;
+}
+
 .brand-sub-text {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.82);
   margin-top: 1px;
   transition: color 0.3s ease;
+  text-transform: uppercase;
 }
 
-[data-theme="dark"] .brand-sub-text,
+[data-theme="dark"] .brand-sub-text {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+/* Sidebar stays dark even in light mode — brand caption must stay light/visible */
+[data-theme="light"] .brand-sub-text {
+  color: rgba(245, 241, 231, 0.75) !important;
+}
+
 [data-theme="dark"] .mobile-brand-sub {
-  color: #FFFFFF !important;
+  color: rgba(255, 255, 255, 0.82) !important;
 }
 
-[data-theme="light"] .brand-sub-text,
+/* Mobile nav bar is white in light mode — use a visible green caption */
 [data-theme="light"] .mobile-brand-sub {
-  color: #000000 !important;
+  color: #2C4835 !important;
 }
 
 .sidebar-nav {

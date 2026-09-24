@@ -1,11 +1,9 @@
 .about-hero-section {
   position: relative;
-  height: 90vh;
-  min-height: 90vh;
-  max-height: 90vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
-  padding: clamp(0.75rem, 1.8vh, 1.5rem) 0;
+  padding: clamp(2rem, 5vh, 4rem) 0;
   overflow: hidden;
   background: radial-gradient(circle at 80% 20%, rgba(18, 59, 42, 0.4) 0%, transparent 60%),
     radial-gradient(circle at 15% 85%, rgba(49, 83, 59, 0.25) 0%, transparent 55%),
@@ -27,20 +25,20 @@
 
 .about-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.1rem, 3vw, 2.85rem);
-  font-weight: 700;
-  line-height: 1.12;
+  font-size: clamp(2.65rem, 4.4vw, 4rem);
+  font-weight: 800;
+  line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  margin: 0.45rem 0 0.65rem;
+  margin: 0.75rem 0 1.25rem;
 }
 
 .about-hero-desc {
-  font-size: clamp(0.96rem, 1.1vw, 1.02rem);
-  line-height: 1.55;
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: 1.1rem;
-  max-width: 530px;
+  margin-bottom: 1.5rem;
+  max-width: 560px;
 }
 
 .about-hero-actions {
@@ -50,6 +48,76 @@
   flex-wrap: wrap;
   margin-bottom: 1.15rem;
 }
+
+/* About Hero CTA Buttons */
+#heroTimelineCta:hover .btn-arrow {
+  transform: translateY(3px);
+}
+
+#heroTeamCta {
+  background-color: rgba(18, 59, 42, 0.55);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(229, 195, 136, 0.5) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+#heroTeamCta span,
+#heroTeamCta .btn-arrow {
+  color: #FFFFFF !important;
+  transition: color 0.3s ease, transform 0.25s ease;
+}
+
+#heroTeamCta:hover {
+  background-color: rgba(229, 195, 136, 0.2) !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: var(--accent-gold, #E5C388) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 195, 136, 0.3) !important;
+}
+
+#heroTeamCta:hover span,
+#heroTeamCta:hover .btn-arrow {
+  color: var(--accent-gold, #E5C388) !important;
+}
+
+#heroTeamCta:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+[dir="rtl"] #heroTeamCta:hover .btn-arrow {
+  transform: translateX(-4px);
+}
+
+/* Light Theme for 2nd Hero Button */
+[data-theme="light"] #heroTeamCta {
+  background-color: #FFFFFF !important;
+  color: #123B2A !important;
+  border: 1.5px solid #1B3B2B !important;
+  box-shadow: 0 4px 14px rgba(18, 59, 42, 0.12) !important;
+}
+
+[data-theme="light"] #heroTeamCta span,
+[data-theme="light"] #heroTeamCta .btn-arrow {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] #heroTeamCta:hover {
+  background-color: #1B3B2B !important;
+  border-color: #1B3B2B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(18, 59, 42, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] #heroTeamCta:hover span,
+[data-theme="light"] #heroTeamCta:hover .btn-arrow {
+  color: #FFFFFF !important;
+}
+
 
 .about-hero-gold-tag {
   background: rgba(192, 137, 43, 0.22);
@@ -805,21 +873,37 @@
 .team-card-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 0.8rem;
+  justify-content: flex-start;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--border-color-subtle);
+  margin-top: auto;
 }
 
 .team-specialty-tag {
-  font-size: 0.74rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--accent-gold);
+  letter-spacing: 0.02em;
 }
 
-.team-card-footer .btn {
-  padding: 0.42rem 0.85rem;
-  font-size: 0.78rem;
-  border-radius: var(--radius-pill);
+.team-specialty-tag::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+}
+
+[data-theme="light"] .team-specialty-tag {
+  color: #123B2A;
+}
+
+[data-theme="light"] .team-specialty-tag::before {
+  background-color: #123B2A;
 }
 
 .about-cta-section {

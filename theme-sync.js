@@ -1,4 +1,4 @@
-﻿(function (window, document) {
+(function (window, document) {
   'use strict';
 
   var THEME_KEY = 'arvora_theme';
@@ -191,11 +191,15 @@ if (themeChannel) {
   }
 
 function onDomReady() {
-
     var curTheme = getActiveTheme();
     var curDir = getActiveDir();
     applyTheme(curTheme, false);
     applyDir(curDir, false);
+
+    var header = document.querySelector('.atelier-header, #mainHeader');
+    if (header) {
+      document.body.classList.add('has-fixed-header');
+    }
 
 document.addEventListener('click', function (e) {
       var target = e.target;
@@ -223,6 +227,31 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
         e.stopPropagation();
         window.location.href = 'login.html';
         return;
+      }
+
+      var anchor = target.closest('a[href^="#"]');
+      if (anchor) {
+        var href = anchor.getAttribute('href');
+        if (href === '#' || href === '#!') {
+          e.preventDefault();
+          return;
+        }
+        if (href && !href.startsWith('#quoteModal') && !href.startsWith('#loginModal') && !href.startsWith('#storyModal')) {
+          var targetEl = document.querySelector(href);
+          if (targetEl) {
+            e.preventDefault();
+            var headerEl = document.getElementById('mainHeader') || document.querySelector('.atelier-header');
+            var headerH = headerEl ? headerEl.offsetHeight : 72;
+            var elemPos = targetEl.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+              top: Math.max(0, elemPos - headerH - 8),
+              behavior: 'smooth'
+            });
+            if (window.history && window.history.pushState) {
+              window.history.pushState(null, null, href);
+            }
+          }
+        }
       }
     }, true);
   }

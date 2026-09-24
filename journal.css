@@ -92,6 +92,91 @@
   margin-bottom: 1.75rem;
 }
 
+/* Journal Hero CTA Buttons */
+#heroExploreJournalsBtn:hover .btn-arrow {
+  transform: translateY(3px);
+}
+
+.journal-hero-actions .btn-outline,
+#heroJournalFieldStudyBtn {
+  background-color: rgba(18, 59, 42, 0.55);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(229, 195, 136, 0.5) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.journal-hero-actions .btn-outline span,
+.journal-hero-actions .btn-outline .btn-arrow,
+#heroJournalFieldStudyBtn span,
+#heroJournalFieldStudyBtn .btn-arrow {
+  color: #FFFFFF !important;
+  transition: color 0.3s ease, transform 0.25s ease;
+}
+
+.journal-hero-actions .btn-outline:hover,
+#heroJournalFieldStudyBtn:hover {
+  background-color: rgba(229, 195, 136, 0.2) !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: var(--accent-gold, #E5C388) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 195, 136, 0.3) !important;
+}
+
+.journal-hero-actions .btn-outline:hover span,
+.journal-hero-actions .btn-outline:hover .btn-arrow,
+#heroJournalFieldStudyBtn:hover span,
+#heroJournalFieldStudyBtn:hover .btn-arrow {
+  color: var(--accent-gold, #E5C388) !important;
+}
+
+.journal-hero-actions .btn-outline:hover .btn-arrow,
+#heroJournalFieldStudyBtn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .journal-hero-actions .btn-outline:hover .btn-arrow,
+[dir="rtl"] #heroJournalFieldStudyBtn:hover .btn-arrow {
+  transform: translateX(-4px);
+}
+
+/* Light Theme for Journal Hero 2nd Button */
+[data-theme="light"] .journal-hero-actions .btn-outline,
+[data-theme="light"] #heroJournalFieldStudyBtn {
+  background-color: #FFFFFF !important;
+  color: #123B2A !important;
+  border: 1.5px solid #1B3B2B !important;
+  box-shadow: 0 4px 14px rgba(18, 59, 42, 0.12) !important;
+}
+
+[data-theme="light"] .journal-hero-actions .btn-outline span,
+[data-theme="light"] .journal-hero-actions .btn-outline .btn-arrow,
+[data-theme="light"] #heroJournalFieldStudyBtn span,
+[data-theme="light"] #heroJournalFieldStudyBtn .btn-arrow {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .journal-hero-actions .btn-outline:hover,
+[data-theme="light"] #heroJournalFieldStudyBtn:hover {
+  background-color: #1B3B2B !important;
+  border-color: #1B3B2B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(18, 59, 42, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .journal-hero-actions .btn-outline:hover span,
+[data-theme="light"] .journal-hero-actions .btn-outline:hover .btn-arrow,
+[data-theme="light"] #heroJournalFieldStudyBtn:hover span,
+[data-theme="light"] #heroJournalFieldStudyBtn:hover .btn-arrow {
+  color: #FFFFFF !important;
+}
+
+
 .journal-hero-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

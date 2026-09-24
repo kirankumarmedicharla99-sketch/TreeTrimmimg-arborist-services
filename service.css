@@ -128,7 +128,8 @@
   margin-bottom: 3rem;
 }
 
-.svc-ghost-btn {
+.svc-ghost-btn,
+#heroViewGalleryBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -137,31 +138,87 @@
   border-radius: var(--radius-pill);
   font-size: 0.92rem;
   font-weight: 600;
-  color: rgba(229, 195, 136, 0.92);
-  background: rgba(229, 195, 136, 0.07);
-  backdrop-filter: blur(8px);
+  color: #FFFFFF !important;
+  background: rgba(18, 59, 42, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: 0.02em;
 }
 
-.svc-ghost-btn:hover {
-  background: rgba(229, 195, 136, 0.18);
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
+.svc-ghost-btn svg,
+#heroViewGalleryBtn svg {
+  stroke: #FFFFFF;
+  transition: stroke 0.3s ease, transform 0.25s ease;
+}
+
+.svc-ghost-btn span,
+#heroViewGalleryBtn span {
+  color: #FFFFFF !important;
+  transition: color 0.3s ease;
+}
+
+.svc-ghost-btn:hover,
+#heroViewGalleryBtn:hover {
+  background: rgba(229, 195, 136, 0.2) !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: var(--accent-gold, #E5C388) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(229, 195, 136, 0.18);
+  box-shadow: 0 8px 24px rgba(229, 195, 136, 0.3) !important;
 }
 
-[data-theme="light"] .svc-ghost-btn {
-  border-color: rgba(18, 59, 42, 0.3);
-  color: #123B2A;
-  background: rgba(18, 59, 42, 0.06);
+.svc-ghost-btn:hover span,
+#heroViewGalleryBtn:hover span {
+  color: var(--accent-gold, #E5C388) !important;
 }
 
-[data-theme="light"] .svc-ghost-btn:hover {
-  background: rgba(18, 59, 42, 0.12);
-  border-color: #123B2A;
+.svc-ghost-btn:hover svg,
+#heroViewGalleryBtn:hover svg {
+  stroke: var(--accent-gold, #E5C388) !important;
+  transform: scale(1.08);
+}
+
+/* Light Mode */
+[data-theme="light"] .svc-ghost-btn,
+[data-theme="light"] #heroViewGalleryBtn {
+  background: #FFFFFF !important;
+  border: 1.5px solid #1B3B2B !important;
+  color: #123B2A !important;
+  box-shadow: 0 4px 14px rgba(18, 59, 42, 0.12) !important;
+}
+
+[data-theme="light"] .svc-ghost-btn span,
+[data-theme="light"] #heroViewGalleryBtn span {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .svc-ghost-btn svg,
+[data-theme="light"] #heroViewGalleryBtn svg {
+  stroke: #123B2A !important;
+  transition: stroke 0.3s ease, transform 0.25s ease;
+}
+
+[data-theme="light"] .svc-ghost-btn:hover,
+[data-theme="light"] #heroViewGalleryBtn:hover {
+  background: #1B3B2B !important;
+  border-color: #1B3B2B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(18, 59, 42, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .svc-ghost-btn:hover span,
+[data-theme="light"] #heroViewGalleryBtn:hover span {
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .svc-ghost-btn:hover svg,
+[data-theme="light"] #heroViewGalleryBtn:hover svg {
+  stroke: #FFFFFF !important;
+  filter: none !important;
+  transform: scale(1.08);
 }
 
 .services-hero-stats {
@@ -386,6 +443,45 @@
   font-size: 0.82rem;
   text-align: center;
   justify-content: center;
+}
+
+.service-card-footer .service-estimate-btn,
+.service-card-footer .btn-outline {
+  background-color: rgba(18, 59, 42, 0.45);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(229, 195, 136, 0.45) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.service-card-footer .service-estimate-btn:hover,
+.service-card-footer .btn-outline:hover {
+  background-color: rgba(229, 195, 136, 0.22) !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: var(--accent-gold, #E5C388) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(229, 195, 136, 0.3) !important;
+}
+
+/* Light Theme for 6 Cards 2nd Button (Estimate) */
+[data-theme="light"] .service-card-footer .service-estimate-btn,
+[data-theme="light"] .service-card-footer .btn-outline {
+  background-color: #FFFFFF !important;
+  color: #123B2A !important;
+  border: 1.5px solid #1B3B2B !important;
+  box-shadow: 0 2px 8px rgba(18, 59, 42, 0.08) !important;
+}
+
+[data-theme="light"] .service-card-footer .service-estimate-btn:hover,
+[data-theme="light"] .service-card-footer .btn-outline:hover {
+  background-color: #1B3B2B !important;
+  border-color: #1B3B2B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(18, 59, 42, 0.25) !important;
+  transform: translateY(-2px);
 }
 
 .services-faq-section {
