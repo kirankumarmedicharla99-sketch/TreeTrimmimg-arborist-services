@@ -371,9 +371,9 @@ body::before {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: #123B2A;
+      background: #234734;
       color: #FFFFFF;
-      border: none;
+      border: 1px solid #487258;
       border-radius: 9999px;
       padding: clamp(0.6rem, 1vh, 0.72rem) clamp(1.1rem, 1.4vw, 1.45rem);
       font-size: 0.9rem;
@@ -382,13 +382,14 @@ body::before {
       cursor: pointer;
       white-space: nowrap;
       transition: all var(--transition-fast, 0.2s ease);
-      box-shadow: 0 4px 12px rgba(18, 59, 42, 0.25);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
     .cs-notify-btn:hover {
-      background: #19523B;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(18, 59, 42, 0.35);
+      background: #2C563F;
+      border-color: var(--accent-gold, #E5C388);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
     }
 
     .cs-notify-btn:active {
@@ -568,14 +569,17 @@ body::before {
     }
 
     [data-theme="dark"] .cs-notify-btn {
-      background: #C0892B;
-      color: #0A1C14;
-      box-shadow: 0 4px 14px rgba(192, 137, 43, 0.35);
+      background: #234734;
+      color: #FFFFFF;
+      border: 1px solid #487258;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
     [data-theme="dark"] .cs-notify-btn:hover {
-      background: #D9A03C;
-      box-shadow: 0 6px 20px rgba(192, 137, 43, 0.5);
+      background: #2C563F;
+      border-color: var(--accent-gold, #E5C388);
+      color: #FFFFFF;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
     }
 
     [data-theme="dark"] .cs-notify-feedback {

@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   'use strict';
 
 var toastEl = document.getElementById('dashboardToast');
@@ -380,15 +380,42 @@ var downloadBtns = document.querySelectorAll('.download-report-btn, .download-in
     });
   });
 
-var profileUpdateForm = document.getElementById('profileUpdateForm');
-  var profileNameInput = document.getElementById('profileNameInput');
-  var userDisplayName = document.getElementById('userDisplayName');
+  // Synchronize client user name from localStorage or default to Harrison Cole
+  var activeUser = 'Harrison Cole';
+  try {
+    var storedName = localStorage.getItem('arvora_user');
+    if (storedName && storedName.trim()) {
+      activeUser = storedName.trim();
+    }
+  } catch (err) {}
 
+  var activeFirstName = activeUser.split(' ')[0] || activeUser;
+  var activeInitials = activeUser.split(' ').map(function (n) { return n[0]; }).join('').toUpperCase().substring(0, 2) || 'HC';
+
+  var userDisplayName = document.getElementById('userDisplayName');
+  if (userDisplayName) userDisplayName.textContent = activeFirstName;
+
+  document.querySelectorAll('.profile-name').forEach(function (el) { el.textContent = activeFirstName; });
+  document.querySelectorAll('.user-full-name, .profile-header-name').forEach(function (el) { el.textContent = activeUser; });
+  document.querySelectorAll('.avatar-initials, .user-avatar-lg, .avatar-large-circle').forEach(function (el) { el.textContent = activeInitials; });
+
+  var profileNameInput = document.getElementById('profileNameInput');
+  if (profileNameInput) profileNameInput.value = activeUser;
+
+  var profileUpdateForm = document.getElementById('profileUpdateForm');
   if (profileUpdateForm) {
     profileUpdateForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (profileNameInput && userDisplayName) {
-        userDisplayName.textContent = profileNameInput.value;
+      if (profileNameInput) {
+        var updated = profileNameInput.value.trim() || 'Harrison Cole';
+        var updatedFirst = updated.split(' ')[0] || updated;
+        var updatedInitials = updated.split(' ').map(function (n) { return n[0]; }).join('').toUpperCase().substring(0, 2) || 'HC';
+        try { localStorage.setItem('arvora_user', updated); } catch (err) {}
+
+        if (userDisplayName) userDisplayName.textContent = updatedFirst;
+        document.querySelectorAll('.profile-name').forEach(function (el) { el.textContent = updatedFirst; });
+        document.querySelectorAll('.user-full-name, .profile-header-name').forEach(function (el) { el.textContent = updated; });
+        document.querySelectorAll('.avatar-initials, .user-avatar-lg, .avatar-large-circle').forEach(function (el) { el.textContent = updatedInitials; });
       }
       showToast('Estate profile preferences saved successfully.');
     });
@@ -420,13 +447,13 @@ var convItems = document.querySelectorAll('.conv-item');
       name: 'Marcus Vance, Master Arborist',
       status: 'Active on Property — North Courtyard Specimen #04',
       avatar: 'assets/team_marcus.jpg',
-      initialMsg: 'Good morning Yash! Our crew has safely set up the zero-impact electric lifts on the North Courtyard lawn.'
+      initialMsg: 'Good morning Harrison! Our crew has safely set up the zero-impact electric lifts on the North Courtyard lawn.'
     },
     elena: {
       name: 'Elena Rostova, Private Concierge',
       status: 'Concierge Desk Active — Responding within 5m',
       avatar: 'assets/client_elena.jpg',
-      initialMsg: 'Hello Yash, your seasonal tree preservation warranty extension has been approved. The official digital certificate is ready.'
+      initialMsg: 'Hello Harrison, your seasonal tree preservation warranty extension has been approved. The official digital certificate is ready.'
     },
     david: {
       name: 'David Cole, Crane Specialist',
@@ -507,7 +534,7 @@ var sentRow = document.createElement('div');
       sentRow.className = 'message-row sent';
       sentRow.innerHTML =
         '<div class="message-bubble-wrap">' +
-          '<span class="message-sender-meta">You (Yash) • ' + timeStr + '</span>' +
+          '<span class="message-sender-meta">You (Harrison) • ' + timeStr + '</span>' +
           '<div class="message-bubble">' + message + '</div>' +
         '</div>';
 
@@ -522,7 +549,7 @@ setTimeout(function () {
           '<img src="assets/team_marcus.jpg" alt="Marcus" class="message-avatar" />' +
           '<div class="message-bubble-wrap">' +
             '<span class="message-sender-meta">Marcus Vance • Just now</span>' +
-            '<div class="message-bubble">Received, Yash! I have recorded your note in today’s official field log. We will ensure this is handled precisely.</div>' +
+            '<div class="message-bubble">Received, Harrison! I have recorded your note in today’s official field log. We will ensure this is handled precisely.</div>' +
           '</div>';
 
         chatMessagesContainer.appendChild(replyRow);

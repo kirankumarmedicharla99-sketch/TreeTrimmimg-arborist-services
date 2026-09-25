@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   'use strict';
 
 var toastEl = document.getElementById('authToast');
@@ -64,7 +64,7 @@ submitBtn.disabled = true;
       setTimeout(function () {
 
         try {
-          localStorage.setItem('arvora_user', 'Yash');
+          localStorage.setItem('arvora_user', 'Harrison Cole');
           localStorage.setItem('arvora_email', email);
         } catch (err) {}
 
@@ -84,7 +84,7 @@ var googleBtn = document.getElementById('googleAuthBtn');
     googleBtn.addEventListener('click', function () {
       showToast('Authenticating with Google Workspace...');
       try {
-        localStorage.setItem('arvora_user', 'Yash');
+        localStorage.setItem('arvora_user', 'Harrison Cole');
       } catch (e) {}
       setTimeout(function () {
         window.location.href = 'dashboard.html';
@@ -96,7 +96,7 @@ var googleBtn = document.getElementById('googleAuthBtn');
     appleBtn.addEventListener('click', function () {
       showToast('Authenticating with Apple ID...');
       try {
-        localStorage.setItem('arvora_user', 'Yash');
+        localStorage.setItem('arvora_user', 'Harrison Cole');
       } catch (e) {}
       setTimeout(function () {
         window.location.href = 'dashboard.html';

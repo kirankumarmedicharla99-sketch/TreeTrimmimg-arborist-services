@@ -768,6 +768,30 @@
   padding: 6.5rem 0;
 }
 
+.why-choose-section .badge-pill {
+  background: rgba(229, 195, 136, 0.14) !important;
+  border: 1px solid rgba(229, 195, 136, 0.35) !important;
+  color: #E5C388 !important;
+}
+
+.why-choose-section .badge-pill .badge-dot {
+  background-color: #E5C388 !important;
+  box-shadow: 0 0 8px rgba(229, 195, 136, 0.6) !important;
+}
+
+.why-choose-section .badge-pill .badge-text {
+  color: #E5C388 !important;
+  font-weight: 700;
+}
+
+.why-choose-section .section-title {
+  color: #FFFFFF !important;
+}
+
+.why-choose-section .section-subtitle {
+  color: #C8D8CC !important;
+}
+
 .why-pillars-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -776,41 +800,45 @@
 }
 
 .why-pillar-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
+  background: linear-gradient(145deg, rgba(16, 38, 27, 0.96) 0%, rgba(9, 22, 16, 0.98) 100%);
+  border: 1px solid rgba(229, 195, 136, 0.22);
   border-radius: var(--radius-lg);
   padding: 2.25rem 1.75rem;
   transition: var(--transition-smooth);
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
 }
 
 .why-pillar-card:hover {
   transform: translateY(-8px);
   border-color: var(--accent-gold);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55), 0 0 25px rgba(229, 195, 136, 0.12);
 }
 
 .pillar-icon-box {
   width: 58px;
   height: 58px;
   border-radius: var(--radius-md);
-  background: rgba(18, 59, 42, 0.7);
-  border: 1px solid rgba(168, 184, 159, 0.25);
+  background: rgba(18, 59, 42, 0.85);
+  border: 1px solid rgba(229, 195, 136, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent-gold);
   margin-bottom: 1.5rem;
   transition: var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .why-pillar-card:hover .pillar-icon-box {
-  background: var(--primary);
+  background: #1B4C37;
   border-color: var(--accent-gold);
+  color: #FFF2D1;
   transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(229, 195, 136, 0.25);
 }
 
 .pillar-tag {
@@ -818,27 +846,31 @@
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.3rem 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.32rem 0.75rem;
   border-radius: var(--radius-pill);
-  background: rgba(168, 184, 159, 0.12);
-  color: var(--soft-sage);
-  margin-bottom: 0.85rem;
+  background: rgba(229, 195, 136, 0.14) !important;
+  color: #E5C388 !important;
+  border: 1px solid rgba(229, 195, 136, 0.32) !important;
+  margin-bottom: 0.95rem;
+  display: inline-block;
+  line-height: 1.2;
 }
 
 .pillar-title {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #FFFFFF !important;
   margin-bottom: 0.85rem;
   line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .pillar-desc {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.68;
+  color: #D6E4DA !important;
   flex-grow: 1;
 }
 
@@ -967,6 +999,78 @@
   color: var(--soft-sage);
   font-size: 0.85rem;
   letter-spacing: 0.03em;
+}
+
+/* Light Mode: The Arvora Distinction Section & Cards */
+[data-theme="light"] .why-choose-section {
+  background: #F7F5EE !important;
+}
+
+[data-theme="light"] .why-choose-section .badge-pill {
+  background-color: rgba(18, 59, 42, 0.08) !important;
+  border: 1px solid rgba(18, 59, 42, 0.22) !important;
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .why-choose-section .badge-pill .badge-dot {
+  background-color: #123B2A !important;
+  box-shadow: 0 0 8px rgba(18, 59, 42, 0.45) !important;
+}
+
+[data-theme="light"] .why-choose-section .badge-pill .badge-text {
+  color: #123B2A !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .why-choose-section .section-title {
+  color: #0A1C13 !important;
+}
+
+[data-theme="light"] .why-choose-section .section-subtitle {
+  color: #2F4A38 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .why-pillar-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(18, 59, 42, 0.16) !important;
+  box-shadow: 0 10px 30px rgba(18, 59, 42, 0.08) !important;
+}
+
+[data-theme="light"] .why-pillar-card:hover {
+  transform: translateY(-8px);
+  border-color: #123B2A !important;
+  box-shadow: 0 18px 42px rgba(18, 59, 42, 0.16) !important;
+}
+
+[data-theme="light"] .why-pillar-card .pillar-icon-box {
+  background: rgba(18, 59, 42, 0.08) !important;
+  border: 1px solid rgba(18, 59, 42, 0.2) !important;
+  color: #123B2A !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] .why-pillar-card:hover .pillar-icon-box {
+  background: #123B2A !important;
+  border-color: #123B2A !important;
+  color: #E5C388 !important;
+}
+
+[data-theme="light"] .why-pillar-card .pillar-tag {
+  background: rgba(18, 59, 42, 0.08) !important;
+  color: #123B2A !important;
+  border: 1px solid rgba(18, 59, 42, 0.22) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .why-pillar-card .pillar-title {
+  color: #0A1C13 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .why-pillar-card .pillar-desc {
+  color: #2A4434 !important;
+  font-weight: 500 !important;
 }
 
 [data-theme="light"] .why-comparison-wrapper {

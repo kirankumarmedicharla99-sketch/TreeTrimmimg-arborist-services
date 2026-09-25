@@ -319,14 +319,50 @@ ul {
   color: #FFFFFF;
   border: 1px solid #487258;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: var(--transition-fast, all 0.2s ease);
 }
 
 .btn-primary:hover {
   background-color: #2C563F;
-  border-color: #5C8E70;
+  border-color: var(--accent-gold, #E5C388);
   color: #FFFFFF;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary span,
+.btn-primary .btn-arrow {
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover span,
+.btn-primary:hover .btn-arrow {
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .btn-primary {
+  background-color: #234734;
+  color: #FFFFFF;
+  border: 1px solid #487258;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .btn-primary:hover {
+  background-color: #2C563F;
+  border-color: var(--accent-gold, #E5C388);
+  color: #FFFFFF;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .btn-primary span,
+[data-theme="light"] .btn-primary .btn-arrow,
+[data-theme="light"] .btn-primary:hover span,
+[data-theme="light"] .btn-primary:hover .btn-arrow {
+  color: #FFFFFF !important;
 }
 
 #heroQuoteBtn {
@@ -389,7 +425,11 @@ html:not([data-theme="light"]) .journal-hero-actions .btn-outline:hover,
 [data-theme="dark"] .service-card-footer .service-estimate-btn:hover,
 html:not([data-theme="light"]) .service-card-footer .service-estimate-btn:hover,
 [data-theme="dark"] .service-card-footer .btn-outline:hover,
-html:not([data-theme="light"]) .service-card-footer .btn-outline:hover {
+html:not([data-theme="light"]) .service-card-footer .btn-outline:hover,
+[data-theme="dark"] .journal-card-footer .consult-arborist-btn:hover,
+html:not([data-theme="light"]) .journal-card-footer .consult-arborist-btn:hover,
+[data-theme="dark"] .journal-card-footer .btn-outline:hover,
+html:not([data-theme="light"]) .journal-card-footer .btn-outline:hover {
   color: var(--accent-gold);
   border-color: var(--accent-gold);
 }
@@ -424,7 +464,9 @@ html:not([data-theme="light"]) .journal-hero-actions .btn-outline:hover svg {
 [data-theme="light"] .services-hero-actions .svc-ghost-btn:hover,
 [data-theme="light"] .journal-hero-actions .btn-outline:hover,
 [data-theme="light"] .service-card-footer .service-estimate-btn:hover,
-[data-theme="light"] .service-card-footer .btn-outline:hover {
+[data-theme="light"] .service-card-footer .btn-outline:hover,
+[data-theme="light"] .journal-card-footer .consult-arborist-btn:hover,
+[data-theme="light"] .journal-card-footer .btn-outline:hover {
   color: #FFFFFF;
   border-color: #5C8E70;
 }
@@ -476,14 +518,27 @@ html:not([data-theme="light"]) .journal-hero-actions .btn-outline:hover svg {
   border: 1px solid #487258;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   font-weight: 700;
+  transition: var(--transition-fast, all 0.2s ease);
 }
 
 .btn-warm:hover {
   background-color: #2C563F;
-  border-color: #5C8E70;
+  border-color: var(--accent-gold, #E5C388);
   color: #FFFFFF;
   transform: translateY(-2px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .btn-warm {
+  background-color: #234734;
+  color: #FFFFFF;
+  border: 1px solid #487258;
+}
+
+[data-theme="light"] .btn-warm:hover {
+  background-color: #2C563F;
+  border-color: var(--accent-gold, #E5C388);
+  color: #FFFFFF;
 }
 
 .btn-block {
@@ -1318,22 +1373,64 @@ body:has(#mainHeader) {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  font-family: var(--font-primary);
-  font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+  padding: 0.42rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background: rgba(18, 59, 42, 0.65);
+  border: 1px solid rgba(229, 195, 136, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(229, 195, 136, 0.08);
+  font-family: var(--font-accent);
+  font-size: clamp(0.7rem, 0.82vw, 0.78rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   color: var(--accent-gold);
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.15rem;
   text-transform: uppercase;
+  max-width: fit-content;
+  transition: var(--transition-fast);
+}
+
+.hero-tagline:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 18px rgba(229, 195, 136, 0.18);
+}
+
+.hero-tagline .badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+  box-shadow: 0 0 8px var(--accent-gold);
+  flex-shrink: 0;
 }
 
 .tag-sep {
   opacity: 0.45;
-  color: #FFFFFF;
+  color: rgba(229, 195, 136, 0.7);
+  font-weight: 400;
+  margin: 0 0.1rem;
+}
+
+[data-theme="light"] .hero-tagline {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(18, 59, 42, 0.22);
+  color: #123B2A;
+  box-shadow: 0 6px 20px rgba(18, 59, 42, 0.08);
+}
+
+[data-theme="light"] .hero-tagline:hover {
+  border-color: #123B2A;
+  box-shadow: 0 8px 26px rgba(18, 59, 42, 0.14);
+}
+
+[data-theme="light"] .hero-tagline .badge-dot {
+  background-color: var(--forest-green);
+  box-shadow: 0 0 8px rgba(18, 59, 42, 0.45);
 }
 
 [data-theme="light"] .tag-sep {
-  color: #123B2A;
+  color: rgba(18, 59, 42, 0.35);
 }
 
 .hero-title {
@@ -1396,18 +1493,31 @@ body:has(#mainHeader) {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background-color: var(--forest-green, #123B2A);
+  background-color: #234734;
   color: #FFFFFF;
-  border: 1px solid var(--accent-gold);
-  box-shadow: 0 6px 20px rgba(18, 59, 42, 0.45);
-  transition: all 0.3s ease;
+  border: 1px solid #487258;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: var(--transition-fast, all 0.2s ease);
 }
 
 .btn-hero-pill:hover {
-  background-color: var(--accent-gold);
-  color: #071910;
+  background-color: #2C563F;
+  border-color: var(--accent-gold, #E5C388);
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(229, 195, 136, 0.35);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .btn-hero-pill {
+  background-color: #234734;
+  color: #FFFFFF;
+  border: 1px solid #487258;
+}
+
+[data-theme="light"] .btn-hero-pill:hover {
+  background-color: #2C563F;
+  border-color: var(--accent-gold, #E5C388);
+  color: #FFFFFF;
 }
 
 #heroExploreBtn {
@@ -2057,14 +2167,14 @@ body:has(#mainHeader) {
   gap: 0.5rem;
   padding: 0.48rem 1.15rem;
   border-radius: var(--radius-pill);
-  background: #183C2B;
+  background: #234734;
   color: #FFFFFF;
-  border: 1px solid rgba(229, 195, 136, 0.35);
+  border: 1px solid #487258;
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: var(--transition-fast, all 0.2s ease);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .arrow-svg {
@@ -2072,16 +2182,16 @@ body:has(#mainHeader) {
 }
 
 .service-link-btn:hover {
-  background-color: var(--accent-gold);
-  color: #071910;
-  border-color: var(--accent-gold);
+  background-color: #2C563F;
+  color: #FFFFFF;
+  border-color: var(--accent-gold, #E5C388);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(229, 195, 136, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 .service-link-btn:hover .arrow-svg {
   transform: translateX(4px);
-  stroke: #071910;
+  stroke: #FFFFFF;
 }
 
 [data-theme="light"] .service-card {
@@ -2158,15 +2268,15 @@ body:has(#mainHeader) {
 }
 
 [data-theme="light"] .service-link-btn {
-  background: #123B2A;
+  background: #234734;
   color: #FFFFFF;
-  border-color: #123B2A;
+  border-color: #487258;
 }
 
 [data-theme="light"] .service-link-btn:hover {
-  background: #C0892B;
+  background: #2C563F;
   color: #FFFFFF;
-  border-color: #C0892B;
+  border-color: var(--accent-gold, #E5C388);
 }
 
 [data-theme="light"] .service-link-btn:hover .arrow-svg {
@@ -4970,10 +5080,16 @@ a:hover>svg,
 }
 
 [data-theme="light"] .pricing-card.featured .pricing-card-btn.btn-primary {
-  background-color: var(--accent-gold) !important;
-  color: #071910 !important;
-  border-color: var(--accent-gold) !important;
+  background-color: #234734 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #487258 !important;
   font-weight: 700 !important;
+}
+
+[data-theme="light"] .pricing-card.featured .pricing-card-btn.btn-primary:hover {
+  background-color: #2C563F !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: #FFFFFF !important;
 }
 
 [data-theme="light"] .title-accent {

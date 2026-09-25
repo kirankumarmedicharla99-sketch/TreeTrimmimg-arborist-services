@@ -481,8 +481,8 @@ loginTabs.forEach(tab => {
         if (loginModalTitle) loginModalTitle.textContent = 'Arborist Field Portal';
       } else {
         if (emailInput) {
-          emailInput.placeholder = 'client@estate.com';
-          emailInput.value = 'client@arvora.com';
+          emailInput.placeholder = 'harrison.cole@highlandmanor.com';
+          emailInput.value = 'harrison.cole@highlandmanor.com';
         }
         if (loginModalTitle) loginModalTitle.textContent = 'Client & Arborist Sign In';
       }
@@ -497,6 +497,11 @@ if (loginForm) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>Authenticating...</span>';
       }
+
+      try {
+        localStorage.setItem('arvora_user', 'Harrison Cole');
+        localStorage.setItem('arvora_email', 'harrison.cole@highlandmanor.com');
+      } catch (err) {}
 
       setTimeout(() => {
         if (submitBtn) {

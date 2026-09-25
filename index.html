@@ -142,14 +142,6 @@
         <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
       </div>
 
-      <div class="drawer-controls-row">
-        <button class="ctrl-btn rtl-toggle-btn drawer-ctrl-btn" id="drawerRtlBtn">
-          <span>Direction: <strong id="drawerRtlText">LTR (Click for RTL)</strong></span>
-        </button>
-        <button class="ctrl-btn theme-toggle-btn drawer-ctrl-btn" id="drawerThemeBtn">
-          <span>Theme: <strong>Toggle Mode</strong></span>
-        </button>
-      </div>
 
       <div class="drawer-home-switcher">
         <span class="drawer-switcher-label">Explore Home Layout:</span>
@@ -201,7 +193,8 @@
 
       <div class="container hero-container">
         <div class="hero-main-content">
-          <div class="hero-tagline">
+          <div class="badge-pill hero-tagline" id="heroTaglineBadge">
+            <span class="badge-dot"></span>
             <span>CERTIFIED ARBORISTS</span>
             <span class="tag-sep">|</span>
             <span>SAFE</span>
@@ -227,7 +220,8 @@
             </button>
             <a href="#services" class="btn btn-secondary btn-hero-pill" id="heroExploreBtn">
               <span>Explore Services</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-down" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" class="btn-arrow-down" aria-hidden="true">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <polyline points="19 12 12 19 5 12"></polyline>
               </svg>
@@ -1055,7 +1049,13 @@
             </div>
 
             <blockquote class="testimonial-quote">
-              “Professional, punctual and incredibly careful with our property. The trees look fantastic.”
+              “Tall Timbers tree removal does a good job, they are priced reasonable, professional, polite, answered my
+              questions, and don't think you can beat their service. I'd hire them again with no worries about their
+              work ethics and experience. Left my yard clean, didn't make a big mess, was really amazed at how organized
+              they were in completing this job. It was a pleasure meeting the workers also....very mannerly.
+
+
+              ”
             </blockquote>
 
             <div class="author-profile">
@@ -1374,8 +1374,8 @@
       <form class="quote-form login-form" id="loginForm">
         <div class="form-group">
           <label for="loginEmail">Email / Client ID *</label>
-          <input type="email" id="loginEmail" name="email" required placeholder="client@estate.com"
-            value="client@arvora.com" />
+          <input type="email" id="loginEmail" name="email" required placeholder="harrison.cole@highlandmanor.com"
+            value="harrison.cole@highlandmanor.com" />
         </div>
 
         <div class="form-group">
@@ -1401,7 +1401,7 @@
       <div class="login-success-state" id="loginSuccessState"
         style="display: none; text-align: center; padding: 1.5rem 0;">
         <div class="success-icon-bubble">✓</div>
-        <h4>Welcome back, Marcus!</h4>
+        <h4>Welcome back, Harrison!</h4>
         <p>Your estate session is authenticated. Welcome to ARVORA.</p>
         <button class="btn btn-primary" id="loginSuccessCloseBtn" type="button">Close</button>
       </div>
