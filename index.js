@@ -90,14 +90,28 @@ function syncPageActiveNav() {
 
       const linkFile = href.split('#')[0].split('?')[0].split('/').pop().toLowerCase();
 
-const isExactMatch = linkFile && linkFile === currentFile;
-      const isServiceDetailMatch = currentFile.includes('service detail') && linkFile === 'service.html';
-      const isJournalDetailMatch = currentFile.includes('journal detail') && linkFile === 'journal.html';
-      const isHomeMatch = (currentFile === 'index.html' || currentFile === 'home2.html' || currentFile === '') && (linkFile === 'index.html' || linkFile === 'home2.html' || href === '#hero' || href === '#');
+      const isHome1 = currentFile === 'index.html' || currentFile === '';
+      const isHome2 = currentFile === 'home2.html';
+      const isParentHomeLink = link.parentElement && link.parentElement.classList.contains('has-dropdown');
 
-      if (isExactMatch || isServiceDetailMatch || isJournalDetailMatch || isHomeMatch) {
+      let shouldBeActive = false;
+      if (isParentHomeLink) {
+        shouldBeActive = isHome1 || isHome2;
+      } else if (linkFile === 'index.html') {
+        shouldBeActive = isHome1;
+      } else if (linkFile === 'home2.html') {
+        shouldBeActive = isHome2;
+      } else if (linkFile && linkFile === currentFile) {
+        shouldBeActive = true;
+      } else if (currentFile.includes('service detail') && linkFile === 'service.html') {
+        shouldBeActive = true;
+      } else if (currentFile.includes('journal detail') && linkFile === 'journal.html') {
+        shouldBeActive = true;
+      }
+
+      if (shouldBeActive) {
         link.classList.add('active');
-      } else if (!href.startsWith('#') && linkFile) {
+      } else {
         link.classList.remove('active');
       }
     });
@@ -112,8 +126,8 @@ navLinks.forEach(link => {
     });
   });
 
-const isIndexPage = currentFile === 'index.html' || currentFile === 'home2.html' || currentFile === '';
-  if (!isIndexPage) return;
+  // Active nav state is comprehensively maintained by syncPageActiveNav and theme-sync.js
+  return;
 
   const sections = document.querySelectorAll('section[id], [data-spy-section]');
   const hashNavLinks = document.querySelectorAll('.nav-link[href^="#"]');

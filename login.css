@@ -158,12 +158,9 @@ button {
   transition: color 0.3s ease;
 }
 
-[data-theme="dark"] .visual-brand-sub {
-  color: #FFFFFF !important;
-}
-
+[data-theme="dark"] .visual-brand-sub,
 [data-theme="light"] .visual-brand-sub {
-  color: #000000 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
 }
 
 .visual-center-content {
@@ -171,27 +168,37 @@ button {
   margin: auto 0;
 }
 
-.visual-badge {
+.visual-badge,
+[data-theme="light"] .visual-badge,
+[data-theme="dark"] .visual-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background-color: rgba(229, 195, 136, 0.16);
-  border: 1px solid rgba(229, 195, 136, 0.35);
+  background-color: rgba(245, 241, 231, 0.14) !important;
+  border: 1px solid rgba(229, 195, 136, 0.45) !important;
   border-radius: var(--radius-pill);
-  padding: 0.35rem 0.95rem;
+  padding: 0.42rem 1rem;
+  font-family: var(--font-accent, 'Poppins', sans-serif);
   font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #E5C388;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F5F1E7 !important;
   margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.badge-dot {
-  width: 6px;
-  height: 6px;
+.badge-dot,
+.visual-badge .badge-dot,
+[data-theme="light"] .visual-badge .badge-dot,
+[data-theme="dark"] .visual-badge .badge-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background-color: #E5C388;
-  box-shadow: 0 0 8px #E5C388;
+  background-color: var(--accent-gold, #E5C388) !important;
+  box-shadow: 0 0 8px var(--accent-gold, #E5C388) !important;
+  flex-shrink: 0;
 }
 
 .visual-heading {

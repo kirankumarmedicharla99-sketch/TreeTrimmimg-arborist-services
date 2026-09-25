@@ -85,10 +85,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  scrollbar-gutter: stable;
   font-size: 16px;
-  overflow-x: clip;
-  max-width: 100vw;
+  overflow-x: hidden;
   width: 100%;
 }
 
@@ -97,8 +95,7 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.65;
-  overflow-x: clip;
-  max-width: 100vw;
+  overflow-x: hidden;
   width: 100%;
   transition: background-color 0.35s ease, color 0.35s ease;
   position: relative;
@@ -248,10 +245,14 @@ ul {
 
 .text-center .badge-pill,
 .section-header.text-center .badge-pill,
-.modal-header.text-center .badge-pill {
-  align-self: center;
-  margin-left: auto;
-  margin-right: auto;
+.modal-header.text-center .badge-pill,
+.journal-cta-content .badge-pill,
+.jdetail-cta-content .badge-pill,
+.cta-content .badge-pill,
+.contact-hero-content .badge-pill {
+  align-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .badge-pill .badge-dot {
@@ -260,6 +261,16 @@ ul {
   border-radius: 50%;
   background-color: var(--accent-gold);
   box-shadow: 0 0 8px var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.badge-pill .badge-text {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
 }
 
 [data-theme="light"] .badge-pill {
@@ -273,6 +284,36 @@ ul {
   box-shadow: 0 0 8px rgba(18, 59, 42, 0.4);
 }
 
+[data-theme="light"] .badge-pill .badge-text {
+  color: #123B2A;
+}
+
+.about-hero-gold-tag,
+.badge-gold-tag {
+  background: rgba(192, 137, 43, 0.22);
+  color: var(--accent-gold);
+  border: 1px solid rgba(229, 195, 136, 0.4);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-left: 0.4rem;
+}
+
+[data-theme="light"] .about-hero-gold-tag,
+[data-theme="light"] .badge-gold-tag {
+  background: rgba(192, 137, 43, 0.15);
+  color: #8C5E13;
+  border-color: rgba(192, 137, 43, 0.3);
+}
+
+[dir="rtl"] .about-hero-gold-tag,
+[dir="rtl"] .badge-gold-tag {
+  margin-left: 0;
+  margin-right: 0.4rem;
+}
+
 .badge-pill.light-pill {
   background: rgba(245, 241, 231, 0.15);
   border-color: rgba(245, 241, 231, 0.3);
@@ -281,6 +322,25 @@ ul {
 
 .badge-pill.light-pill .badge-dot {
   background-color: var(--accent-gold);
+}
+
+/* Force light-pill to stay light-colored even in light theme (used inside dark CTA banners) */
+[data-theme="light"] .badge-pill.light-pill,
+[data-theme="light"] .dark-cta-banner .badge-pill {
+  background: rgba(245, 241, 231, 0.15) !important;
+  border-color: rgba(245, 241, 231, 0.3) !important;
+  color: var(--warm-cream, #F5F1E7) !important;
+}
+
+[data-theme="light"] .badge-pill.light-pill .badge-dot,
+[data-theme="light"] .dark-cta-banner .badge-pill .badge-dot {
+  background-color: var(--accent-gold) !important;
+  box-shadow: 0 0 8px var(--accent-gold) !important;
+}
+
+[data-theme="light"] .badge-pill.light-pill .badge-text,
+[data-theme="light"] .dark-cta-banner .badge-pill .badge-text {
+  color: var(--warm-cream, #F5F1E7) !important;
 }
 
 .btn {
@@ -1328,6 +1388,7 @@ body:has(#mainHeader) {
   object-position: right 25% center;
   transform: scale(1.02);
   filter: brightness(1.04) contrast(1.05);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
 }
 
 .hero-bg-gradient-mask {
@@ -1373,18 +1434,18 @@ body:has(#mainHeader) {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.42rem 1.15rem;
+  padding: 0.4rem 1.15rem;
   border-radius: var(--radius-pill);
-  background: rgba(18, 59, 42, 0.65);
-  border: 1px solid rgba(229, 195, 136, 0.35);
+  background: rgba(168, 184, 159, 0.18);
+  border: 1px solid rgba(168, 184, 159, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(229, 195, 136, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   font-family: var(--font-accent);
   font-size: clamp(0.7rem, 0.82vw, 0.78rem);
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent-gold);
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
   margin-bottom: 1.15rem;
   text-transform: uppercase;
   max-width: fit-content;
@@ -1392,8 +1453,7 @@ body:has(#mainHeader) {
 }
 
 .hero-tagline:hover {
-  border-color: var(--accent-gold);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 18px rgba(229, 195, 136, 0.18);
+  border-color: rgba(168, 184, 159, 0.45);
 }
 
 .hero-tagline .badge-dot {
@@ -1407,30 +1467,30 @@ body:has(#mainHeader) {
 
 .tag-sep {
   opacity: 0.45;
-  color: rgba(229, 195, 136, 0.7);
+  color: var(--text-secondary);
   font-weight: 400;
   margin: 0 0.1rem;
 }
 
 [data-theme="light"] .hero-tagline {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(18, 59, 42, 0.22);
+  background: rgba(18, 59, 42, 0.08);
+  border: 1px solid rgba(18, 59, 42, 0.18);
   color: #123B2A;
-  box-shadow: 0 6px 20px rgba(18, 59, 42, 0.08);
+  box-shadow: none;
 }
 
 [data-theme="light"] .hero-tagline:hover {
-  border-color: #123B2A;
-  box-shadow: 0 8px 26px rgba(18, 59, 42, 0.14);
+  border-color: rgba(18, 59, 42, 0.35);
 }
 
 [data-theme="light"] .hero-tagline .badge-dot {
   background-color: var(--forest-green);
-  box-shadow: 0 0 8px rgba(18, 59, 42, 0.45);
+  box-shadow: 0 0 8px rgba(18, 59, 42, 0.4);
 }
 
 [data-theme="light"] .tag-sep {
-  color: rgba(18, 59, 42, 0.35);
+  color: #123B2A;
+  opacity: 0.4;
 }
 
 .hero-title {
@@ -1787,6 +1847,11 @@ body:has(#mainHeader) {
   color: #557864;
 }
 
+[dir="rtl"] .hero-bg-img {
+  transform: scaleX(-1) scale(1.02);
+  transform-origin: center center;
+}
+
 [dir="rtl"] .hero-bg-gradient-mask {
   background: linear-gradient(270deg,
       rgba(6, 20, 13, 0.98) 0%,
@@ -1796,7 +1861,8 @@ body:has(#mainHeader) {
       rgba(6, 20, 13, 0.12) 100%);
 }
 
-[dir="rtl"] [data-theme="light"] .hero-bg-gradient-mask {
+[dir="rtl"] [data-theme="light"] .hero-bg-gradient-mask,
+[data-theme="light"][dir="rtl"] .hero-bg-gradient-mask {
   background: linear-gradient(270deg,
       rgba(247, 245, 238, 0.98) 0%,
       rgba(247, 245, 238, 0.93) 38%,
@@ -1980,7 +2046,7 @@ body:has(#mainHeader) {
   width: 100%;
   height: 210px;
   overflow: hidden;
-  background-color: rgba(18, 59, 42, 0.3);
+  background-color: transparent;
   border-radius: var(--radius-xl, 24px) var(--radius-xl, 24px) 0 0;
 }
 
@@ -1996,11 +2062,7 @@ body:has(#mainHeader) {
 }
 
 .card-media-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(8, 22, 15, 0.05) 0%, rgba(8, 22, 15, 0.35) 45%, rgba(8, 22, 15, 0.96) 100%);
-  pointer-events: none;
-  z-index: 1;
+  display: none !important;
 }
 
 .card-media-top {
@@ -2210,7 +2272,7 @@ body:has(#mainHeader) {
 }
 
 [data-theme="light"] .card-media-overlay {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.35) 45%, rgba(255, 255, 255, 0.96) 100%);
+  display: none !important;
 }
 
 [data-theme="light"] .service-tag {
@@ -2333,6 +2395,10 @@ body:has(#mainHeader) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.story-badge-pill {
+  margin-bottom: 1.25rem;
 }
 
 .story-eyebrow {
@@ -3105,9 +3171,22 @@ body:has(#mainHeader) {
 }
 
 .projects-header-bar {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 1;
-  margin-bottom: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.projects-header-bar .badge-pill {
+  margin: 0 auto 0.75rem auto;
+}
+
+.projects-header-bar .section-title-sm {
+  text-align: center;
+  margin-bottom: 0.25rem;
 }
 
 .project-tabs {
@@ -3287,9 +3366,10 @@ body:has(#mainHeader) {
 .ba-view-switch-row {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-top: 1.4rem;
+  justify-content: center;
+  margin-top: 1.25rem;
   margin-bottom: 0.85rem;
+  width: 100%;
 }
 
 .projects-right {
@@ -3501,6 +3581,69 @@ body:has(#mainHeader) {
   justify-content: flex-end;
   flex-shrink: 0;
 }
+
+.cta-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+}
+
+.cta-hours-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0;
+  border-radius: 0;
+  background: transparent !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.cta-hours-badge:hover {
+  border-color: transparent !important;
+}
+
+.cta-hours-dot {
+  display: none !important;
+}
+
+.cta-hours-sep {
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.cta-hours-storm {
+  color: var(--accent-gold);
+}
+
+/* Light mode — stays cream inside dark banner */
+[data-theme="light"] .cta-hours-badge {
+  background: transparent !important;
+  border: none !important;
+  color: rgba(245, 241, 231, 0.88) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] .cta-hours-badge .cta-hours-dot {
+  display: none !important;
+}
+
+[data-theme="light"] .cta-hours-badge .cta-hours-storm {
+  color: var(--accent-gold) !important;
+}
+
+
 
 .atelier-footer {
   background-color: #07150E;
@@ -4069,20 +4212,14 @@ body:has(#mainHeader) {
   direction: rtl;
 }
 
-[dir="rtl"] .hero-bg-gradient-mask {
-  background: linear-gradient(270deg,
-      rgba(8, 22, 15, 0.97) 0%,
-      rgba(8, 22, 15, 0.92) 42%,
-      rgba(8, 22, 15, 0.65) 70%,
-      rgba(8, 22, 15, 0.82) 100%);
+[dir="rtl"] .hero-bg-img {
+  transform: scaleX(-1) scale(1.02);
+  transform-origin: center center;
 }
 
-[data-theme="light"][dir="rtl"] .hero-bg-gradient-mask {
-  background: linear-gradient(270deg,
-      rgba(247, 245, 238, 0.98) 0%,
-      rgba(247, 245, 238, 0.93) 42%,
-      rgba(247, 245, 238, 0.68) 70%,
-      rgba(247, 245, 238, 0.85) 100%);
+[dir="rtl"] .hero-description {
+  unicode-bidi: plaintext;
+  text-align: right;
 }
 
 [dir="rtl"] .avatar-circle {
@@ -4206,9 +4343,9 @@ body:has(#mainHeader) {
 
   html,
   body {
-    overflow-x: clip !important;
+    overflow-x: hidden !important;
     width: 100% !important;
-    max-width: 100vw !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
@@ -4292,6 +4429,15 @@ body:has(#mainHeader) {
     position: static;
     margin-top: 1.5rem;
     text-align: left;
+  }
+
+  [dir="rtl"] .hero-container {
+    text-align: right;
+    align-items: flex-start;
+  }
+
+  [dir="rtl"] .hero-script-stamp {
+    text-align: right;
   }
 
   .services-grid,
@@ -4459,6 +4605,17 @@ body:has(#mainHeader) {
     justify-content: center;
     width: 100%;
     margin-top: 1rem;
+  }
+
+  .cta-btn-group {
+    align-items: center;
+    width: 100%;
+  }
+
+  .cta-hours-badge {
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
   }
 
   .atelier-footer-grid {
@@ -4952,6 +5109,36 @@ a:hover>svg,
   border-color: var(--forest-green) !important;
 }
 
+[data-theme="light"] .pricing-faq-trigger:hover,
+[data-theme="light"] .pricing-faq-card:hover .pricing-faq-trigger,
+[data-theme="light"] .pricing-faq-card.active .pricing-faq-trigger,
+[data-theme="light"] .journal-faq-trigger:hover,
+[data-theme="light"] .journal-faq-card:hover .journal-faq-trigger,
+[data-theme="light"] .journal-faq-card.active .journal-faq-trigger,
+[data-theme="light"] .contact-faq-trigger:hover,
+[data-theme="light"] .contact-faq-card:hover .contact-faq-trigger,
+[data-theme="light"] .contact-faq-card.active .contact-faq-trigger,
+[data-theme="light"] .jdetail-faq-trigger:hover,
+[data-theme="light"] .jdetail-faq-card:hover .jdetail-faq-trigger,
+[data-theme="light"] .jdetail-faq-card.active .jdetail-faq-trigger {
+  color: var(--forest-green, #123B2A) !important;
+}
+
+[data-theme="light"] .pricing-faq-trigger:hover .pricing-faq-icon svg,
+[data-theme="light"] .pricing-faq-card.active .pricing-faq-icon svg,
+[data-theme="light"] .journal-faq-trigger:hover .faq-chevron-icon,
+[data-theme="light"] .journal-faq-card:hover .faq-chevron-icon,
+[data-theme="light"] .journal-faq-card.active .faq-chevron-icon,
+[data-theme="light"] .contact-faq-trigger:hover .contact-faq-chevron,
+[data-theme="light"] .contact-faq-card:hover .contact-faq-chevron,
+[data-theme="light"] .contact-faq-card.active .contact-faq-chevron,
+[data-theme="light"] .jdetail-faq-trigger:hover .jdetail-faq-chevron,
+[data-theme="light"] .jdetail-faq-card:hover .jdetail-faq-chevron,
+[data-theme="light"] .jdetail-faq-card.active .jdetail-faq-chevron {
+  color: var(--forest-green, #123B2A) !important;
+  stroke: var(--forest-green, #123B2A) !important;
+}
+
 [data-theme="light"] .service-card:hover .service-icon-wrap,
 [data-theme="light"] .timeline-step-card:hover .step-icon,
 [data-theme="light"] .why-pillar-card:hover .pillar-icon-box {
@@ -4980,7 +5167,9 @@ a:hover>svg,
 [data-theme="light"] .about-cta-banner .badge-pill,
 [data-theme="light"] .pricing-cta-banner .badge-pill,
 [data-theme="light"] .journal-cta-card .badge-pill,
-[data-theme="light"] .grand-cta-card .badge-pill {
+[data-theme="light"] .grand-cta-card .badge-pill,
+[data-theme="light"] .contact-cta-card .badge-pill,
+[data-theme="light"] .cta-footer-section .badge-pill {
   background-color: rgba(245, 241, 231, 0.15) !important;
   border-color: rgba(245, 241, 231, 0.35) !important;
   color: #F5F1E7 !important;
@@ -4990,7 +5179,9 @@ a:hover>svg,
 [data-theme="light"] .about-cta-banner .badge-pill .badge-dot,
 [data-theme="light"] .pricing-cta-banner .badge-pill .badge-dot,
 [data-theme="light"] .journal-cta-card .badge-pill .badge-dot,
-[data-theme="light"] .grand-cta-card .badge-pill .badge-dot {
+[data-theme="light"] .grand-cta-card .badge-pill .badge-dot,
+[data-theme="light"] .contact-cta-card .badge-pill .badge-dot,
+[data-theme="light"] .cta-footer-section .badge-pill .badge-dot {
   background-color: var(--accent-gold) !important;
   box-shadow: 0 0 8px var(--accent-gold) !important;
 }
@@ -4999,7 +5190,9 @@ a:hover>svg,
 [data-theme="light"] .about-cta-banner .badge-pill .badge-text,
 [data-theme="light"] .pricing-cta-banner .badge-pill .badge-text,
 [data-theme="light"] .journal-cta-card .badge-pill .badge-text,
-[data-theme="light"] .grand-cta-card .badge-pill .badge-text {
+[data-theme="light"] .grand-cta-card .badge-pill .badge-text,
+[data-theme="light"] .contact-cta-card .badge-pill .badge-text,
+[data-theme="light"] .cta-footer-section .badge-pill .badge-text {
   color: #F5F1E7 !important;
 }
 

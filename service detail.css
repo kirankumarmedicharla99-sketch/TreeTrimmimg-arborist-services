@@ -1,4 +1,4 @@
-﻿.service-switcher-bar {
+.service-switcher-bar {
   position: sticky;
   top: 72px;
   z-index: 90;
@@ -8,7 +8,7 @@
   padding: 0.95rem 0;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -214,6 +214,24 @@
   color: var(--soft-sage);
 }
 
+[data-theme="light"] .detail-floating-badge {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.22) !important;
+  box-shadow: 0 10px 30px rgba(18, 59, 42, 0.12) !important;
+}
+
+[data-theme="light"] .detail-floating-badge strong {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .detail-floating-badge span {
+  color: #385E49 !important;
+}
+
+[data-theme="light"] .detail-floating-badge .badge-icon svg {
+  stroke: #123B2A !important;
+}
+
 .detail-context-section {
   position: relative;
   background: var(--bg-surface);
@@ -294,7 +312,22 @@
 .procedure-step-card:hover {
   border-color: var(--accent-gold);
   transform: translateX(6px);
-  background: rgba(21, 63, 46, 0.85);
+  background: #184332;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.procedure-step-card:hover .step-title {
+  color: #FFFFFF !important;
+}
+
+.procedure-step-card:hover .step-desc {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.procedure-step-card:hover .step-num-badge {
+  background: var(--accent-gold) !important;
+  color: #123B2A !important;
+  border-color: var(--accent-gold) !important;
 }
 
 [dir="rtl"] .procedure-step-card:hover {
@@ -351,6 +384,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 3.25rem;
+  align-items: stretch;
 }
 
 .why-card {
@@ -370,7 +404,25 @@
   border-color: var(--accent-gold);
   transform: translateY(-6px);
   box-shadow: var(--card-shadow-hover);
-  background: rgba(21, 63, 46, 0.85);
+  background: #184332;
+}
+
+.why-card:hover .why-title {
+  color: #FFFFFF !important;
+}
+
+.why-card:hover .why-desc {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.why-card:hover .why-icon-bubble {
+  background: rgba(229, 195, 136, 0.25) !important;
+  border-color: var(--accent-gold) !important;
+}
+
+.why-card:hover .why-icon-bubble svg {
+  stroke: var(--accent-gold) !important;
+  transform: scale(1.1);
 }
 
 .why-icon-bubble {
@@ -395,14 +447,6 @@
   transition: transform 0.3s ease;
 }
 
-.why-card:hover .why-icon-bubble {
-  background: rgba(229, 195, 136, 0.22);
-}
-
-.why-card:hover .why-icon-bubble svg {
-  transform: scale(1.1);
-}
-
 .why-title {
   font-family: var(--font-heading);
   font-size: 1.15rem;
@@ -410,6 +454,7 @@
   color: var(--text-primary);
   margin-bottom: 0.65rem;
   line-height: 1.3;
+  min-height: 2.85rem;
 }
 
 .why-desc {
@@ -767,16 +812,131 @@
   background: linear-gradient(180deg, rgba(18, 59, 42, 0.06) 0%, var(--bg-surface-elevated) 100%);
 }
 
+/* Light Mode FAQ Enhancements */
+[data-theme="light"] .faq-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(18, 59, 42, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(18, 59, 42, 0.05) !important;
+}
+
+[data-theme="light"] .faq-card.active {
+  border-color: #123B2A !important;
+  box-shadow: 0 8px 24px rgba(18, 59, 42, 0.12) !important;
+}
+
+[data-theme="light"] .faq-question-text {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .faq-answer-p {
+  color: #2C4835 !important;
+  border-top-color: rgba(18, 59, 42, 0.1) !important;
+}
+
 [data-theme="light"] .faq-trigger:hover {
   background: rgba(18, 59, 42, 0.04);
 }
 
 [data-theme="light"] .faq-icon-indicator {
   background: rgba(18, 59, 42, 0.08);
+  border-color: rgba(18, 59, 42, 0.16);
+  color: #123B2A;
 }
 
-[data-theme="light"] .procedure-step-card:hover,
-[data-theme="light"] .why-card:hover,
+[data-theme="light"] .faq-card.active .faq-icon-indicator {
+  background: #123B2A !important;
+  color: #FFFFFF !important;
+  border-color: #123B2A !important;
+}
+
+/* Light Mode 4-Step Master Execution Process Cards */
+[data-theme="light"] .procedure-step-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(18, 59, 42, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(18, 59, 42, 0.05) !important;
+}
+
+[data-theme="light"] .procedure-step-card .step-title {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .procedure-step-card .step-desc {
+  color: #2C4835 !important;
+}
+
+[data-theme="light"] .procedure-step-card .step-num-badge {
+  background: #123B2A !important;
+  color: #FFFFFF !important;
+  border: 1px solid #123B2A !important;
+}
+
+[data-theme="light"] .procedure-step-card:hover {
+  background: #184332 !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  box-shadow: 0 12px 30px rgba(18, 59, 42, 0.28) !important;
+}
+
+[data-theme="light"] .procedure-step-card:hover .step-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .procedure-step-card:hover .step-desc {
+  color: rgba(255, 255, 255, 0.94) !important;
+}
+
+[data-theme="light"] .procedure-step-card:hover .step-num-badge {
+  background: var(--accent-gold, #E5C388) !important;
+  color: #123B2A !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+}
+
+/* Light Mode Advantage Cards */
+[data-theme="light"] .why-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(18, 59, 42, 0.12) !important;
+  box-shadow: 0 6px 20px rgba(18, 59, 42, 0.06) !important;
+}
+
+[data-theme="light"] .why-card .why-title {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .why-card .why-desc {
+  color: #2C4835 !important;
+}
+
+[data-theme="light"] .why-card .why-icon-bubble {
+  background: rgba(18, 59, 42, 0.08) !important;
+  border: 1px solid rgba(18, 59, 42, 0.18) !important;
+}
+
+[data-theme="light"] .why-card .why-icon-bubble svg {
+  stroke: #123B2A !important;
+}
+
+[data-theme="light"] .why-card:hover {
+  background: #184332 !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  box-shadow: 0 16px 36px rgba(18, 59, 42, 0.25) !important;
+}
+
+[data-theme="light"] .why-card:hover .why-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .why-card:hover .why-desc {
+  color: rgba(255, 255, 255, 0.94) !important;
+}
+
+[data-theme="light"] .why-card:hover .why-icon-bubble {
+  background: rgba(229, 195, 136, 0.25) !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+}
+
+[data-theme="light"] .why-card:hover .why-icon-bubble svg {
+  stroke: var(--accent-gold, #E5C388) !important;
+}
+
 [data-theme="light"] .pricing-card:hover,
 [data-theme="light"] .service-switch-pill:hover {
   border-color: var(--forest-green, var(--primary)) !important;

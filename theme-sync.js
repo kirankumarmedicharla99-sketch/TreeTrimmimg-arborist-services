@@ -254,6 +254,125 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
         }
       }
     }, true);
+
+    syncActiveNavigation();
+  }
+
+  function syncActiveNavigation() {
+    var rawPath = window.location.pathname.split('/').pop().toLowerCase();
+    if (!rawPath || rawPath === '' || rawPath === '/') {
+      rawPath = 'index.html';
+    }
+    rawPath = rawPath.split('?')[0].split('#')[0];
+    try {
+      rawPath = decodeURIComponent(rawPath);
+    } catch (e) {}
+
+    var isHome1 = rawPath === 'index.html' || rawPath === '';
+    var isHome2 = rawPath === 'home2.html';
+    var isHome = isHome1 || isHome2;
+    var isAbout = rawPath === 'about.html';
+    var isServices = rawPath === 'service.html' || rawPath.indexOf('service detail') !== -1 || rawPath.indexOf('service%20detail') !== -1;
+    var isPricing = rawPath === 'pricing.html';
+    var isJournals = rawPath === 'journal.html' || rawPath.indexOf('journal detail') !== -1 || rawPath.indexOf('journal%20detail') !== -1;
+    var isContact = rawPath === 'contact.html';
+    var isDashboard = rawPath === 'dashboard.html';
+
+    // Desktop Nav Items
+    var navLinks = document.querySelectorAll('.nav-menu .nav-link, .atelier-header .nav-link, #mainHeader .nav-link');
+    navLinks.forEach(function (link) {
+      var href = (link.getAttribute('href') || '').toLowerCase().trim();
+      var parentItem = link.parentElement;
+      var isDropdownTrigger = parentItem && parentItem.classList.contains('has-dropdown');
+
+      if (isDropdownTrigger) {
+        if (isHome) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+        return;
+      }
+
+      if (isAbout && href.indexOf('about.html') !== -1) {
+        link.classList.add('active');
+      } else if (isServices && (href.indexOf('service.html') !== -1 || href.indexOf('service detail') !== -1 || href.indexOf('service%20detail') !== -1)) {
+        link.classList.add('active');
+      } else if (isPricing && href.indexOf('pricing.html') !== -1) {
+        link.classList.add('active');
+      } else if (isJournals && (href.indexOf('journal.html') !== -1 || href.indexOf('journal detail') !== -1 || href.indexOf('journal%20detail') !== -1)) {
+        link.classList.add('active');
+      } else if (isContact && href.indexOf('contact.html') !== -1) {
+        link.classList.add('active');
+      } else if (isDashboard && href.indexOf('dashboard.html') !== -1) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Home dropdown options
+    var dropLinks = document.querySelectorAll('.dropdown-menu .dropdown-link');
+    dropLinks.forEach(function (dLink) {
+      var href = (dLink.getAttribute('href') || '').toLowerCase().trim();
+      if (isHome1 && href.indexOf('index.html') !== -1) {
+        dLink.classList.add('active');
+      } else if (isHome2 && href.indexOf('home2.html') !== -1) {
+        dLink.classList.add('active');
+      } else {
+        dLink.classList.remove('active');
+      }
+    });
+
+    // Drawer switcher pills
+    var switchPills = document.querySelectorAll('.drawer-switch-pill');
+    switchPills.forEach(function (pill) {
+      var href = (pill.getAttribute('href') || '').toLowerCase().trim();
+      if (isHome1 && href.indexOf('index.html') !== -1) {
+        pill.classList.add('active');
+      } else if (isHome2 && href.indexOf('home2.html') !== -1) {
+        pill.classList.add('active');
+      } else if (isAbout && href.indexOf('about.html') !== -1) {
+        pill.classList.add('active');
+      } else if (isServices && href.indexOf('service.html') !== -1) {
+        pill.classList.add('active');
+      } else if (isPricing && href.indexOf('pricing.html') !== -1) {
+        pill.classList.add('active');
+      } else if (isJournals && href.indexOf('journal.html') !== -1) {
+        pill.classList.add('active');
+      } else if (isContact && href.indexOf('contact.html') !== -1) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
+
+    // Drawer navigation links
+    var drawerLinks = document.querySelectorAll('.drawer-nav-list a, .drawer-link, .drawer-nav-link');
+    drawerLinks.forEach(function (link) {
+      var href = (link.getAttribute('href') || '').toLowerCase().trim();
+      var text = (link.textContent || '').toLowerCase().trim();
+
+      if (isHome1 && (href === 'index.html' || href === '#hero' || href.indexOf('index.html') !== -1 || text === 'home' || text.indexOf('home 1') !== -1)) {
+        link.classList.add('active');
+      } else if (isHome2 && (href === 'home2.html' || href.indexOf('home2.html') !== -1 || text.indexOf('home 2') !== -1)) {
+        link.classList.add('active');
+      } else if (isAbout && href.indexOf('about.html') !== -1) {
+        link.classList.add('active');
+      } else if (isServices && (href.indexOf('service.html') !== -1 || href.indexOf('service detail') !== -1 || href.indexOf('service%20detail') !== -1)) {
+        link.classList.add('active');
+      } else if (isPricing && href.indexOf('pricing.html') !== -1) {
+        link.classList.add('active');
+      } else if (isJournals && (href.indexOf('journal.html') !== -1 || href.indexOf('journal detail') !== -1 || href.indexOf('journal%20detail') !== -1)) {
+        link.classList.add('active');
+      } else if (isContact && href.indexOf('contact.html') !== -1) {
+        link.classList.add('active');
+      } else if (isDashboard && href.indexOf('dashboard.html') !== -1) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   }
 
   if (document.readyState === 'loading') {

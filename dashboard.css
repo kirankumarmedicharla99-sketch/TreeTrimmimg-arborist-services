@@ -399,6 +399,13 @@ button {
   min-width: 48px;
 }
 
+.rtl-toggle-btn.active-rtl {
+  background: var(--accent-gold) !important;
+  color: #08160F !important;
+  border-color: var(--accent-gold) !important;
+  font-weight: 800;
+}
+
 .theme-toggle-btn {
   width: 38px;
   height: 38px;
@@ -1420,10 +1427,24 @@ button {
 
 .text-right {
   text-align: right;
+  white-space: nowrap;
 }
 
 [dir="rtl"] .text-right {
   text-align: left;
+}
+
+.table-actions-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+[dir="rtl"] .table-actions-group {
+  justify-content: flex-start;
 }
 
 .table-specimen-cell {
@@ -1489,20 +1510,41 @@ button {
 }
 
 .btn-table-action {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--accent-gold);
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-sm);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
   background-color: var(--bg-surface-subtle);
   border: 1px solid var(--border-subtle);
   transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 32px;
+  box-sizing: border-box;
 }
 
 .btn-table-action:hover {
   background-color: var(--accent-gold);
   color: #08160F;
   border-color: var(--accent-gold);
+}
+
+[data-theme="light"] .btn-table-action {
+  background-color: rgba(18, 59, 42, 0.08) !important;
+  border: 1px solid rgba(18, 59, 42, 0.22) !important;
+  color: #123B2A !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .btn-table-action:hover {
+  background-color: #123B2A !important;
+  color: #FFFFFF !important;
+  border-color: #123B2A !important;
 }
 
 .dashboard-section {
@@ -1735,8 +1777,20 @@ button {
 .btn-gold-sm {
   background: var(--accent-gold);
   color: #08160F;
-  font-size: 0.82rem;
-  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  height: 32px;
+  box-sizing: border-box;
+  transition: var(--transition-smooth);
 }
 
 .btn-gold-sm:hover {
@@ -2295,10 +2349,16 @@ button {
   height: 60px;
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 0 1.2rem;
+  padding: 0 1rem;
   align-items: center;
   justify-content: space-between;
   z-index: 90;
+}
+
+.mobile-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .hamburger-btn {
@@ -2307,6 +2367,10 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .hamburger-btn span {
@@ -2314,38 +2378,62 @@ button {
   height: 2.5px;
   background-color: var(--text-primary);
   border-radius: 2px;
+  transition: var(--transition-smooth);
 }
 
 .mobile-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   text-decoration: none;
 }
 
+.mobile-logo-img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
 .mobile-brand-wrap {
+  display: none !important;
+}
+
+.mobile-quick-actions {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.mobile-brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+.mobile-quick-actions .topbar-btn {
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  padding: 0 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-quick-actions .topbar-btn:hover {
+  border-color: var(--accent-gold);
   color: var(--accent-gold);
-  line-height: 1.1;
 }
 
-.mobile-brand-sub {
-  font-family: var(--font-primary, 'Manrope', sans-serif);
-  font-size: 0.5rem;
+.mobile-quick-actions .rtl-toggle-btn {
+  height: 34px;
+  min-width: 44px;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--accent-gold);
-  line-height: 1;
-  text-transform: uppercase;
-  margin-top: 2px;
+  border-radius: var(--radius-pill);
+}
+
+.mobile-quick-actions .theme-toggle-btn {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 50%;
 }
 
 .sidebar-backdrop {
@@ -3020,6 +3108,26 @@ button {
     overflow-x: clip !important;
   }
 
+  .dashboard-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dashboard-topbar .rtl-toggle-btn,
+  .dashboard-topbar .theme-toggle-btn {
+    display: none !important;
+  }
+
+  .topbar-welcome {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+
   .overview-headline-row {
     flex-direction: column;
     align-items: flex-start;
@@ -3027,6 +3135,52 @@ button {
 
   .dashboard-page-title {
     font-size: 1.85rem;
+  }
+
+  .section-title-bar {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .section-title-bar > div:first-child {
+    width: 100% !important;
+  }
+
+  .section-title-bar .btn,
+  .section-title-bar .btn-gold-action,
+  .section-title-bar .open-assessment-modal {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.8rem 1.4rem !important;
+    font-size: 0.9rem !important;
+    white-space: normal !important;
+  }
+
+  .section-title-bar .filter-pills-row,
+  .section-title-bar .gallery-category-pills {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.45rem !important;
+  }
+
+  .section-title-bar .notif-page-actions {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+
+  .section-title-bar .notif-page-actions .btn {
+    flex: 1 1 calc(50% - 0.25rem) !important;
+    min-width: 130px !important;
+    justify-content: center !important;
   }
 
   .kpi-cards-grid {
@@ -3059,6 +3213,128 @@ button {
 
   .notif-stats-trio {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 4.8rem 1rem 2.5rem 1rem !important;
+  }
+
+  .dashboard-page-title,
+  .section-heading {
+    font-size: 1.65rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .section-sub,
+  .dashboard-page-subtitle {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .headline-action-wrap {
+    width: 100% !important;
+  }
+
+  .headline-action-wrap .btn-gold-action {
+    width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .job-card-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .job-card-actions .btn {
+    flex: 1 1 calc(50% - 0.25rem) !important;
+    min-width: 120px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.8rem !important;
+    padding: 0.55rem 0.75rem !important;
+  }
+
+  .report-footer-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .report-footer-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .form-actions-full {
+    width: 100% !important;
+  }
+
+  .form-actions-full .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-nav-bar {
+    padding: 0 0.85rem !important;
+  }
+
+  .mobile-quick-actions {
+    gap: 0.35rem !important;
+  }
+
+  .mobile-quick-actions .rtl-toggle-btn {
+    padding: 0 0.6rem !important;
+    font-size: 0.72rem !important;
+    min-width: 40px !important;
+    height: 32px !important;
+  }
+
+  .mobile-quick-actions .theme-toggle-btn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .dashboard-main {
+    padding: 4.5rem 0.85rem 2rem 0.85rem !important;
+  }
+
+  .dashboard-page-title,
+  .section-heading {
+    font-size: 1.45rem !important;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse !important;
+    gap: 0.6rem !important;
+  }
+
+  .modal-footer .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .job-card-actions .btn {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  .section-title-bar .notif-page-actions .btn {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  .topbar-welcome {
+    font-size: 0.88rem !important;
   }
 }
 

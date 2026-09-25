@@ -1,4 +1,4 @@
-﻿const LUCIDE_ICONS = {
+const LUCIDE_ICONS = {
 
   scale: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>`,
   sun: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`,
@@ -808,7 +808,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentServiceKey = getServiceFromUrl();
   renderServiceDetail(currentServiceKey);
   initSwitcherPills();
-  initDetailFaqAccordion();
   initCommissionButtons();
 });
 
@@ -946,7 +945,7 @@ const faqContainer = document.getElementById('detailFaqContainer');
       .map(
         (faq, idx) => `
         <div class="faq-card ${idx === 0 ? 'active' : ''}">
-          <button class="faq-trigger" aria-expanded="${idx === 0 ? 'true' : 'false'}">
+          <button class="faq-trigger" type="button" aria-expanded="${idx === 0 ? 'true' : 'false'}">
             <span class="faq-question-text">${faq.q}</span>
             <span class="faq-icon-indicator" aria-hidden="true">${LUCIDE_ICONS.chevronDown}</span>
           </button>
@@ -996,11 +995,16 @@ window.addEventListener('popstate', () => {
 }
 
 function initDetailFaqAccordion() {
-  const triggers = document.querySelectorAll('#detailFaqContainer .faq-trigger');
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const card = trigger.closest('.faq-card');
-      if (!card) return;
+  const container = document.getElementById('detailFaqContainer');
+  if (!container || container.dataset.faqInitialized) return;
+  container.dataset.faqInitialized = 'true';
+
+  container.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.faq-trigger');
+    if (!trigger) return;
+    e.preventDefault();
+    const card = trigger.closest('.faq-card');
+    if (!card) return;
 
       const isActive = card.classList.contains('active');
 
@@ -1019,7 +1023,6 @@ document.querySelectorAll('#detailFaqContainer .faq-card.active').forEach((c) =>
         card.classList.add('active');
         trigger.setAttribute('aria-expanded', 'true');
       }
-    });
   });
 }
 

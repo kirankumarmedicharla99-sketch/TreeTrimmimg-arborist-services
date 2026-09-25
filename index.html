@@ -152,13 +152,14 @@
       </div>
 
       <ul class="drawer-nav-list">
-        <li><a href="#hero" class="drawer-link">Home</a></li>
+        <li><a href="index.html" class="drawer-link active">Home 1 (Atelier)</a></li>
+        <li><a href="home2.html" class="drawer-link">Home 2 (Editorial)</a></li>
         <li><a href="about.html" class="drawer-link">About ARVORA</a></li>
         <li><a href="service.html" class="drawer-link">Services</a></li>
         <li><a href="pricing.html" class="drawer-link">Pricing</a></li>
         <li><a href="journal.html" class="drawer-link">Journals</a></li>
         <li><a href="contact.html" class="drawer-link">Contact</a></li>
-        <li><a href="javascript:void(0)" class="drawer-link open-login-modal">Dashboard</a></li>
+        <li><a href="dashboard.html" class="drawer-link">Dashboard</a></li>
       </ul>
 
       <div class="drawer-cta-wrap" style="display: flex; flex-direction: column; gap: 0.75rem;">
@@ -718,10 +719,9 @@
 
         <div class="story-content-col">
 
-          <div class="story-eyebrow">
-            <span class="story-eyebrow-line"></span>
-            <span class="story-eyebrow-text">Founded 2009 • ISA Certified • 15 Years</span>
-            <span class="story-eyebrow-line"></span>
+          <div class="badge-pill story-badge-pill">
+            <span class="badge-dot"></span>
+            <span class="badge-text">FOUNDED 2009 • ISA CERTIFIED • 15 YEARS</span>
           </div>
 
           <h2 class="section-title story-heading">
@@ -1098,10 +1098,18 @@
           </div>
 
           <div class="cta-button-wrap">
-            <button class="btn btn-warm btn-lg open-quote-modal" id="footerCtaBtn">
-              <span>Book a Free Consultation</span>
-              <span class="arrow">→</span>
-            </button>
+            <div class="cta-btn-group">
+              <button class="btn btn-warm btn-lg open-quote-modal" id="footerCtaBtn">
+                <span>Book a Free Consultation</span>
+                <span class="arrow">→</span>
+              </button>
+              <div class="cta-hours-badge" id="ctaHoursBadge">
+                <span class="cta-hours-dot"></span>
+                <span class="cta-hours-text">Mon – Sat: 8:00 AM – 6:30 PM</span>
+                <span class="cta-hours-sep">•</span>
+                <span class="cta-hours-storm">24/7 Storm Care</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

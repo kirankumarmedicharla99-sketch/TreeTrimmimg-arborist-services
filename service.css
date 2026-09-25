@@ -57,6 +57,11 @@
   width: 100%;
 }
 
+.svc-hero-container .badge-pill {
+  margin-bottom: 1.5rem;
+  align-self: center;
+}
+
 .svc-eyebrow-row {
   display: flex;
   align-items: center;

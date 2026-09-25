@@ -72,6 +72,10 @@
   align-items: flex-start;
 }
 
+.home2-hero-left .badge-pill {
+  margin-bottom: 1.25rem;
+}
+
 .h2-eyebrow-row {
   display: flex;
   align-items: center;
@@ -738,6 +742,11 @@
   text-transform: uppercase;
 }
 
+[dir="rtl"] .h2-hero-bg-layer {
+  transform: scaleX(-1);
+  transform-origin: center center;
+}
+
 [dir="rtl"] .home2-inset-specimen {
   right: auto;
   left: -14px;
@@ -769,19 +778,7 @@
 }
 
 .why-choose-section .badge-pill {
-  background: rgba(229, 195, 136, 0.14) !important;
-  border: 1px solid rgba(229, 195, 136, 0.35) !important;
-  color: #E5C388 !important;
-}
-
-.why-choose-section .badge-pill .badge-dot {
-  background-color: #E5C388 !important;
-  box-shadow: 0 0 8px rgba(229, 195, 136, 0.6) !important;
-}
-
-.why-choose-section .badge-pill .badge-text {
-  color: #E5C388 !important;
-  font-weight: 700;
+  margin-bottom: 1.15rem;
 }
 
 .why-choose-section .section-title {
@@ -1006,24 +1003,8 @@
   background: #F7F5EE !important;
 }
 
-[data-theme="light"] .why-choose-section .badge-pill {
-  background-color: rgba(18, 59, 42, 0.08) !important;
-  border: 1px solid rgba(18, 59, 42, 0.22) !important;
-  color: #123B2A !important;
-}
-
-[data-theme="light"] .why-choose-section .badge-pill .badge-dot {
-  background-color: #123B2A !important;
-  box-shadow: 0 0 8px rgba(18, 59, 42, 0.45) !important;
-}
-
-[data-theme="light"] .why-choose-section .badge-pill .badge-text {
-  color: #123B2A !important;
-  font-weight: 700 !important;
-}
-
 [data-theme="light"] .why-choose-section .section-title {
-  color: #0A1C13 !important;
+  color: #123B2A !important;
 }
 
 [data-theme="light"] .why-choose-section .section-subtitle {
@@ -1077,21 +1058,6 @@
   background: #FFFFFF;
   border-color: rgba(18, 59, 42, 0.16);
   box-shadow: 0 16px 40px rgba(18, 59, 42, 0.08);
-}
-
-[data-theme="light"] .why-comparison-wrapper .badge-pill {
-  background-color: rgba(18, 59, 42, 0.08) !important;
-  border-color: rgba(18, 59, 42, 0.22) !important;
-  color: #123B2A !important;
-}
-
-[data-theme="light"] .why-comparison-wrapper .badge-pill .badge-dot {
-  background-color: #123B2A !important;
-  box-shadow: 0 0 8px rgba(18, 59, 42, 0.45) !important;
-}
-
-[data-theme="light"] .why-comparison-wrapper .badge-pill .badge-text {
-  color: #123B2A !important;
 }
 
 [data-theme="light"] .comparison-header {
@@ -1440,6 +1406,35 @@
   margin-bottom: 0.4rem;
 }
 
+[data-theme="light"] .project-location-bar {
+  color: #123B2A !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .project-location-bar span {
+  color: #123B2A !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .project-location-bar svg {
+  stroke: #123B2A !important;
+}
+
+[data-theme="light"] .metric-pill {
+  background: rgba(18, 59, 42, 0.06);
+  border-color: rgba(18, 59, 42, 0.15);
+  color: #123B2A;
+  font-weight: 600;
+}
+
+[data-theme="light"] .project-lead-arborist {
+  color: #385E49;
+}
+
+[data-theme="light"] .project-lead-arborist strong {
+  color: #123B2A;
+}
+
 .project-heading {
   font-family: var(--font-heading);
   font-size: 1.15rem;
@@ -1702,9 +1697,9 @@
 
 @media (max-width: 1080px) {
   html, body {
-    overflow-x: clip !important;
+    overflow-x: hidden !important;
     width: 100% !important;
-    max-width: 100vw !important;
+    max-width: 100% !important;
   }
 
 .atelier-header #headerLoginBtn,
@@ -2309,3 +2304,21 @@
 [data-theme="light"] .why-pillar-card:hover .pillar-icon-box {
   border-color: var(--forest-green, var(--primary)) !important;
 }
+
+/* Grand CTA card always has dark background — keep text light in light mode */
+[data-theme="light"] .grand-cta-action-box .cta-concierge-note {
+  color: rgba(245, 241, 231, 0.75) !important;
+}
+
+[data-theme="light"] .grand-cta-action-box .cta-concierge-label {
+  color: rgba(245, 241, 231, 0.65) !important;
+}
+
+[data-theme="light"] .grand-cta-action-box .cta-box-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .grand-cta-action-box .cta-direct-phone {
+  color: var(--accent-gold) !important;
+}
+

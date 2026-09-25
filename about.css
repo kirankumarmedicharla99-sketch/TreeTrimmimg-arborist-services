@@ -497,10 +497,19 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--accent-gold);
-  background: rgba(18, 59, 42, 0.6);
-  padding: 0.3rem 0.75rem;
+  background: rgba(18, 59, 42, 0.85);
+  padding: 0.32rem 0.85rem;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border-color-subtle);
+  border: 1px solid rgba(229, 195, 136, 0.35);
+  display: inline-flex;
+  align-items: center;
+}
+
+[data-theme="light"] .vm-card-tag {
+  background: rgba(18, 59, 42, 0.1) !important;
+  color: #123B2A !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.28) !important;
+  font-weight: 800 !important;
 }
 
 .vm-card-title {
@@ -1255,26 +1264,75 @@
   .about-cta-banner {
     grid-template-columns: 1fr;
     padding: 3rem 2.25rem;
+    gap: 2.25rem;
   }
 }
 
 @media (max-width: 768px) {
   .about-hero-section {
-    padding: 2.25rem 0 2rem;
+    padding: 2rem 0 2.25rem;
   }
 
+  .about-hero-title {
+    font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+    line-height: 1.22;
+    margin: 0.65rem 0 0.95rem;
+  }
+
+  .about-hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  #heroTimelineCta,
+  #heroTeamCta {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.8rem 1.2rem !important;
+    font-size: 0.92rem !important;
+    box-sizing: border-box;
+  }
+
+  /* 2x2 Stats Grid for Mobile */
   .about-hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+    width: 100%;
   }
 
   .about-stat-col {
-    padding: 0.85rem;
+    padding: 0.75rem 0.65rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(229, 195, 136, 0.2);
+    text-align: center;
+    border-left: none !important;
+    border-right: none !important;
   }
 
-  [dir="rtl"] .about-stat-col {
-    border-left: none;
-    padding-left: 0;
+  [data-theme="light"] .about-stat-col {
+    background: rgba(18, 59, 42, 0.04);
+    border: 1px solid rgba(18, 59, 42, 0.12);
+  }
+
+  .about-stat-num {
+    font-size: 1.55rem;
+    line-height: 1.1;
+  }
+
+  .about-stat-label {
+    font-size: 0.68rem;
+    margin-top: 0.2rem;
   }
 
   .values-grid {
@@ -1327,18 +1385,267 @@
     grid-template-columns: 1fr;
   }
 
-  .about-floating-badge {
-    position: relative;
+  /* Visual Stage Mobile Polish */
+  .about-stage-wrap {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .about-visual-canvas {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .about-hero-main-img {
+    height: clamp(230px, 34vh, 275px);
+  }
+
+  .about-team-accent-card {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 155px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    z-index: 4;
+  }
+
+  [dir="rtl"] .about-team-accent-card {
+    right: 10px;
     left: auto;
-    right: auto;
-    bottom: auto;
-    margin-top: 1rem;
+  }
+
+  .about-team-img-wrap {
+    height: 60px;
+  }
+
+  .about-team-accent-caption {
+    padding: 0.35rem 0.55rem;
+  }
+
+  .about-team-accent-caption strong {
+    font-size: 0.7rem;
+  }
+
+  .about-team-accent-caption span {
+    font-size: 0.6rem;
+  }
+
+  /* Realign floating badges into neat trust badges below the image */
+  .about-floating-badge {
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0.55rem 0.85rem !important;
+    border-radius: 12px !important;
+    animation: none !important;
+    transform: none !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+  }
+
+  .about-badge-top,
+  .about-badge-bottom {
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+  }
+
+  .about-badge-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .about-badge-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .about-badge-text strong {
+    font-size: 0.78rem;
+  }
+
+  .about-badge-text span {
+    font-size: 0.65rem;
+  }
+
+  /* About CTA Responsive Polish */
+  .about-cta-section {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .about-cta-banner {
+    padding: 2.25rem 1.45rem;
+    border-radius: var(--radius-lg, 20px);
+    gap: 1.75rem;
+  }
+
+  .about-cta-headline {
+    font-size: clamp(1.45rem, 5vw, 1.95rem);
+    margin: 0.75rem 0 0.85rem;
+    line-height: 1.25;
+  }
+
+  .about-cta-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-cta-trust-row {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .about-trust-badge {
+    font-size: 0.82rem;
+  }
+
+  .about-cta-action-box {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-md, 16px);
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about-cta-action-box h3 {
+    font-size: 1.15rem;
+  }
+
+  .about-direct-phone {
+    font-size: 1.05rem;
+    padding: 0.7rem 1rem;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(18, 59, 42, 0.08);
+    border: 1px solid rgba(229, 195, 136, 0.35);
+    border-radius: var(--radius-md);
+  }
+
+  [data-theme="light"] .about-direct-phone {
+    background: rgba(18, 59, 42, 0.06);
+    color: #123B2A;
+    border-color: rgba(18, 59, 42, 0.18);
+  }
+
+  #ctaAssessBtn,
+  .about-cta-action-box .btn {
+    white-space: normal !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.88rem !important;
+    width: 100% !important;
+    text-align: center;
+    line-height: 1.35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .about-concierge-note {
+    font-size: 0.74rem;
+    line-height: 1.45;
   }
 }
 
 @media (max-width: 480px) {
+  .about-hero-section {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .about-hero-title {
+    font-size: 1.7rem;
+  }
+
   .about-hero-stats {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .about-stat-col {
+    padding: 0.65rem 0.5rem;
+  }
+
+  .about-stat-num {
+    font-size: 1.35rem;
+  }
+
+  .about-stat-label {
+    font-size: 0.64rem;
+  }
+
+  .about-hero-main-img {
+    height: 220px;
+  }
+
+  .about-team-accent-card {
+    width: 140px;
+    bottom: 8px;
+    left: 8px;
+  }
+
+  .about-team-img-wrap {
+    height: 52px;
+  }
+
+  .about-team-accent-caption strong {
+    font-size: 0.66rem;
+  }
+
+  .about-team-accent-caption span {
+    font-size: 0.58rem;
+  }
+
+  .about-cta-section {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .about-cta-banner {
+    padding: 1.65rem 1.05rem;
+    border-radius: 16px;
+    gap: 1.35rem;
+  }
+
+  .about-cta-headline {
+    font-size: 1.35rem;
+  }
+
+  .about-cta-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-trust-badge {
+    font-size: 0.78rem;
+  }
+
+  .about-cta-action-box {
+    padding: 1.25rem 0.95rem;
+    border-radius: 14px;
+    gap: 0.85rem;
+  }
+
+  .about-cta-action-box h3 {
+    font-size: 1.05rem;
+  }
+
+  .about-direct-phone {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  #ctaAssessBtn,
+  .about-cta-action-box .btn {
+    font-size: 0.82rem !important;
+    padding: 0.72rem 0.75rem !important;
+  }
+
+  .about-concierge-note {
+    font-size: 0.7rem;
   }
 }

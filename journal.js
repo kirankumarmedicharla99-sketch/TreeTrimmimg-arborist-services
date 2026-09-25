@@ -95,6 +95,11 @@ function initMobileDrawer() {
   drawerCloseBtn?.addEventListener('click', closeDrawer);
   drawerBackdrop?.addEventListener('click', closeDrawer);
 
+  const drawerLinks = mobileDrawer.querySelectorAll('.drawer-link');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
       closeDrawer();

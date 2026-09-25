@@ -25,23 +25,37 @@
 <body class="dashboard-body">
 
   <div class="mobile-nav-bar" id="mobileNavBar">
-    <button class="hamburger-btn" id="sidebarToggleBtn" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <a href="index.html" class="mobile-brand" aria-label="ARVORA Home">
-      <img src="assets/logo.png" alt="ARVORA" class="mobile-logo-img" width="34" height="34" />
-      <div class="mobile-brand-wrap">
-        <span class="mobile-brand-name">ARVORA</span>
-        <span class="mobile-brand-sub">ARBORIST SERVICES</span>
-      </div>
-    </a>
-    <div class="mobile-quick-actions">
-      <button class="theme-toggle-btn icon-circle-btn" id="mobileThemeBtn" aria-label="Toggle theme">
+    <div class="mobile-nav-left">
+      <button class="hamburger-btn" id="sidebarToggleBtn" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="index.html" class="mobile-brand" aria-label="ARVORA Home">
+        <img src="assets/logo.png" alt="ARVORA Logo" class="mobile-logo-img" width="34" height="34" />
+      </a>
+    </div>
+    <div class="mobile-quick-actions" id="mobileQuickActions">
+      <button class="topbar-btn rtl-toggle-btn" id="mobileRtlBtn" aria-label="Switch text direction">
+        <span class="rtl-label" id="mobileRtlText">RTL</span>
+      </button>
+      <button class="topbar-btn theme-toggle-btn" id="mobileThemeBtn" aria-label="Toggle light or dark theme"
+        title="Toggle theme">
         <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
       </button>
     </div>
@@ -1295,9 +1309,11 @@
                 <td><strong>$1,650.00</strong></td>
                 <td><span class="status-badge status-scheduled" id="invoiceStatus104">Pending</span></td>
                 <td class="text-right">
-                  <button class="btn btn-gold-sm pay-invoice-btn" id="payInvoiceBtn104" data-invoice="INV-2026-104"
-                    data-amount="1,650.00">Pay Now</button>
-                  <button class="btn-table-action download-inv-btn" data-inv="104">PDF</button>
+                  <div class="table-actions-group">
+                    <button class="btn btn-gold-sm pay-invoice-btn" id="payInvoiceBtn104" data-invoice="INV-2026-104"
+                      data-amount="1,650.00">Pay Now</button>
+                    <button class="btn-table-action download-inv-btn" data-inv="104">PDF</button>
+                  </div>
                 </td>
               </tr>
 
@@ -1309,7 +1325,9 @@
                 <td><strong>$2,800.00</strong></td>
                 <td><span class="status-badge status-completed">Paid</span></td>
                 <td class="text-right">
-                  <button class="btn-table-action download-inv-btn" data-inv="092">Receipt PDF</button>
+                  <div class="table-actions-group">
+                    <button class="btn-table-action download-inv-btn" data-inv="092">Receipt PDF</button>
+                  </div>
                 </td>
               </tr>
 
@@ -1321,7 +1339,9 @@
                 <td><strong>$9,800.00</strong></td>
                 <td><span class="status-badge status-completed">Paid</span></td>
                 <td class="text-right">
-                  <button class="btn-table-action download-inv-btn" data-inv="078">Receipt PDF</button>
+                  <div class="table-actions-group">
+                    <button class="btn-table-action download-inv-btn" data-inv="078">Receipt PDF</button>
+                  </div>
                 </td>
               </tr>
             </tbody>
