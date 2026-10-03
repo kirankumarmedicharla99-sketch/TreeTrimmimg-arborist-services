@@ -1036,7 +1036,11 @@
 [data-theme="light"] .why-pillar-card:hover .pillar-icon-box {
   background: #123B2A !important;
   border-color: #123B2A !important;
-  color: #E5C388 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .why-pillar-card:hover .pillar-icon-box svg {
+  stroke: #FFFFFF !important;
 }
 
 [data-theme="light"] .why-pillar-card .pillar-tag {
@@ -1676,6 +1680,11 @@
   letter-spacing: 0.15em;
 }
 
+[data-theme="light"] .stars-rating-gold {
+  color: #B47D14 !important;
+  font-weight: 700 !important;
+}
+
 .verified-estate-badge {
   font-size: 0.72rem;
   font-weight: 700;
@@ -1686,6 +1695,36 @@
   color: #34D399;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+[data-theme="light"] .verified-estate-badge {
+  background: rgba(18, 59, 42, 0.08) !important;
+  color: #123B2A !important;
+  border: 1px solid rgba(18, 59, 42, 0.22) !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .testimonial-luxury-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.14) !important;
+  box-shadow: 0 6px 20px rgba(18, 59, 42, 0.06) !important;
+}
+
+[data-theme="light"] .testimonial-luxury-card:hover {
+  border-color: #123B2A !important;
+  box-shadow: 0 14px 34px rgba(18, 59, 42, 0.14) !important;
+}
+
+[data-theme="light"] .testimonial-quote-text {
+  color: #1A3525 !important;
+}
+
+[data-theme="light"] .author-meta-wrap strong {
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .author-meta-wrap span {
+  color: #3A5844 !important;
 }
 
 .testimonial-quote-text {

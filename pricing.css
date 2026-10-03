@@ -56,6 +56,9 @@
 .pricing-hero-content {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .pricing-hero-title {
@@ -66,14 +69,19 @@
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin: 0.85rem 0 1rem;
+  max-width: 100%;
+  word-break: normal;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
 }
 
 .pricing-hero-tagline {
   font-size: clamp(0.92rem, 1vw, 1.05rem);
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: rgba(220, 235, 225, 0.92);
   margin-bottom: 1.4rem;
   max-width: 550px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .billing-switcher-container {
@@ -100,9 +108,11 @@
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: var(--transition-fast);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .billing-toggle-btn.active {
@@ -176,8 +186,12 @@
 .pricing-img-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(6, 19, 13, 0.94) 100%);
+  background: linear-gradient(180deg, transparent 55%, rgba(6, 19, 13, 0.7) 100%);
   pointer-events: none;
+}
+
+[data-theme="light"] .pricing-img-gradient {
+  background: linear-gradient(180deg, transparent 60%, rgba(18, 59, 42, 0.22) 100%) !important;
 }
 
 .pricing-floating-badge {
@@ -879,10 +893,10 @@
 [data-theme="light"] .pricing-hero-overlay {
   background:
     linear-gradient(135deg,
-      rgba(247, 245, 238, 0.93) 0%,
-      rgba(247, 245, 238, 0.84) 42%,
-      rgba(247, 245, 238, 0.68) 75%,
-      rgba(247, 245, 238, 0.91) 100%),
+      rgba(247, 245, 238, 0.88) 0%,
+      rgba(247, 245, 238, 0.78) 42%,
+      rgba(247, 245, 238, 0.62) 75%,
+      rgba(247, 245, 238, 0.88) 100%),
     radial-gradient(ellipse 85% 65% at 75% 35%, rgba(18, 59, 42, 0.08) 0%, transparent 70%);
 }
 
@@ -910,6 +924,7 @@
 
 [data-theme="light"] .pricing-hero-tagline {
   color: #2C4835;
+  text-shadow: none;
 }
 
 [data-theme="light"] .pricing-trust-item span {
@@ -958,16 +973,68 @@
     gap: 2.5rem;
   }
 
+  .pricing-hero-content {
+    align-items: center;
+    text-align: center;
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .pricing-hero-content .badge-pill {
+    align-self: center !important;
+    margin: 0 auto 1.15rem auto !important;
+  }
+
+  .pricing-hero-title {
+    text-align: center;
+    font-size: clamp(1.85rem, 4.2vw, 2.5rem);
+    line-height: 1.18;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+  .pricing-hero-tagline {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+  }
+
+  .billing-switcher-container {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
+  .pricing-trust-strip {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .pricing-hero-visual {
     order: -1;
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 
   .pricing-visual-canvas {
-    max-width: 100%;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .pricing-hero-img {
-    height: 340px;
+    height: 350px;
+    object-fit: cover;
+    object-position: center 30%;
   }
 }
 
@@ -977,6 +1044,117 @@
     min-height: auto;
     max-height: none;
     padding: 2.75rem 0 2rem;
+  }
+
+  .pricing-hero-bg {
+    background-position: center 25%;
+  }
+
+  .pricing-hero-grid {
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .pricing-hero-content {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .pricing-hero-content .badge-pill {
+    align-self: center !important;
+    margin: 0 auto 0.95rem auto !important;
+  }
+
+  .pricing-hero-title {
+    font-size: clamp(1.55rem, 5vw, 2.05rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.85rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .pricing-hero-tagline {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.35rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 520px;
+    color: rgba(210, 230, 215, 0.92);
+  }
+
+  .billing-switcher-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.25rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pricing-trust-strip {
+    justify-content: center;
+    gap: 0.85rem 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing-hero-visual {
+    order: -1;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+
+  .pricing-visual-canvas {
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: var(--radius-lg, 18px);
+  }
+
+  .pricing-hero-img {
+    height: 310px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .pricing-floating-badge {
+    bottom: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    padding: 0.5rem 0.85rem;
+    gap: 0.65rem;
+    border-radius: var(--radius-md, 12px);
+  }
+
+  .pricing-floating-badge .badge-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+
+  .pricing-floating-badge strong {
+    font-size: 0.82rem;
+  }
+
+  .pricing-floating-badge span {
+    font-size: 0.7rem;
+    line-height: 1.3;
   }
 
   .benefits-grid {
@@ -1064,6 +1242,152 @@
 }
 
 @media (max-width: 480px) {
+  .pricing-hero-section {
+    padding: 2rem 0 1.75rem;
+  }
+
+  .pricing-hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .pricing-hero-content .badge-pill {
+    margin: 0 auto 0.85rem auto !important;
+    font-size: 0.66rem !important;
+    padding: 0.35rem 0.8rem !important;
+    max-width: 100%;
+  }
+
+  .pricing-hero-title {
+    font-size: clamp(1.28rem, 5.5vw, 1.65rem);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .pricing-hero-tagline {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.25rem;
+  }
+
+  .billing-switcher-container {
+    width: 100%;
+    max-width: 330px;
+    padding: 0.3rem 0.35rem;
+    gap: 0.35rem;
+    margin: 0 auto 1.25rem auto;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+  }
+
+  .billing-toggle-btn {
+    flex: 1;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.72rem;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
+
+  .billing-toggle-btn span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .save-badge {
+    font-size: 0.58rem;
+    padding: 0.1rem 0.3rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .pricing-trust-strip {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .pricing-trust-item {
+    font-size: 0.76rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .pricing-hero-visual {
+    order: -1;
+    width: 100%;
+    margin-bottom: 0.85rem;
+  }
+
+  .pricing-visual-canvas {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: var(--radius-lg, 16px);
+  }
+
+  .pricing-hero-img {
+    height: 275px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+    display: block;
+  }
+
+  .pricing-floating-badge {
+    bottom: 0.55rem;
+    left: 0.55rem;
+    right: 0.55rem;
+    padding: 0.45rem 0.7rem;
+    gap: 0.55rem;
+    border-radius: 10px;
+  }
+
+  .pricing-floating-badge .badge-icon {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+  }
+
+  .pricing-floating-badge .badge-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .pricing-floating-badge strong {
+    font-size: 0.76rem;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .pricing-floating-badge span {
+    font-size: 0.65rem;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .pricing-card {
     padding: 1.85rem 1.2rem;
   }
@@ -1121,4 +1445,203 @@
   .pricing-concierge-note {
     font-size: 0.7rem;
   }
+}
+
+@media (max-width: 365px) {
+  .pricing-hero-section {
+    padding: 1.75rem 0 1.5rem;
+  }
+
+  .pricing-hero-title {
+    font-size: clamp(1.16rem, 5.2vw, 1.36rem);
+    line-height: 1.22;
+  }
+
+  .pricing-hero-tagline {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: rgba(210, 230, 215, 0.92);
+  }
+
+  .billing-switcher-container {
+    max-width: 100%;
+    padding: 0.25rem;
+    gap: 0.2rem;
+  }
+
+  .billing-toggle-btn {
+    padding: 0.42rem 0.35rem;
+    font-size: 0.67rem;
+    gap: 0.25rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .billing-toggle-btn span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .save-badge {
+    font-size: 0.54rem;
+    padding: 0.07rem 0.22rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .pricing-visual-canvas {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .pricing-hero-img {
+    height: 260px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+
+  .pricing-floating-badge {
+    bottom: 0.45rem;
+    left: 0.45rem;
+    right: 0.45rem;
+    padding: 0.4rem 0.6rem;
+    gap: 0.45rem;
+    border-radius: 8px;
+  }
+
+  .pricing-floating-badge .badge-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+
+  .pricing-floating-badge .badge-icon svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .pricing-floating-badge strong {
+    font-size: 0.72rem;
+    line-height: 1.15;
+  }
+
+  .pricing-floating-badge span {
+    font-size: 0.6rem;
+    line-height: 1.2;
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE: BENEFIT ICONS & BADGES VISIBILITY
+   ========================================================================== */
+[data-theme="light"] .benefit-icon-bubble {
+  background: rgba(18, 59, 42, 0.08) !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.22) !important;
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .benefit-icon-bubble svg {
+  stroke: #123B2A !important;
+  stroke-width: 2.2 !important;
+}
+
+[data-theme="light"] .benefit-card:hover .benefit-icon-bubble {
+  background: #123B2A !important;
+  border-color: #123B2A !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .benefit-card:hover .benefit-icon-bubble svg {
+  stroke: #FFFFFF !important;
+}
+
+[data-theme="light"] .pricing-floating-badge .badge-icon {
+  background: rgba(18, 59, 42, 0.08) !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.22) !important;
+  color: #123B2A !important;
+}
+
+[data-theme="light"] .pricing-floating-badge .badge-icon svg {
+  stroke: #123B2A !important;
+  stroke-width: 2.2 !important;
+}
+
+/* Light Mode Pricing Cards & Metrics */
+[data-theme="light"] .pricing-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.14) !important;
+  box-shadow: 0 6px 20px rgba(18, 59, 42, 0.06) !important;
+}
+
+[data-theme="light"] .pricing-card:hover {
+  border-color: #123B2A !important;
+  box-shadow: 0 14px 34px rgba(18, 59, 42, 0.14) !important;
+}
+
+[data-theme="light"] .pricing-tier-name {
+  color: #123B2A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .pricing-tier-tagline {
+  color: #2C4835 !important;
+}
+
+[data-theme="light"] .price-currency {
+  color: #123B2A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .price-val {
+  color: #123B2A !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .price-period {
+  color: #4A6553 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .pricing-turnaround-row {
+  color: #355340 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .pricing-turnaround-row svg {
+  stroke: #123B2A !important;
+  stroke-width: 2.2 !important;
+}
+
+[data-theme="light"] .pricing-inclusion-item {
+  color: #1A3525 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .pricing-inclusion-item svg {
+  stroke: #059669 !important;
+  stroke-width: 2.5 !important;
+}
+
+/* Light Mode Benefit Cards */
+[data-theme="light"] .benefit-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.14) !important;
+  box-shadow: 0 6px 20px rgba(18, 59, 42, 0.06) !important;
+}
+
+[data-theme="light"] .benefit-card:hover {
+  border-color: #123B2A !important;
+  box-shadow: 0 12px 30px rgba(18, 59, 42, 0.12) !important;
+}
+
+[data-theme="light"] .benefit-title {
+  color: #123B2A !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .benefit-desc {
+  color: #2C4835 !important;
 }

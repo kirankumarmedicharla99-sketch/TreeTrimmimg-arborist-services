@@ -186,24 +186,47 @@ function initInteractiveMap() {
 
   if (!mapIframe) return;
 
-const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-  if (currentTheme === 'dark') {
-    mapIframe.classList.add('dark-radar');
+  function setMode(mode) {
+    if (mode === 'night') {
+      nightBtn?.classList.add('active');
+      naturalBtn?.classList.remove('active');
+      mapIframe.classList.remove('natural-view');
+      mapIframe.classList.add('dark-radar');
+    } else {
+      naturalBtn?.classList.add('active');
+      nightBtn?.classList.remove('active');
+      mapIframe.classList.remove('dark-radar');
+      mapIframe.classList.add('natural-view');
+    }
   }
 
-nightBtn?.addEventListener('click', () => {
-    modeButtons.forEach((b) => b.classList.remove('active'));
-    nightBtn.classList.add('active');
-    mapIframe.classList.remove('natural-view');
-    mapIframe.classList.add('dark-radar');
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  setMode(currentTheme === 'dark' ? 'night' : 'natural');
+
+  nightBtn?.addEventListener('click', () => setMode('night'));
+  naturalBtn?.addEventListener('click', () => setMode('natural'));
+
+  // Sync when theme changes across the site
+  window.addEventListener('arvora_theme_change', (e) => {
+    const theme = e.detail && e.detail.theme;
+    if (theme) {
+      setMode(theme === 'dark' ? 'night' : 'natural');
+    }
   });
 
-  naturalBtn?.addEventListener('click', () => {
-    modeButtons.forEach((b) => b.classList.remove('active'));
-    naturalBtn.classList.add('active');
-    mapIframe.classList.remove('dark-radar');
-    mapIframe.classList.add('natural-view');
-  });
+  try {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+          setMode(theme === 'dark' ? 'night' : 'natural');
+        }
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  } catch (e) {
+    // Ignore if MutationObserver is unsupported
+  }
 }
 
 function initContactFaqs() {

@@ -64,14 +64,17 @@
       <!-- Dedicated topbar outside form card: Theme & RTL controls -->
       <div class="auth-pane-header">
         <div class="auth-floating-controls" aria-label="Page display preferences">
-          <button class="auth-ctrl-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme mode" title="Toggle dark/light theme">
-            <span class="theme-icon moon-icon theme-icon-moon">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <button class="auth-ctrl-btn rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle RTL layout" title="Switch layout direction (LTR/RTL)">
+            <span class="rtl-label" id="rtlBtnText">RTL</span>
+          </button>
+          <button class="auth-ctrl-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <span class="theme-icon moon-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
             </span>
-            <span class="theme-icon sun-icon theme-icon-sun" style="display: none;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <span class="theme-icon sun-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="5"></circle>
                 <line x1="12" y1="1" x2="12" y2="3"></line>
                 <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -84,21 +87,18 @@
               </svg>
             </span>
           </button>
-          <button class="auth-ctrl-btn rtl-toggle-btn" id="rtlToggleBtn" aria-label="Toggle RTL layout" title="Switch layout direction (LTR/RTL)">
-            <span class="rtl-label" id="rtlBtnText">RTL</span>
-          </button>
         </div>
       </div>
 
       <div class="auth-card">
 
-        <div class="card-brand-lockup">
+        <a href="index.html" class="card-brand-lockup" aria-label="ARVORA Home">
           <img src="assets/logo.png" alt="ARVORA Logo" class="card-brand-logo" width="28" height="28" />
           <div class="card-brand-text">
             <span class="card-brand-title">ARVORA</span>
             <span class="card-brand-subtitle">ESTATE CLIENT ATELIER</span>
           </div>
-        </div>
+        </a>
 
         <h2 class="auth-card-title">WELCOME BACK!</h2>
         <p class="auth-card-subtitle">Sign in to access your estate arborist dashboard and care programs.</p>

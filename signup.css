@@ -38,6 +38,9 @@
   --text-primary: #123B2A;
   --text-secondary: #2C4835;
   --text-muted: #5F7363;
+  --accent-gold: #966416;
+  --accent-gold-hover: #7E510D;
+  --accent-gold-dark: #6D4408;
   --card-shadow: 0 16px 44px rgba(18, 59, 42, 0.08);
 }
 
@@ -76,12 +79,13 @@ button {
 /* Preferences controls header outside form card */
 .auth-pane-header {
   width: 100%;
+  max-width: 420px;
+  margin: 0 auto 0.65rem auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-shrink: 0;
-  margin-bottom: 0.65rem;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
   z-index: 10;
 }
 
@@ -96,9 +100,11 @@ button {
 }
 
 .auth-ctrl-btn {
+  height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   background: rgba(14, 34, 25, 0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -107,6 +113,9 @@ button {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: var(--transition-smooth);
   cursor: pointer;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 .auth-ctrl-btn:hover {
@@ -118,31 +127,86 @@ button {
 }
 
 .theme-toggle-btn {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .rtl-toggle-btn {
-  height: 36px;
+  height: 38px;
+  min-width: 46px;
   padding: 0 0.85rem;
   border-radius: var(--radius-pill);
-  font-size: 0.74rem;
-  font-weight: 700;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
   letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
-.theme-icon-sun {
-  display: none;
+.rtl-toggle-btn .rtl-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
-[data-theme="light"] .theme-icon-moon {
-  display: none;
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-[data-theme="light"] .theme-icon-sun {
+.theme-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-primary);
+  transition: stroke 0.25s ease, transform 0.25s ease;
   display: block;
+}
+
+.theme-toggle-btn:hover svg {
+  stroke: var(--accent-gold);
+  transform: rotate(15deg);
+}
+
+[data-theme="light"] .theme-icon svg {
+  stroke: #123B2A;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover svg {
+  stroke: #1B3B2B;
+}
+
+/* In dark mode: show SUN icon, hide MOON icon */
+.sun-icon {
+  display: flex !important;
+}
+
+.moon-icon {
+  display: none !important;
+}
+
+/* In light mode: show MOON icon, hide SUN icon */
+[data-theme="light"] .sun-icon {
+  display: none !important;
+}
+
+[data-theme="light"] .moon-icon {
+  display: flex !important;
 }
 
 [data-theme="light"] .auth-ctrl-btn {
@@ -378,10 +442,28 @@ button {
 
 /* Brand Lockup inside Card (matches reference image top of card) */
 .card-brand-lockup {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.35rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+.card-brand-lockup:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.card-brand-lockup:hover .card-brand-title {
+  color: var(--accent-gold);
+}
+
+[data-theme="light"] .card-brand-lockup:hover .card-brand-title {
+  color: var(--forest-green);
 }
 
 .card-brand-logo {
@@ -880,6 +962,27 @@ button {
   .auth-card {
     padding: 2rem 1.8rem;
     margin: 0 auto;
+  }
+
+  .card-brand-lockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.75rem;
+    text-align: left;
+    width: fit-content;
+  }
+
+  .auth-card-title {
+    text-align: center;
+  }
+
+  .auth-card-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

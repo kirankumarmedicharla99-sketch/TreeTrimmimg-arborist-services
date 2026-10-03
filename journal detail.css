@@ -1383,7 +1383,11 @@ body {
 [data-theme="light"] .jdetail-why-icon-wrap {
   background: #123B2A;
   border-color: #123B2A;
-  color: #E5C388;
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .jdetail-why-icon-wrap svg {
+  stroke: #FFFFFF !important;
 }
 
 [data-theme="light"] .jdetail-why-title {
