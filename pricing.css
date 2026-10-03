@@ -61,7 +61,7 @@
 .pricing-hero-title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3.4vw, 3.1rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--text-primary);
@@ -447,7 +447,7 @@
 .benefit-title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
   line-height: 1.3;

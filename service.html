@@ -144,13 +144,20 @@
       </div>
 
 
+      <div class="drawer-controls-row">
+        <button class="ctrl-btn rtl-toggle-btn drawer-ctrl-btn" id="drawerRtlBtn">
+          <span class="rtl-label" id="drawerRtlText">RTL (Click for LTR)</span>
+        </button>
+        <button class="ctrl-btn theme-toggle-btn drawer-ctrl-btn" id="drawerThemeBtn">
+          <span>Toggle Theme</span>
+        </button>
+      </div>
+
       <div class="drawer-home-switcher">
-        <span class="drawer-switcher-label">Explore Pages:</span>
+        <span class="drawer-switcher-label">Explore Home Layout:</span>
         <div class="drawer-switcher-btns">
-          <a href="index.html" class="drawer-switch-pill">Home 1</a>
-          <a href="home2.html" class="drawer-switch-pill">Home 2</a>
-          <a href="about.html" class="drawer-switch-pill">About Us</a>
-          <a href="service.html" class="drawer-switch-pill active">Services</a>
+          <a href="index.html" class="drawer-switch-pill">Home 1 (Atelier)</a>
+          <a href="home2.html" class="drawer-switch-pill">Home 2 (Editorial)</a>
         </div>
       </div>
 
@@ -185,68 +192,134 @@
   <main id="mainContent">
 
     <section class="services-hero-section" id="hero">
-      <div class="svc-hero-bg" aria-hidden="true"></div>
-      <div class="svc-hero-overlay" aria-hidden="true"></div>
+      <div class="svc-hero-ambient" aria-hidden="true"></div>
 
       <div class="container svc-hero-container">
+        <div class="svc-hero-grid">
 
-        <div class="badge-pill">
-          <span class="badge-dot"></span>
-          <span class="badge-text">ATELIER ARBORICULTURE • CERTIFIED COMMISSIONS</span>
+          <!-- Left Column: Editorial Content -->
+          <div class="svc-hero-content">
+            <div class="badge-pill">
+              <span class="badge-dot"></span>
+              <span class="badge-text">ATELIER ARBORICULTURE • CERTIFIED COMMISSIONS</span>
+            </div>
+
+            <h1 class="services-hero-title">
+              Precision Arborist Services<br>
+              for <span class="text-highlight">Estate &amp; Specimen Trees.</span>
+            </h1>
+
+            <p class="services-hero-desc">
+              From surgical canopy crown pruning to non-invasive acoustic tomography and emergency storm crane extractions — our certified arborist disciplines safeguard heritage tree vitality with zero impact to fine architecture.
+            </p>
+
+            <div class="services-hero-actions">
+              <a href="#services-grid" class="btn btn-primary btn-lg" id="heroExploreServicesBtn">
+                <span>Explore 6 Disciplines</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+              </a>
+              <a href="#works-gallery" class="svc-ghost-btn" id="heroViewGalleryBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span>Documented Works</span>
+              </a>
+            </div>
+
+            <div class="services-hero-stats">
+              <div class="service-stat-col">
+                <span class="service-stat-num">06</span>
+                <span class="service-stat-label">Disciplines</span>
+              </div>
+              <div class="svc-stat-sep"></div>
+              <div class="service-stat-col">
+                <span class="service-stat-num">100%</span>
+                <span class="service-stat-label">ISA-Certified</span>
+              </div>
+              <div class="svc-stat-sep"></div>
+              <div class="service-stat-col">
+                <span class="service-stat-num">0-Impact</span>
+                <span class="service-stat-label">Rigging Standard</span>
+              </div>
+              <div class="svc-stat-sep"></div>
+              <div class="service-stat-col">
+                <span class="service-stat-num">24/7</span>
+                <span class="service-stat-label">Rapid Dispatch</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Premium Circular Composition with Rotating Borders -->
+          <div class="svc-hero-visual" aria-label="Arborist in canopy visual showcase">
+            <div class="svc-circle-wrapper">
+
+              <!-- Rotating Outer Dashed Golden Orbital Ring with Traveling Diamond Nodes -->
+              <div class="svc-orbit-ring svc-orbit-ring-outer" aria-hidden="true">
+                <span class="svc-orbit-node node-1"></span>
+                <span class="svc-orbit-node node-2"></span>
+                <span class="svc-orbit-node node-3"></span>
+              </div>
+
+              <!-- Counter-Rotating Middle Compass / Precision Ring -->
+              <div class="svc-orbit-ring svc-orbit-ring-mid" aria-hidden="true">
+                <svg class="svc-compass-svg" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 5" />
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="10 4 3 4" opacity="0.65" />
+                </svg>
+              </div>
+
+              <!-- Ambient Glow Aura behind portal -->
+              <div class="svc-orbit-glow" aria-hidden="true"></div>
+
+              <!-- Central Circular Image Portal -->
+              <div class="svc-circle-portal">
+                <img src="assets/hero_tree_arborist.jpg" alt="Master Arborist Performing Precision Canopy Surgery"
+                  class="svc-circle-image" />
+                <div class="svc-circle-overlay" aria-hidden="true"></div>
+                <div class="svc-circle-inner-ring" aria-hidden="true"></div>
+              </div>
+
+              <!-- Floating Frosted Glass Badge 1 (Top-Right) -->
+              <div class="svc-floating-badge badge-top-right">
+                <div class="svc-badge-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                </div>
+                <div class="svc-badge-text-group">
+                  <span class="svc-badge-kicker">BOARD CERTIFIED</span>
+                  <span class="svc-badge-val">Master Arborist Crew</span>
+                </div>
+              </div>
+
+              <!-- Floating Frosted Glass Badge 2 (Bottom-Left) -->
+              <div class="svc-floating-badge badge-bottom-left">
+                <span class="svc-pulse-indicator" aria-hidden="true">
+                  <span class="pulse-beacon"></span>
+                </span>
+                <div class="svc-badge-text-group">
+                  <span class="svc-badge-kicker">ZERO ARCHITECTURAL IMPACT</span>
+                  <span class="svc-badge-val">High-Angle Rigging</span>
+                </div>
+              </div>
+
+              <!-- Floating Frosted Tag (Bottom-Right) -->
+              <div class="svc-floating-tag badge-bottom-right">
+                <span class="tag-sparkle">✦</span>
+                <span>British Estate Standard</span>
+              </div>
+
+            </div>
+          </div>
+
         </div>
-
-        <h1 class="services-hero-title">
-          Precision Arborist Services<br>
-          for <span class="text-highlight">Estate &amp; Specimen Trees.</span>
-        </h1>
-
-        <p class="services-hero-desc">
-          From surgical crown pruning to non-invasive acoustic tomography and emergency storm crane rigging — our full
-          suite of ISA-certified tree services executed with zero impact to fine architecture.
-        </p>
-
-        <div class="services-hero-actions">
-          <a href="#services-grid" class="btn btn-primary btn-lg" id="heroExploreServicesBtn">
-            <span>Explore 6 Disciplines</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </a>
-          <a href="#works-gallery" class="svc-ghost-btn" id="heroViewGalleryBtn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <circle cx="8.5" cy="8.5" r="1.5"></circle>
-              <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            <span>Documented Works</span>
-          </a>
-        </div>
-
-        <div class="services-hero-stats">
-          <div class="service-stat-col">
-            <span class="service-stat-num">06</span>
-            <span class="service-stat-label">Disciplines</span>
-          </div>
-          <div class="svc-stat-sep"></div>
-          <div class="service-stat-col">
-            <span class="service-stat-num">100%</span>
-            <span class="service-stat-label">ISA-Certified</span>
-          </div>
-          <div class="svc-stat-sep"></div>
-          <div class="service-stat-col">
-            <span class="service-stat-num">0-Impact</span>
-            <span class="service-stat-label">Rigging Standard</span>
-          </div>
-          <div class="svc-stat-sep"></div>
-          <div class="service-stat-col">
-            <span class="service-stat-num">24/7</span>
-            <span class="service-stat-label">Rapid Dispatch</span>
-          </div>
-        </div>
-
       </div>
     </section>
 

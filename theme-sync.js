@@ -259,24 +259,41 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
   }
 
   function syncActiveNavigation() {
-    var rawPath = window.location.pathname.split('/').pop().toLowerCase();
-    if (!rawPath || rawPath === '' || rawPath === '/') {
-      rawPath = 'index.html';
-    }
-    rawPath = rawPath.split('?')[0].split('#')[0];
+    var rawPath = (window.location.pathname || '').replace(/\\/g, '/');
+    rawPath = rawPath.replace(/\/+$/, '');
+    var pathSegments = rawPath.split('/').filter(Boolean);
+    var lastSegment = pathSegments.length ? pathSegments[pathSegments.length - 1].toLowerCase() : 'index.html';
     try {
-      rawPath = decodeURIComponent(rawPath);
+      lastSegment = decodeURIComponent(lastSegment);
     } catch (e) {}
+    lastSegment = lastSegment.split('?')[0].split('#')[0];
+    var baseName = lastSegment.replace(/\.html$/, '').trim();
 
-    var isHome1 = rawPath === 'index.html' || rawPath === '';
-    var isHome2 = rawPath === 'home2.html';
+    var searchStr = '';
+    try {
+      searchStr = decodeURIComponent(window.location.search || '').toLowerCase();
+    } catch (e) {
+      searchStr = (window.location.search || '').toLowerCase();
+    }
+
+    var fullPathDecoded = '';
+    try {
+      fullPathDecoded = decodeURIComponent(rawPath.toLowerCase());
+    } catch (e) {
+      fullPathDecoded = rawPath.toLowerCase();
+    }
+
+    var isHome2 = baseName === 'home2' || fullPathDecoded.indexOf('/home2') !== -1;
+    var isAbout = baseName === 'about' || fullPathDecoded.indexOf('/about') !== -1;
+    var isServices = baseName === 'service' || baseName.indexOf('service detail') !== -1 || baseName.indexOf('service%20detail') !== -1 || baseName.indexOf('service-detail') !== -1 || fullPathDecoded.indexOf('service detail') !== -1 || fullPathDecoded.indexOf('service-detail') !== -1 || (baseName === 'service' || fullPathDecoded.indexOf('/service') !== -1) || searchStr.indexOf('service=') !== -1;
+    var isPricing = baseName === 'pricing' || fullPathDecoded.indexOf('/pricing') !== -1;
+    var isJournals = baseName === 'journal' || baseName.indexOf('journal detail') !== -1 || baseName.indexOf('journal%20detail') !== -1 || baseName.indexOf('journal-detail') !== -1 || fullPathDecoded.indexOf('journal detail') !== -1 || fullPathDecoded.indexOf('journal-detail') !== -1 || fullPathDecoded.indexOf('journal') !== -1 || searchStr.indexOf('journal=') !== -1;
+    var isContact = baseName === 'contact' || fullPathDecoded.indexOf('/contact') !== -1;
+    var isDashboard = baseName === 'dashboard' || fullPathDecoded.indexOf('/dashboard') !== -1;
+
+    var isOtherSpecificPage = isAbout || isServices || isPricing || isJournals || isContact || isDashboard || isHome2;
+    var isHome1 = (!isOtherSpecificPage) && (baseName === 'index' || baseName === '' || (!lastSegment && pathSegments.length === 0) || baseName === 'arvora main');
     var isHome = isHome1 || isHome2;
-    var isAbout = rawPath === 'about.html';
-    var isServices = rawPath === 'service.html' || rawPath.indexOf('service detail') !== -1 || rawPath.indexOf('service%20detail') !== -1;
-    var isPricing = rawPath === 'pricing.html';
-    var isJournals = rawPath === 'journal.html' || rawPath.indexOf('journal detail') !== -1 || rawPath.indexOf('journal%20detail') !== -1;
-    var isContact = rawPath === 'contact.html';
-    var isDashboard = rawPath === 'dashboard.html';
 
     // Desktop Nav Items
     var navLinks = document.querySelectorAll('.nav-menu .nav-link, .atelier-header .nav-link, #mainHeader .nav-link');
@@ -288,26 +305,35 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
       if (isDropdownTrigger) {
         if (isHome) {
           link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
         } else {
           link.classList.remove('active');
+          link.removeAttribute('aria-current');
         }
         return;
       }
 
-      if (isAbout && href.indexOf('about.html') !== -1) {
+      var isTargetActive = false;
+      if (isAbout && href.indexOf('about') !== -1) {
+        isTargetActive = true;
+      } else if (isServices && href.indexOf('service') !== -1) {
+        isTargetActive = true;
+      } else if (isPricing && href.indexOf('pricing') !== -1) {
+        isTargetActive = true;
+      } else if (isJournals && href.indexOf('journal') !== -1) {
+        isTargetActive = true;
+      } else if (isContact && href.indexOf('contact') !== -1) {
+        isTargetActive = true;
+      } else if (isDashboard && href.indexOf('dashboard') !== -1) {
+        isTargetActive = true;
+      }
+
+      if (isTargetActive) {
         link.classList.add('active');
-      } else if (isServices && (href.indexOf('service.html') !== -1 || href.indexOf('service detail') !== -1 || href.indexOf('service%20detail') !== -1)) {
-        link.classList.add('active');
-      } else if (isPricing && href.indexOf('pricing.html') !== -1) {
-        link.classList.add('active');
-      } else if (isJournals && (href.indexOf('journal.html') !== -1 || href.indexOf('journal detail') !== -1 || href.indexOf('journal%20detail') !== -1)) {
-        link.classList.add('active');
-      } else if (isContact && href.indexOf('contact.html') !== -1) {
-        link.classList.add('active');
-      } else if (isDashboard && href.indexOf('dashboard.html') !== -1) {
-        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       } else {
         link.classList.remove('active');
+        link.removeAttribute('aria-current');
       }
     });
 
@@ -315,9 +341,9 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
     var dropLinks = document.querySelectorAll('.dropdown-menu .dropdown-link');
     dropLinks.forEach(function (dLink) {
       var href = (dLink.getAttribute('href') || '').toLowerCase().trim();
-      if (isHome1 && href.indexOf('index.html') !== -1) {
+      if (isHome1 && href.indexOf('index') !== -1) {
         dLink.classList.add('active');
-      } else if (isHome2 && href.indexOf('home2.html') !== -1) {
+      } else if (isHome2 && href.indexOf('home2') !== -1) {
         dLink.classList.add('active');
       } else {
         dLink.classList.remove('active');
@@ -328,19 +354,19 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
     var switchPills = document.querySelectorAll('.drawer-switch-pill');
     switchPills.forEach(function (pill) {
       var href = (pill.getAttribute('href') || '').toLowerCase().trim();
-      if (isHome1 && href.indexOf('index.html') !== -1) {
+      if (isHome1 && href.indexOf('index') !== -1) {
         pill.classList.add('active');
-      } else if (isHome2 && href.indexOf('home2.html') !== -1) {
+      } else if (isHome2 && href.indexOf('home2') !== -1) {
         pill.classList.add('active');
-      } else if (isAbout && href.indexOf('about.html') !== -1) {
+      } else if (isAbout && href.indexOf('about') !== -1) {
         pill.classList.add('active');
-      } else if (isServices && href.indexOf('service.html') !== -1) {
+      } else if (isServices && href.indexOf('service') !== -1) {
         pill.classList.add('active');
-      } else if (isPricing && href.indexOf('pricing.html') !== -1) {
+      } else if (isPricing && href.indexOf('pricing') !== -1) {
         pill.classList.add('active');
-      } else if (isJournals && href.indexOf('journal.html') !== -1) {
+      } else if (isJournals && href.indexOf('journal') !== -1) {
         pill.classList.add('active');
-      } else if (isContact && href.indexOf('contact.html') !== -1) {
+      } else if (isContact && href.indexOf('contact') !== -1) {
         pill.classList.add('active');
       } else {
         pill.classList.remove('active');
@@ -352,25 +378,32 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
     drawerLinks.forEach(function (link) {
       var href = (link.getAttribute('href') || '').toLowerCase().trim();
       var text = (link.textContent || '').toLowerCase().trim();
+      var isDrawerActive = false;
 
-      if (isHome1 && (href === 'index.html' || href === '#hero' || href.indexOf('index.html') !== -1 || text === 'home' || text.indexOf('home 1') !== -1)) {
+      if (isHome1 && (href === 'index.html' || href === '#hero' || href.indexOf('index') !== -1 || text === 'home' || text.indexOf('home 1') !== -1)) {
+        isDrawerActive = true;
+      } else if (isHome2 && (href === 'home2.html' || href.indexOf('home2') !== -1 || text.indexOf('home 2') !== -1)) {
+        isDrawerActive = true;
+      } else if (isAbout && (href.indexOf('about') !== -1 || text.indexOf('about') !== -1)) {
+        isDrawerActive = true;
+      } else if (isServices && (href.indexOf('service') !== -1 || text.indexOf('service') !== -1)) {
+        isDrawerActive = true;
+      } else if (isPricing && (href.indexOf('pricing') !== -1 || text.indexOf('pricing') !== -1)) {
+        isDrawerActive = true;
+      } else if (isJournals && (href.indexOf('journal') !== -1 || text.indexOf('journal') !== -1)) {
+        isDrawerActive = true;
+      } else if (isContact && (href.indexOf('contact') !== -1 || text.indexOf('contact') !== -1)) {
+        isDrawerActive = true;
+      } else if (isDashboard && (href.indexOf('dashboard') !== -1 || text.indexOf('dashboard') !== -1)) {
+        isDrawerActive = true;
+      }
+
+      if (isDrawerActive) {
         link.classList.add('active');
-      } else if (isHome2 && (href === 'home2.html' || href.indexOf('home2.html') !== -1 || text.indexOf('home 2') !== -1)) {
-        link.classList.add('active');
-      } else if (isAbout && href.indexOf('about.html') !== -1) {
-        link.classList.add('active');
-      } else if (isServices && (href.indexOf('service.html') !== -1 || href.indexOf('service detail') !== -1 || href.indexOf('service%20detail') !== -1)) {
-        link.classList.add('active');
-      } else if (isPricing && href.indexOf('pricing.html') !== -1) {
-        link.classList.add('active');
-      } else if (isJournals && (href.indexOf('journal.html') !== -1 || href.indexOf('journal detail') !== -1 || href.indexOf('journal%20detail') !== -1)) {
-        link.classList.add('active');
-      } else if (isContact && href.indexOf('contact.html') !== -1) {
-        link.classList.add('active');
-      } else if (isDashboard && href.indexOf('dashboard.html') !== -1) {
-        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       } else {
         link.classList.remove('active');
+        link.removeAttribute('aria-current');
       }
     });
   }
@@ -381,13 +414,18 @@ var loginBtn = target.closest('#headerLoginBtn, .open-login-modal, [data-action=
     onDomReady();
   }
 
-window.ArvoraTheme = {
+  window.addEventListener('popstate', syncActiveNavigation);
+  window.addEventListener('hashchange', syncActiveNavigation);
+
+  window.ArvoraTheme = {
     getTheme: getActiveTheme,
     setTheme: function (theme) { applyTheme(theme, true); },
     toggleTheme: toggleTheme,
     getDir: getActiveDir,
     setDir: function (dir) { applyDir(dir, true); },
-    toggleDir: toggleDir
+    toggleDir: toggleDir,
+    syncNavigation: syncActiveNavigation
   };
 
 })(window, document);
+

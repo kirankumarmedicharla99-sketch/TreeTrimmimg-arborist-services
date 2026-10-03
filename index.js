@@ -77,6 +77,10 @@ function initThemeToggle() {
 }
 
 function initActiveNavSpy() {
+  if (window.ArvoraTheme && typeof window.ArvoraTheme.syncNavigation === 'function') {
+    window.ArvoraTheme.syncNavigation();
+    return;
+  }
   const navLinks = document.querySelectorAll('.nav-link');
   if (!navLinks.length) return;
 
@@ -119,12 +123,7 @@ function syncPageActiveNav() {
 
   syncPageActiveNav();
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
+  // Navigation state is handled by theme-sync.js and syncPageActiveNav
 
   // Active nav state is comprehensively maintained by syncPageActiveNav and theme-sync.js
   return;

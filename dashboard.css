@@ -304,33 +304,39 @@ button {
   border-top: 1px solid rgba(168, 184, 159, 0.14);
 }
 
-.back-to-site-link {
+.sidebar-logout-btn {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.68rem 0.9rem;
   border-radius: var(--radius-md);
-  color: #8FA493;
+  color: #C0696B;
   font-size: 0.88rem;
   font-weight: 600;
   transition: var(--transition-smooth);
+  text-decoration: none;
 }
 
-.back-to-site-link:hover {
-  background-color: rgba(168, 184, 159, 0.12);
-  color: #E5C388;
+.sidebar-logout-btn:hover {
+  background-color: rgba(220, 80, 80, 0.12);
+  color: #E05555;
 }
 
-[dir="rtl"] .back-icon svg {
+[dir="rtl"] .logout-icon svg {
   transform: rotate(180deg);
 }
 
 .dashboard-main {
-  flex: 1;
+  flex: 1 1 0%;
+  min-width: 0 !important;
+  max-width: calc(100vw - var(--sidebar-width));
+  width: calc(100% - var(--sidebar-width));
+  box-sizing: border-box;
   margin-left: var(--sidebar-width);
   padding: 0 2.8rem 4rem 2.8rem;
   min-height: 100vh;
   transition: margin 0.3s ease;
+  overflow-x: clip;
 }
 
 [dir="rtl"] .dashboard-main {
@@ -348,6 +354,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  gap: 1rem;
   padding: 1.25rem 0;
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--border-subtle);
@@ -360,6 +370,11 @@ button {
   gap: 0.4rem;
   font-size: 0.98rem;
   color: var(--text-muted);
+  min-width: 0;
+  flex-shrink: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .welcome-name {
@@ -371,6 +386,13 @@ button {
   display: flex;
   align-items: center;
   gap: 1.15rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+[dir="rtl"] .topbar-controls {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .topbar-btn {
@@ -489,7 +511,7 @@ button {
 
 .popover-title {
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .popover-clear-btn {
@@ -548,6 +570,7 @@ button {
 
 .profile-dropdown-wrap {
   position: relative;
+  flex-shrink: 0;
 }
 
 .profile-pill-btn {
@@ -560,6 +583,8 @@ button {
   padding: 0.35rem 0.9rem 0.35rem 0.4rem;
   color: var(--text-primary);
   transition: var(--transition-smooth);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 [dir="rtl"] .profile-pill-btn {
@@ -701,7 +726,7 @@ button {
 .dashboard-page-title {
   font-family: var(--font-heading);
   font-size: 2.35rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   line-height: 1.15;
@@ -709,7 +734,7 @@ button {
 
 .accent-title-gold {
   color: var(--accent-gold);
-  font-weight: 800;
+  font-weight: 600;
 }
 
 [data-theme="light"] .accent-title-gold {
@@ -927,7 +952,7 @@ button {
 .progress-project-title {
   font-family: var(--font-heading);
   font-size: 1.45rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 1.7rem;
 }
@@ -1109,7 +1134,7 @@ button {
 .chart-title {
   font-family: var(--font-heading);
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -1354,6 +1379,10 @@ button {
   box-shadow: var(--card-shadow);
   margin-bottom: 2rem;
   transition: var(--transition-smooth);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .dashboard-table-card:hover {
@@ -1371,7 +1400,7 @@ button {
 .table-card-title {
   font-family: var(--font-heading);
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -1383,10 +1412,15 @@ button {
 
 .table-responsive-wrapper {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .dashboard-table {
   width: 100%;
+  min-width: 760px;
   border-collapse: collapse;
   text-align: left;
 }
@@ -1403,6 +1437,12 @@ button {
   letter-spacing: 0.05em;
   color: var(--text-muted);
   border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.dashboard-table th:nth-child(3),
+.dashboard-table td:nth-child(3) {
+  min-width: 180px;
 }
 
 .dashboard-table td {
@@ -1550,10 +1590,17 @@ button {
 .dashboard-section {
   display: none;
   animation: tabFadeIn 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .dashboard-section.active {
   display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 @keyframes tabFadeIn {
@@ -1572,7 +1619,7 @@ button {
 .section-heading {
   font-family: var(--font-heading);
   font-size: 2.1rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -1615,6 +1662,27 @@ button {
   border-color: var(--accent-gold);
 }
 
+[data-theme="light"] .filter-pill,
+[data-theme="light"] .cat-pill {
+  background-color: #FFFFFF;
+  border-color: rgba(18, 59, 42, 0.2);
+  color: #123B2A;
+}
+
+[data-theme="light"] .filter-pill:hover,
+[data-theme="light"] .cat-pill:hover {
+  background-color: rgba(18, 59, 42, 0.08);
+  border-color: #123B2A;
+  color: #123B2A;
+}
+
+[data-theme="light"] .filter-pill.active,
+[data-theme="light"] .cat-pill.active {
+  background: #123B2A;
+  color: #FFFFFF;
+  border-color: #123B2A;
+}
+
 .form-action-card,
 .profile-settings-card {
   background-color: var(--bg-surface);
@@ -1623,6 +1691,10 @@ button {
   padding: 2rem 2.2rem;
   box-shadow: var(--card-shadow);
   transition: var(--transition-smooth);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .form-action-card:hover,
@@ -1634,7 +1706,7 @@ button {
 .form-card-title {
   font-family: var(--font-heading);
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
@@ -1753,6 +1825,7 @@ button {
   border: 1.5px solid var(--border-strong);
   color: var(--text-primary);
   font-size: 0.82rem;
+  font-weight: 700;
   padding: 0.45rem 1rem;
 }
 
@@ -1761,17 +1834,41 @@ button {
   color: var(--accent-gold);
 }
 
+[data-theme="light"] .btn-outline-sm {
+  border: 1.5px solid rgba(18, 59, 42, 0.3);
+  color: #123B2A;
+}
+
+[data-theme="light"] .btn-outline-sm:hover {
+  background-color: #123B2A;
+  border-color: #123B2A;
+  color: #FFFFFF;
+}
+
 .btn-secondary-sm {
   background-color: var(--bg-surface-subtle);
   border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
+  color: var(--text-primary);
   font-size: 0.82rem;
+  font-weight: 700;
   padding: 0.45rem 1rem;
 }
 
 .btn-secondary-sm:hover {
   color: var(--accent-gold);
   border-color: var(--accent-gold);
+}
+
+[data-theme="light"] .btn-secondary-sm {
+  background-color: rgba(18, 59, 42, 0.06);
+  border: 1px solid rgba(18, 59, 42, 0.2);
+  color: #123B2A;
+}
+
+[data-theme="light"] .btn-secondary-sm:hover {
+  background-color: #123B2A;
+  border-color: #123B2A;
+  color: #FFFFFF;
 }
 
 .btn-gold-sm {
@@ -1811,6 +1908,13 @@ button {
   font-weight: 700;
 }
 
+[data-theme="light"] .badge-priority-high {
+  background-color: #FEF3E2 !important;
+  color: #9A5B04 !important;
+  border: 1px solid rgba(154, 91, 4, 0.28) !important;
+  font-weight: 800 !important;
+}
+
 .badge-priority-standard {
   background-color: rgba(168, 184, 159, 0.2);
   color: var(--text-muted);
@@ -1818,6 +1922,13 @@ button {
   border-radius: var(--radius-pill);
   font-size: 0.72rem;
   font-weight: 700;
+}
+
+[data-theme="light"] .badge-priority-standard {
+  background-color: rgba(18, 59, 42, 0.08) !important;
+  color: #2C4835 !important;
+  border: 1px solid rgba(18, 59, 42, 0.18) !important;
+  font-weight: 700 !important;
 }
 
 .jobs-cards-grid,
@@ -1861,14 +1972,53 @@ button {
 .job-badge-tag {
   font-size: 0.72rem;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
   text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
 }
 
-.tag-trimming { background-color: rgba(46, 125, 82, 0.2); color: #4FE1B7; }
-.tag-removal { background-color: rgba(217, 119, 6, 0.2); color: #FBBF24; }
-.tag-completed { background-color: rgba(31, 138, 112, 0.2); color: #38E1B9; }
+.tag-trimming {
+  background-color: rgba(46, 125, 82, 0.22);
+  color: #4FE1B7;
+  border: 1px solid rgba(79, 225, 183, 0.3);
+}
+
+.tag-removal {
+  background-color: rgba(217, 119, 6, 0.22);
+  color: #FBBF24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.tag-completed {
+  background-color: rgba(31, 138, 112, 0.22);
+  color: #38E1B9;
+  border: 1px solid rgba(56, 225, 185, 0.3);
+}
+
+/* Light Theme Badge & ID Text Overrides — Guaranteed Crisp Visibility */
+[data-theme="light"] .tag-trimming {
+  background-color: #E2F2E9 !important;
+  color: #125432 !important;
+  border: 1px solid rgba(18, 84, 50, 0.32) !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .tag-removal {
+  background-color: #FEF3E2 !important;
+  color: #9A5B04 !important;
+  border: 1px solid rgba(154, 91, 4, 0.32) !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .tag-completed {
+  background-color: #E0F4EE !important;
+  color: #0F5E4B !important;
+  border: 1px solid rgba(15, 94, 75, 0.32) !important;
+  font-weight: 800 !important;
+}
 
 .job-id-text {
   font-size: 0.78rem;
@@ -1876,10 +2026,15 @@ button {
   font-weight: 700;
 }
 
+[data-theme="light"] .job-id-text {
+  color: #8C651E !important;
+  font-weight: 800 !important;
+}
+
 .job-title {
   font-family: var(--font-heading);
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   line-height: 1.3;
 }
@@ -1940,6 +2095,85 @@ button {
   margin-top: auto;
 }
 
+/* Scheduled Jobs Actions & CTA Buttons — Guaranteed Crisp Contrast */
+.job-card-actions .btn-primary-sm,
+.job-card-actions .view-job-detail-btn {
+  background-color: #234734 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #487258 !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  transition: var(--transition-fast, all 0.2s ease) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.job-card-actions .btn-primary-sm:hover,
+.job-card-actions .view-job-detail-btn:hover {
+  background-color: #2C563F !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
+}
+
+.job-card-actions .btn-secondary-sm,
+.job-card-actions .contact-arborist-btn {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(168, 184, 159, 0.38) !important;
+  color: #F5F1E7 !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--radius-md) !important;
+  transition: var(--transition-fast, all 0.2s ease) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.job-card-actions .btn-secondary-sm:hover,
+.job-card-actions .contact-arborist-btn:hover {
+  background-color: rgba(229, 195, 136, 0.16) !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: var(--accent-gold, #E5C388) !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .job-card-actions .btn-primary-sm,
+[data-theme="light"] .job-card-actions .view-job-detail-btn {
+  background-color: #234734 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #487258 !important;
+  box-shadow: 0 4px 12px rgba(18, 59, 42, 0.15) !important;
+}
+
+[data-theme="light"] .job-card-actions .btn-primary-sm:hover,
+[data-theme="light"] .job-card-actions .view-job-detail-btn:hover {
+  background-color: #2C563F !important;
+  border-color: var(--accent-gold, #E5C388) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .job-card-actions .btn-secondary-sm,
+[data-theme="light"] .job-card-actions .contact-arborist-btn {
+  background-color: #F4F1EA !important;
+  border: 1.5px solid rgba(18, 59, 42, 0.25) !important;
+  color: #123B2A !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .job-card-actions .btn-secondary-sm:hover,
+[data-theme="light"] .job-card-actions .contact-arborist-btn:hover {
+  background-color: #123B2A !important;
+  border-color: #123B2A !important;
+  color: #FFFFFF !important;
+}
+
 .report-badge-score {
   display: inline-flex;
   align-items: baseline;
@@ -1976,7 +2210,7 @@ button {
 .report-title {
   font-family: var(--font-heading);
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-top: 0.25rem;
 }
@@ -2060,7 +2294,7 @@ button {
 .gallery-title {
   font-family: var(--font-heading);
   font-size: 1.05rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   line-height: 1.3;
 }
@@ -2228,7 +2462,7 @@ button {
 .modal-title {
   font-family: var(--font-heading);
   font-size: 1.45rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-top: 0.35rem;
 }
@@ -2658,6 +2892,10 @@ button {
   flex-direction: column;
   overflow: hidden;
   box-shadow: var(--card-shadow);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .chat-header-bar {
@@ -2849,6 +3087,10 @@ button {
   padding: 0.9rem 1.25rem;
   border-top: 1px solid var(--border-subtle);
   background-color: var(--bg-surface);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .chat-attach-btn {
@@ -2859,6 +3101,7 @@ button {
   padding: 6px;
   border-radius: 50%;
   transition: var(--transition-smooth);
+  flex-shrink: 0;
 }
 
 .chat-attach-btn:hover {
@@ -2867,7 +3110,9 @@ button {
 }
 
 .chat-input-field {
-  flex: 1;
+  flex: 1 1 0%;
+  min-width: 0 !important;
+  width: 100%;
   border: 1px solid var(--border-subtle);
   background-color: var(--bg-surface-subtle);
   border-radius: var(--radius-pill);
@@ -2877,6 +3122,8 @@ button {
   font-size: 0.88rem;
   outline: none;
   transition: var(--transition-smooth);
+  box-sizing: border-box;
+  text-overflow: ellipsis;
 }
 
 .chat-input-field:focus {
@@ -2886,6 +3133,11 @@ button {
 .chat-submit-btn {
   padding: 0.65rem 1.25rem;
   border-radius: var(--radius-pill);
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
 }
 
 .notif-page-actions {
@@ -3024,7 +3276,7 @@ button {
 .feed-title {
   font-family: var(--font-heading);
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.4rem;
 }
@@ -3055,7 +3307,12 @@ button {
 
 @media (max-width: 1200px) {
   .dashboard-charts-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .chart-card.line-chart-card {
+    grid-column: span 2;
   }
 
   .kpi-cards-grid {
@@ -3074,6 +3331,218 @@ button {
 
   .billing-summary-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .billing-summary-grid .highlight-card {
+    grid-column: span 2;
+  }
+}
+
+/* ==========================================================================
+   TABLET LANDSCAPE & COMPACT SCREENS (1080px & 1024px)
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .dashboard-main {
+    padding: 0 1.5rem 3.5rem 1.5rem;
+    min-width: 0 !important;
+    max-width: calc(100vw - var(--sidebar-width));
+    width: calc(100% - var(--sidebar-width));
+    box-sizing: border-box;
+  }
+
+  .dashboard-topbar {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    gap: 0.75rem;
+  }
+
+  .topbar-welcome {
+    min-width: 0;
+    flex-shrink: 1;
+    font-size: 0.92rem;
+  }
+
+  .topbar-controls {
+    flex-shrink: 0;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+
+  [dir="rtl"] .topbar-controls {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .profile-dropdown-wrap {
+    flex-shrink: 0;
+  }
+
+  .profile-pill-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+    gap: 0.5rem;
+  }
+
+  [dir="rtl"] .profile-pill-btn {
+    padding: 0.35rem 0.4rem 0.35rem 0.75rem;
+  }
+
+  .profile-name {
+    font-size: 0.85rem;
+  }
+
+  .table-responsive-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Overview Section Headline at 1024px */
+  .overview-headline-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.15rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .overview-headline-row .headline-text-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .overview-headline-row .dashboard-page-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .overview-headline-row .dashboard-page-subtitle {
+    max-width: 100%;
+  }
+
+  .overview-headline-row .headline-action-wrap {
+    width: 100%;
+  }
+
+  .overview-headline-row .btn-gold-action {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  /* Active Progress Card at 1024px */
+  .active-progress-card {
+    padding: 1.5rem 1.6rem;
+  }
+
+  .progress-card-top {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .progress-label-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Overview Charts Grid at 1024px */
+  .dashboard-charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .chart-card.line-chart-card {
+    grid-column: span 2;
+  }
+
+  .chart-card {
+    padding: 1.5rem 1.4rem;
+  }
+
+  .chart-header {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .chart-legend {
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .donut-chart-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.5rem 0;
+  }
+
+  .donut-legend-list {
+    width: 100%;
+  }
+
+  .bar-chart-bars-wrap {
+    padding-top: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .bar-fill-item {
+    min-width: 28px;
+  }
+
+  /* Table Headers & Responsive Overflow */
+  .table-card-header {
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .dashboard-table-card {
+    padding: 1.5rem 1.35rem;
+  }
+
+  .dashboard-table {
+    min-width: 760px;
+  }
+
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 0.85rem 0.85rem;
+    font-size: 0.84rem;
+  }
+
+  /* Invoices & Billing Section at 1024px */
+  .billing-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+  }
+
+  .billing-summary-grid .highlight-card {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.35rem 1.75rem;
+  }
+
+  .billing-summary-grid .highlight-card .billing-kpi-val {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  .billing-kpi-card {
+    padding: 1.35rem 1.25rem;
+  }
+
+  .billing-kpi-val {
+    font-size: 1.75rem;
+  }
+
+  .section-title-bar {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 }
 
@@ -3204,6 +3673,18 @@ button {
 
   .billing-summary-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .billing-summary-grid .highlight-card {
+    grid-column: span 1 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .billing-summary-grid .highlight-card .billing-kpi-val {
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.25rem !important;
   }
 
   .chat-layout-grid {
@@ -3281,6 +3762,14 @@ button {
     justify-content: center !important;
     box-sizing: border-box !important;
   }
+
+  .dashboard-charts-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chart-card.line-chart-card {
+    grid-column: span 1 !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3333,8 +3822,236 @@ button {
     width: 100% !important;
   }
 
+  .dashboard-topbar {
+    gap: 0.45rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
   .topbar-welcome {
-    font-size: 0.88rem !important;
+    font-size: clamp(0.78rem, 3.2vw, 0.85rem) !important;
+    gap: 0.25rem !important;
+    flex-shrink: 0 !important;
+    min-width: max-content !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  .welcome-label {
+    font-size: inherit !important;
+  }
+
+  .welcome-name {
+    font-size: inherit !important;
+    font-weight: 700 !important;
+  }
+
+  .topbar-controls {
+    gap: 0.45rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .notification-bell-btn {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    padding: 0 !important;
+  }
+
+  .notification-bell-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .bell-badge-pulse {
+    width: 15px !important;
+    height: 15px !important;
+    font-size: 0.62rem !important;
+    top: -2px !important;
+    right: -2px !important;
+  }
+
+  .profile-pill-btn {
+    padding: 0.25rem 0.65rem 0.25rem 0.3rem !important;
+    gap: 0.4rem !important;
+  }
+
+  [dir="rtl"] .profile-pill-btn {
+    padding: 0.25rem 0.3rem 0.25rem 0.65rem !important;
+  }
+
+  .profile-avatar-circle {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .profile-name {
+    font-size: 0.82rem !important;
+  }
+
+  .profile-chevron {
+    font-size: 0.78rem !important;
+  }
+
+  .chat-header-bar {
+    flex-wrap: wrap !important;
+    gap: 0.65rem !important;
+    padding: 0.85rem 0.75rem !important;
+  }
+
+  .chat-messages-container {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .chat-input-bar {
+    padding: 0.65rem 0.65rem !important;
+    gap: 0.45rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .chat-attach-btn {
+    padding: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .chat-input-field {
+    min-width: 0 !important;
+    padding: 0.55rem 0.75rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  .chat-submit-btn {
+    padding: 0.55rem 0.85rem !important;
+    font-size: 0.8rem !important;
+    flex-shrink: 0 !important;
+    gap: 0.35rem !important;
+    white-space: nowrap !important;
+  }
+
+  .chat-submit-btn svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .dashboard-main {
+    padding: 4.25rem 0.55rem 2rem 0.55rem !important;
+  }
+
+  .dashboard-topbar {
+    gap: 0.35rem !important;
+  }
+
+  .topbar-welcome {
+    font-size: 0.78rem !important;
+    gap: 0.2rem !important;
+    flex-shrink: 0 !important;
+    min-width: max-content !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+    text-overflow: clip !important;
+  }
+
+  .topbar-controls {
+    gap: 0.35rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .notification-bell-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  .notification-bell-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .bell-badge-pulse {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 0.58rem !important;
+    top: -2px !important;
+    right: -2px !important;
+  }
+
+  .profile-pill-btn {
+    padding: 0.2rem 0.5rem 0.2rem 0.25rem !important;
+    gap: 0.35rem !important;
+  }
+
+  [dir="rtl"] .profile-pill-btn {
+    padding: 0.2rem 0.25rem 0.2rem 0.5rem !important;
+  }
+
+  .profile-avatar-circle {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.68rem !important;
+  }
+
+  .profile-name {
+    font-size: 0.76rem !important;
+  }
+
+  .profile-chevron {
+    font-size: 0.72rem !important;
+  }
+
+  .chat-header-bar {
+    padding: 0.75rem 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .chat-header-actions .btn {
+    font-size: 0.72rem !important;
+    padding: 0.4rem 0.6rem !important;
+  }
+
+  .chat-messages-container {
+    padding: 0.85rem 0.5rem !important;
+  }
+
+  .chat-input-bar {
+    padding: 0.55rem 0.45rem !important;
+    gap: 0.35rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .chat-attach-btn {
+    padding: 2px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .chat-attach-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .chat-input-field {
+    min-width: 0 !important;
+    padding: 0.5rem 0.55rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  .chat-submit-btn {
+    padding: 0.5rem 0.7rem !important;
+    font-size: 0.75rem !important;
+    flex-shrink: 0 !important;
+    gap: 0.25rem !important;
+    white-space: nowrap !important;
+  }
+
+  .chat-submit-btn svg {
+    width: 12px !important;
+    height: 12px !important;
   }
 }
 

@@ -143,15 +143,20 @@
         <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
       </div>
 
+      <div class="drawer-controls-row">
+        <button class="ctrl-btn rtl-toggle-btn drawer-ctrl-btn" id="drawerRtlBtn">
+          <span class="rtl-label" id="drawerRtlText">RTL (Click for LTR)</span>
+        </button>
+        <button class="ctrl-btn theme-toggle-btn drawer-ctrl-btn" id="drawerThemeBtn">
+          <span>Toggle Theme</span>
+        </button>
+      </div>
+
       <div class="drawer-home-switcher">
-        <span class="drawer-switcher-label">Explore Pages:</span>
+        <span class="drawer-switcher-label">Explore Home Layout:</span>
         <div class="drawer-switcher-btns">
-          <a href="index.html" class="drawer-switch-pill">Home 1</a>
-          <a href="home2.html" class="drawer-switch-pill">Home 2</a>
-          <a href="about.html" class="drawer-switch-pill">About</a>
-          <a href="service.html" class="drawer-switch-pill">Services</a>
-          <a href="pricing.html" class="drawer-switch-pill">Pricing</a>
-          <a href="journal.html" class="drawer-switch-pill active">Journals</a>
+          <a href="index.html" class="drawer-switch-pill">Home 1 (Atelier)</a>
+          <a href="home2.html" class="drawer-switch-pill">Home 2 (Editorial)</a>
         </div>
       </div>
 
@@ -470,6 +475,7 @@
           <article class="journal-card" data-category="oak">
             <div class="journal-card-media">
               <img src="assets/vault_specimen_oak.jpg" alt="Centennial Heritage Oak Tree" class="journal-card-img" />
+              <div class="journal-media-gradient"></div>
               <span class="journal-card-vol-badge">VOL. 01</span>
               <span class="journal-card-time">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -483,30 +489,20 @@
             <div class="journal-card-body">
               <div class="journal-meta-row">
                 <span>Autumn / Winter 2026</span>
-                <span>ISA Field Study #401</span>
+                <span class="journal-meta-code">ISA #401</span>
               </div>
-              <h3 class="journal-card-title">The Ancient Oak Stewardship Manual: Crown Weight Dynamics</h3>
+              <h3 class="journal-card-title">Ancient Oak Stewardship: Crown Weight Dynamics</h3>
               <p class="journal-card-excerpt">
-                Comprehensive field protocols examining crown mass reduction, root radial aeration, and micro-climate
-                soil enrichment to safeguard 200+ year-old estate giants.
+                Biomechanical protocols for crown weight relief, root radial aeration, and micro-climate soil enrichment protecting centuries-old estate monarchs.
               </p>
-              <div class="journal-highlights-list">
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>25% crown wind resistance reduction</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Sonic stress wave kambium monitoring</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Air-knife radial root decompaction</span>
-                </div>
+              <div class="journal-card-specs">
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> 25% Wind Load Relief</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Cambium Sonic Wave</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Radial Decompaction</span>
               </div>
               <div class="journal-card-footer">
                 <a href="journal detail.html?journal=oak" class="btn btn-primary" id="viewJournalBtn1">
-                  <span>View Article</span>
+                  <span>Read Monograph</span>
                   <span class="btn-arrow">→</span>
                 </a>
                 <button class="btn btn-outline consult-arborist-btn" data-topic="Heritage Oak Stewardship" id="consultJournalBtn1">
@@ -520,6 +516,7 @@
             <div class="journal-card-media">
               <img src="assets/op_health_diagnostics.jpg" alt="Arborist Conducting Acoustic Tomography"
                 class="journal-card-img" />
+              <div class="journal-media-gradient"></div>
               <span class="journal-card-vol-badge">VOL. 02</span>
               <span class="journal-card-time">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -533,30 +530,20 @@
             <div class="journal-card-body">
               <div class="journal-meta-row">
                 <span>Autumn / Winter 2026</span>
-                <span>Diagnostic Paper #812</span>
+                <span class="journal-meta-code">PAPER #812</span>
               </div>
               <h3 class="journal-card-title">Acoustic Tomography: Mapping Hidden Fungal Cavities</h3>
               <p class="journal-card-excerpt">
-                Non-invasive sound-wave velocity profiling detecting unseen fungal decay and heartwood degradation
-                without exploratory drilling or cambium trauma.
+                Non-destructive sonic velocity mapping pinpointing unseen internal heartwood degradation without cambium disruption or invasive drilling.
               </p>
-              <div class="journal-highlights-list">
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>12-sensor radial acoustic wave matrix</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>High-resolution 2D cross-section imaging</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Zero structural drilling or core sampling</span>
-                </div>
+              <div class="journal-card-specs">
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> 12-Sensor Matrix</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> 2D Cross-Section Scan</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Zero Trunk Trauma</span>
               </div>
               <div class="journal-card-footer">
                 <a href="journal detail.html?journal=tomography" class="btn btn-primary" id="viewJournalBtn2">
-                  <span>View Article</span>
+                  <span>Read Monograph</span>
                   <span class="btn-arrow">→</span>
                 </a>
                 <button class="btn btn-outline consult-arborist-btn" data-topic="Acoustic Tomography" id="consultJournalBtn2">
@@ -570,6 +557,7 @@
             <div class="journal-card-media">
               <img src="assets/op_crane_removal.jpg" alt="High-Angle Crane Rigging Extraction"
                 class="journal-card-img" />
+              <div class="journal-media-gradient"></div>
               <span class="journal-card-vol-badge">VOL. 03</span>
               <span class="journal-card-time">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -583,30 +571,20 @@
             <div class="journal-card-body">
               <div class="journal-meta-row">
                 <span>Autumn / Winter 2026</span>
-                <span>Engineering Case #320</span>
+                <span class="journal-meta-code">CASE #320</span>
               </div>
-              <h3 class="journal-card-title">High-Angle Crane Rigging in Constrained Luxury Quarters</h3>
+              <h3 class="journal-card-title">High-Angle Crane Rigging in Constrained Quarters</h3>
               <p class="journal-card-excerpt">
-                Zero-ground-impact aerial sectional extractions of hazardous timber hovering directly above slate
-                mansions, conservatories, and pristine golf greens.
+                Precision aerial sectional dismantling of complex hazardous timber suspended directly above luxury residences and delicate architectural terrain.
               </p>
-              <div class="journal-highlights-list">
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>60-ton hydraulic knuckle-boom dynamics</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Zero-drop tethered aerial lifting lines</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Composite turf armor outrigger mats</span>
-                </div>
+              <div class="journal-card-specs">
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> 60-Ton Knuckle Boom</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Zero-Drop Aerial Rigging</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Composite Turf Armor</span>
               </div>
               <div class="journal-card-footer">
                 <a href="journal detail.html?journal=rigging" class="btn btn-primary" id="viewJournalBtn3">
-                  <span>View Article</span>
+                  <span>Read Monograph</span>
                   <span class="btn-arrow">→</span>
                 </a>
                 <button class="btn btn-outline consult-arborist-btn" data-topic="High-Angle Crane Rigging" id="consultJournalBtn3">
@@ -620,6 +598,7 @@
             <div class="journal-card-media">
               <img src="assets/service_health.jpg" alt="Vascular Micro-Injection on Specimen Tree"
                 class="journal-card-img" />
+              <div class="journal-media-gradient"></div>
               <span class="journal-card-vol-badge">VOL. 04</span>
               <span class="journal-card-time">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -633,30 +612,20 @@
             <div class="journal-card-body">
               <div class="journal-meta-row">
                 <span>Autumn / Winter 2026</span>
-                <span>Biochem Paper #519</span>
+                <span class="journal-meta-code">BIOCHEM #519</span>
               </div>
               <h3 class="journal-card-title">Systemic Micro-Injection: Targeted Cambium Bio-Therapy</h3>
               <p class="journal-card-excerpt">
-                Direct vascular infusion methods delivering systemic micro-nutrients and bio-fungicides directly into
-                xylem channels for rapid curative uptake.
+                Direct low-pressure xylem infusion delivering curative bio-nutrients and fungicides straight into active sapflow channels for rapid therapeutic uptake.
               </p>
-              <div class="journal-highlights-list">
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Low-pressure direct xylem flow ports</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>98% bio-availability within 48 hours</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Zero environmental drift or overspray</span>
-                </div>
+              <div class="journal-card-specs">
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Direct Vascular Flow</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> 98% Uptake in 48h</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Zero Canopy Drift</span>
               </div>
               <div class="journal-card-footer">
                 <a href="journal detail.html?journal=nutrition" class="btn btn-primary" id="viewJournalBtn4">
-                  <span>View Article</span>
+                  <span>Read Monograph</span>
                   <span class="btn-arrow">→</span>
                 </a>
                 <button class="btn btn-outline consult-arborist-btn" data-topic="Vascular Micro-Injection" id="consultJournalBtn4">
@@ -670,6 +639,7 @@
             <div class="journal-card-media">
               <img src="assets/op_canopy_light_tune.jpg" alt="Architectural Vista Pruning on Estate grounds"
                 class="journal-card-img" />
+              <div class="journal-media-gradient"></div>
               <span class="journal-card-vol-badge">VOL. 05</span>
               <span class="journal-card-time">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -683,30 +653,20 @@
             <div class="journal-card-body">
               <div class="journal-meta-row">
                 <span>Autumn / Winter 2026</span>
-                <span>Vista Monograph #208</span>
+                <span class="journal-meta-code">VISTA #208</span>
               </div>
-              <h3 class="journal-card-title">Architectural Vista Pruning & Ground Light Dynamics</h3>
+              <h3 class="journal-card-title">Architectural Vista Pruning & Solar Dynamics</h3>
               <p class="journal-card-excerpt">
-                Harmonizing tree biology with luxury landscape sightlines, sculpting radiant solar apertures to
-                illuminate bentgrass lawns and botanical garden beds.
+                Harmonizing arboreal crown geometry with architectural views, opening sculpted solar apertures to illuminate manicured lawns and botanical borders.
               </p>
-              <div class="journal-highlights-list">
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Up to 45% increased direct lawn sunlight</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Species-authentic crown fractal silhouettes</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Laser-guided architectural sightline vectors</span>
-                </div>
+              <div class="journal-card-specs">
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> +45% Solar Aperture</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Fractal Silhouettes</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Laser Sightline Vectors</span>
               </div>
               <div class="journal-card-footer">
                 <a href="journal detail.html?journal=vista" class="btn btn-primary" id="viewJournalBtn5">
-                  <span>View Article</span>
+                  <span>Read Monograph</span>
                   <span class="btn-arrow">→</span>
                 </a>
                 <button class="btn btn-outline consult-arborist-btn" data-topic="Architectural Vista Pruning" id="consultJournalBtn5">
@@ -720,6 +680,7 @@
             <div class="journal-card-media">
               <img src="assets/service_emergency.jpg" alt="Dynamic Canopy Cabling Against High Wind Storms"
                 class="journal-card-img" />
+              <div class="journal-media-gradient"></div>
               <span class="journal-card-vol-badge">VOL. 06</span>
               <span class="journal-card-time">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -733,30 +694,20 @@
             <div class="journal-card-body">
               <div class="journal-meta-row">
                 <span>Autumn / Winter 2026</span>
-                <span>Biomechanics Study #734</span>
+                <span class="journal-meta-code">STUDY #734</span>
               </div>
-              <h3 class="journal-card-title">Dynamic Canopy Bracing & High-Wind Leverage Mitigation</h3>
+              <h3 class="journal-card-title">Dynamic Canopy Bracing & Gale Leverage Mitigation</h3>
               <p class="journal-card-excerpt">
-                Flexible non-invasive synthetic cobra cabling systems dampening extreme oscillation forces without
-                damaging bark collar anatomy or restricting radial growth.
+                Flexible synthetic cobra cabling absorbing extreme wind oscillation leverage without invasive trunk hardware or impeding natural radial wood growth.
               </p>
-              <div class="journal-highlights-list">
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Dynamic hollow-braid shock dampening</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Zero steel bolts or bark cambium drilling</span>
-                </div>
-                <div class="journal-highlight-item">
-                  <span class="journal-check-icon">✓</span>
-                  <span>Category 4 gale oscillation mitigation</span>
-                </div>
+              <div class="journal-card-specs">
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Hollow-Braid Shock Core</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Zero Cambium Drilling</span>
+                <span class="journal-spec-tag"><span class="spec-sparkle">✦</span> Gale Force Dampening</span>
               </div>
               <div class="journal-card-footer">
                 <a href="journal detail.html?journal=storm" class="btn btn-primary" id="viewJournalBtn6">
-                  <span>View Article</span>
+                  <span>Read Monograph</span>
                   <span class="btn-arrow">→</span>
                 </a>
                 <button class="btn btn-outline consult-arborist-btn" data-topic="Dynamic Canopy Cabling" id="consultJournalBtn6">

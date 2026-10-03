@@ -26,7 +26,7 @@
 .about-hero-title {
   font-family: var(--font-heading);
   font-size: clamp(2.65rem, 4.4vw, 4rem);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--text-primary);
@@ -515,7 +515,7 @@
 .vm-card-title {
   font-family: var(--font-heading);
   font-size: 1.55rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 1rem;
   line-height: 1.28;
@@ -599,7 +599,7 @@
 .value-title {
   font-family: var(--font-heading);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.6rem;
 }
@@ -729,7 +729,7 @@
 .milestone-card-title {
   font-family: var(--font-heading);
   font-size: 1.22rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
   line-height: 1.3;

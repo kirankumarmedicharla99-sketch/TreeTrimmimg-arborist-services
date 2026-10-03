@@ -112,7 +112,7 @@
 .detail-hero-title {
   font-family: var(--font-heading);
   font-size: clamp(2.3rem, 4.2vw, 3.6rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--text-primary);
@@ -359,7 +359,7 @@
 .step-title {
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.35rem;
 }
@@ -450,7 +450,7 @@
 .why-title {
   font-family: var(--font-heading);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.65rem;
   line-height: 1.3;
