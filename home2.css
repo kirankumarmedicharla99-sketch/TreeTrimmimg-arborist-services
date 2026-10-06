@@ -1152,6 +1152,11 @@
   margin-right: auto;
 }
 
+.curated-vault-section .badge-pill .badge-text {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
 /* Light Mode: Curated Specimen Vault high contrast */
 [data-theme="light"] .curated-vault-section {
   background: radial-gradient(circle at 50% 10%, rgba(18, 59, 42, 0.05) 0%, transparent 70%),
@@ -1222,6 +1227,18 @@
 
 [data-theme="light"] .curated-vault-section .vault-desc {
   color: #2F4A38 !important;
+}
+
+[data-theme="light"] .curated-vault-section .vault-badge-tier,
+[data-theme="light"] .vault-badge-tier {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1.5px solid #123B2A !important;
+  color: #123B2A !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(18, 59, 42, 0.1) !important;
+  text-shadow: none !important;
 }
 
 .vault-filter-bar {
@@ -1295,24 +1312,34 @@
 
 .vault-badge-tier {
   position: absolute;
-  top: 0.65rem;
-  left: 0.65rem;
-  background: rgba(8, 22, 15, 0.86);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--accent-gold);
-  color: var(--accent-gold);
-  font-size: 0.66rem;
+  top: 0.8rem;
+  left: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: rgba(6, 18, 12, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--accent-gold, #E5C388);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.25rem 0.65rem;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  padding: 0.35rem 0.8rem;
   border-radius: var(--radius-pill);
-  z-index: 2;
+  z-index: 3;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 10px rgba(229, 195, 136, 0.15);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
 }
 
 [dir="rtl"] .vault-badge-tier {
   left: auto;
-  right: 0.65rem;
+  right: 0.8rem;
 }
 
 .vault-card-body {
